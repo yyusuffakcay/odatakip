@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v40</title>
+    <title>Misafirhane Canlı Otomasyonu v41</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -1046,16 +1046,16 @@
             });
         }
 
-        function duzenlemeModunuAc(isim, tarihKey, süre, fiyat, odeme, tel, gunNo, gecmisMi) {
+        function duzenlemeModunuAc(isim, historicalKey, süre, fiyat, odeme, tel, gunNo, gecmisMi) {
             if(!isAdmin) return;
-            if(bulutKilitliGunler[tarihKey]) { alert("Bu tarihteki kayıt kilitlenmiş durumdadır kanka! Önce kilidi açmalısın. 🔒"); return; }
+            if(bulutKilitliGunler[historicalKey]) { alert("Bu tarihteki kayıt kilitlenmiş durumdadır kanka! Önce kilidi açmalısın. 🔒"); return; }
             if(gecmisMi && !kilitliKayitlariZorlaAc[gunNo]) { alert("Bu kayıt kilitlidir kanka! 🔒"); return; }
             
-            seciliAdminMusteriBilgisi = { isim, tarihKey, süre, fiyat, odeme, tel };
+            seciliAdminMusteriBilgisi = { isim, tarihKey: historicalKey, süre, fiyat, odeme, tel };
             duzenlenenEskiIsim = isim;
             document.getElementById("btnAdminMusteriFis").style.display = "block";
             document.getElementById("formIsim").value = isim; document.getElementById("formTel").value = tel || "";
-            document.getElementById("formGun").value = tarihKey; document.getElementById("formSüre").value = süre;
+            document.getElementById("formGun").value = historicalKey; document.getElementById("formSüre").value = süre;
             document.getElementById("formFiyat").value = Math.max(0, parseInt(fiyat) || 0); document.getElementById("formOdeme").value = odeme;
             
             setTimeout(() => {
@@ -1097,7 +1097,7 @@
             if(!isim || !süre) { alert("İsim yaz kanka!"); return; }
             
             hafizayaKaydet();
-            if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
+            if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
             let baslangic = new Date(rYil, rAy - 1, rGun);
             for(let i=0; i<=süre; i++) {
                 let yeniTarih = new Date(baslangic); yeniTarih.setDate(baslangic.getDate() + i);
