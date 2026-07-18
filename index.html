@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v36</title>
+    <title>Misafirhane Canlı Otomasyonu v37</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -420,7 +420,6 @@
         </div>
     </div>
 
-    <!-- MÜŞTERİ BİLGİ POPUP KARTI -->
     <div id="modalGecmisSakinDetay" class="modal-arka">
         <div class="modal-kart" style="max-width:500px; height:auto; max-height:80vh;">
             <div class="modal-header">
@@ -509,6 +508,7 @@
     </div>
 
     <script>
+        // FIREBASE LINKI ICINE GÖMÜLDÜ KANKA
         const FIREBASE_URL = "https://genel-proje-79c7f-default-rtdb.europe-west1.firebasedatabase.app/"; 
         const WHATSAPP_NO = "905319120141"; 
         
@@ -525,14 +525,32 @@
         let isAdmin = false; 
         const aylarTr = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
         const gunlerTr = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
-        let rezervasyonlar = {}; let duzenlenenEskiIsim = null;
+        
+        let rezervasyonlar = {}; 
+        let geriAlmaHafizasi = []; // CTRL Z İÇİN GEÇMİŞ HAFIZA SAKLAMA KUTUSU
+        let duzenlenenEskiIsim = null;
         let seciliAdminMusteriBilgisi = null;
         let bulutKilitliGunler = {}; 
         let kilitliKayitlariZorlaAc = {}; 
         let tumRehberMusterileri = [];
 
-        function fatihCevresiAc() {
-            alert("Kanka Fatih çevresi gezilecek yerler listesi şu an boş, içini yakında seninle beraber dolduracağız! 🕌");
+        // CTRL Z KLAVYE GERİ ALMA FONKSİYONALİTESİ
+        window.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
+                if(geriAlmaHafizasi.length > 0 && isAdmin) {
+                    e.preventDefault();
+                    rezervasyonlar = geriAlmaHafizasi.pop();
+                    verileriBulutaKaydet();
+                    alert("Son yaptığın değişiklik klavyeden geri alındı kanka! 🔄");
+                }
+            }
+        });
+
+        function hafizayaKaydet() {
+            if(Object.keys(rezervasyonlar).length > 0) {
+                if(geriAlmaHafizasi.length > 15) geriAlmaHafizasi.shift(); // Max 15 adım sakla
+                geriAlmaHafizasi.push(JSON.parse(JSON.stringify(rezervasyonlar)));
+            }
         }
 
         function modalAc(id) { 
@@ -849,19 +867,19 @@
                            `↳ Saat: Öğleden Sonra (14:00 Sonrası)\n\n` +
                            `🛬 *[ ÇIKIŞ GÜNÜ ]*\n` +
                            `↳ ${bitis.getFullYear()}-${String(bitis.getMonth()+1).padStart(2,'0')}-${String(bitis.getDate()).padStart(2,'0')} - ${cGunAdi} Günü\n` +
-                           `↳ Saat: Öğleden Omce (11:00 Öncesi)\n\n` +
+                           `↳ Saat: Öğleden Önce (11:00 Öncesi)\n\n` +
                            `🌙 *[ KONAKLAMA ]*\n` +
                            `↳ ${m.süre} Gece\n\n` +
                            `💰 *[ TOPLAM TUTAR ]*\n` +
                            `↳ ${m.fiyat} TL\n` +
                            `↳ Durum: ${m.odeme}\n` +
                            `------------------------------------------\n\n` +
-                           `📍 *[ KONUM VE YOL TARİFİ ]*\n` +
+                           `📍 *[ CONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
-                           `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n` +
+                           `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n" +
                            `↳ https://yoltarifi-linkiniz-buraya.com/fatih-rehberi\n\n` +
                            `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
-                           `↳ https://maps.google.com/?q=Otoparklar\n\n` +
+                           `↳ Otopark bulma panelini canlı olarak ana sayfamızdaki "Otopark Bul" butonundan görebilirsiniz kanka!\n\n` +
                            `Sizleri ağırlamaktan şeref duyarız, hayırlı yolculuklar dileriz. ⭐✨`;
 
             let temizTel = m.tel.replace(/[^0-9]/g, "");
@@ -904,6 +922,7 @@
                 }
             }
             
+            hafizayaKaydet();
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`, { method: 'PUT', body: JSON.stringify(bulutKilitliGunler) });
                 listeyiYenile();
@@ -917,7 +936,6 @@
             listeyiYenile();
         }
 
-        /* YENİ GELEN VE SORUNSUZ DETAY KARTI POPUP GÖSTERİMİ */
         function gecmisSakinDetayiniGoster(isim, tarihKey, süre, fiyat, odeme, tel) {
             let parca = tarihKey.split('-');
             let yil = parca[0];
@@ -925,7 +943,6 @@
             let gun = parca[2];
             let ayAdi = aylarTr[ayNo - 1];
 
-            // Giriş ve çıkış tarihlerine ait gün isimlerini hesapla
             let baslangicObj = new Date(parseInt(yil), ayNo - 1, parseInt(gun));
             let gGunAdi = gunlerTr[baslangicObj.getDay()];
             
@@ -987,7 +1004,7 @@
                 let temizTarih = tKey.substring(0, 10);
                 if(temizTarih.startsWith(`${simdikiYil}-${String(simdikiAy).padStart(2, '0')}`)) {
                     if(rez.tip === "giris") { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].girisler.push(rez); }
-                    else if(rez.tip === "cikis") { if(gunDurUniform = gunDurumlari[temizTarih]) gunDurumlari[temizTarih].cikislar.push(rez); }
+                    else if(rez.tip === "cikis") { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].cikislar.push(rez); }
                     else { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].tamDolu = rez; }
                     let parsedGun = parseInt(rez.bGun) || 1;
                     let isGecmisZaman = (simdikiYil < bugunYilVal) || (simdikiYil === bugunYilVal && simdikiAy < bugunAyVal) || (simdikiYil === bugunYilVal && simdikiAy === bugunAyVal && parsedGun < bugunGunVal);
@@ -1029,7 +1046,7 @@
                                         <b style="color:var(--neon-red)">🛬 Çıkış:</b> ${cikisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Gidiyor)</small><br>
                                         <b style="color:var(--neon-green)">🛫 Giriş:</b> ${girisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Girdi)</small>
                                       </div>`;
-                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSil('${tarihStr}')">Sil</button>`;
+                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSilDinamik('${tarihStr}')">Sil</button>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.girisler.length > 0) {
@@ -1037,21 +1054,21 @@
                     if(isAdmin) {
                         let telNo = veri.tel ? `<br>📱 ${veri.tel}` : "";
                         icerikHtml = `<span>🛫 <b>${veri.isim.toUpperCase()}</b>${telNo}<br><i style="color:var(--neon-green)">🛫 Giriş: Ö.S.</i></span>`;
-                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSil('${tarihStr}')">Sil</button>`;
+                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSilDinamik('${tarihStr}')">Sil</button>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.cikislar.length > 0) {
                     let veri = durum.cikislar[0]; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<span>🛬 <b>${veri.isim.toUpperCase()}</b><br><i style="color:var(--neon-red)">🛬 Çıkış: Ö.Ö.</i></span>`;
-                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSil('${tarihStr}')">Sil</button>`;
+                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSilDinamik('${tarihStr}')">Sil</button>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.tamDolu) {
                     let veri = durum.tamDolu; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<span>🔴 <b>${veri.isim.toUpperCase()}</b></span>`;
-                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSil('${tarihStr}')">Sil</button>`;
+                        silButonHtml = `<button class="btn-box-sil" onclick="kayitSilDinamik('${tarihStr}')">Sil</button>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
 
@@ -1090,8 +1107,6 @@
             Object.keys(buAykiSakinler).forEach(isim => {
                 let sVeri = buAykiSakinler[isim]; 
                 let ekSınıf = "";
-                
-                // Kilitli ya da geçmiş zaman fark etmeksizin detay kartını açan aksiyon ataması
                 let clickAksiyonu = `gecmisSakinDetayiniGoster('${isim.replace(/'/g, "\\'")}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
                 
                 if(sVeri.kilitliMi) {
@@ -1099,7 +1114,6 @@
                 } else if(sVeri.gecmisMi) {
                     ekSınıf = "sakin-satir-gecmis";
                 } else {
-                    // Sadece kilitli DEĞİLSE ve gelecek zamanlıysa formu doldurup düzenleme yaptırır
                     clickAksiyonu = `duzenlemeModunuAc('${isim.replace(/'/g, "\\'")}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}', ${sVeri.gun}, ${sVeri.gecmisMi})`;
                 }
                 
@@ -1156,6 +1170,8 @@
             let { value: isim } = document.getElementById("formIsim"); isim = isim.trim(); let { value: tel } = document.getElementById("formTel"); tel = tel.trim();
             let süre = parseInt(document.getElementById("formSüre").value); let fiyat = parseInt(document.getElementById("formFiyat").value) || 0; let odeme = document.getElementById("formOdeme").value;
             if(!isim || !süre) { alert("İsim yaz kanka!"); return; }
+            
+            hafizayaKaydet();
             if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
             let baslangic = new Date(rYil, rAy - 1, rGun);
             for(let i=0; i<=süre; i++) {
@@ -1171,53 +1187,52 @@
             verileriBulutaKaydet();
         }
 
-        function kayitSil(tarihStr) {
+        /* YENİ ESNEK VE DİNAMİK SİLME SİSTEMİ (TEK GÜN VE TÜM REZERVASYON SEÇENEKLİ) */
+        function kayitSilDinamik(tarihStr) {
             if(!isAdmin) return;
-            if(confirm("Tüm günleri silinsin mi?")) {
-                let temizTarih = tarihStr.substring(0, 10); let assetIsim = "";
-                Object.keys(rezervasyonlar).forEach(k => { if(k.startsWith(temizTarih) && rezervasyonlar[k] && rezervasyonlar[k].isim) { assetIsim = rezervasyonlar[k].isim; } });
-                if(assetIsim) { Object.keys(rezervasyonlar).forEach(t => { if(rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === assetIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
-                duzenlemeModunuKapat(); verileriBulutaKaydet();
+            let temizTarih = tarihStr.substring(0, 10); 
+            let assetIsim = "";
+            let hedefTipKey = "";
+
+            Object.keys(rezervasyonlar).forEach(k => { 
+                if(k.startsWith(temizTarih) && rezervasyonlar[k] && rezervasyonlar[k].isim) { 
+                    assetIsim = rezervasyonlar[k].isim; 
+                    hedefTipKey = k;
+                } 
+            });
+
+            if(!assetIsim) return;
+
+            let mesaj = `👤 Müşteri: ${assetIsim.toUpperCase()}\n\nHangi işlemi yapmak istersin kanka?\n\n[Tamam]'a basarsan SADECE BU TEK GÜNÜ siler (Konaklama kısalır).\n[İptal]'e basarsan MÜŞTERİNİN TÜM GÜNLERİNİ siler.`;
+            
+            hafizayaKaydet();
+            if(confirm(mesaj)) {
+                // Seçenek 1: Sadece o günkü kaydı sil (Tek gün düşürme)
+                delete rezervasyonlar[hedefTipKey];
+                duzenlemeModunuKapat(); 
+                verileriBulutaKaydet();
+                alert("Müşterinin sadece bugünkü konaklama kaydı temizlendi kanka! ✂️");
+            } else {
+                // Seçenek 2: Müşteriye ait tüm günleri kökten sil
+                if(confirm("Emin misin kanka? Adamın medresedeki bütün günleri silinecek!")) {
+                    Object.keys(rezervasyonlar).forEach(t => { 
+                        if(rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === assetIsim.toLowerCase()) { 
+                            delete rezervasyonlar[t]; 
+                        } 
+                    });
+                    duzenlemeModunuKapat(); 
+                    verileriBulutaKaydet();
+                    alert("Müşterinin tüm rezervasyon geçmişi sistemden kazındı! ⌫");
+                }
             }
         }
 
-        function rehberiAc() {
-            if(!isAdmin) return; document.getElementById("rehberModal").style.display = "flex";
-            let gövde = document.getElementById("rehberTabloGövde"); gövde.innerHTML = ""; tumRehberMusterileri = []; let ayiklananMusteriler = {};
-            Object.keys(rezervasyonlar).forEach(key => {
-                let rez = rezervasyonlar[key]; if(!rez || !rez.isim) return;
-                let tarihKisim = key.substring(0, 10); let uniqueMusteriKey = rez.isim.toUpperCase() + "_" + tarihKisim;
-                if(rez.tip === "giris") { ayiklananMusteriler[uniqueMusteriKey] = { isim: rez.isim, tel: rez.tel || "Yok", tarih: tarihKisim, süre: rez.süre || 1, fiyat: rez.fiyat || 0, odeme: rez.odeme || "Alınmadı" }; }
-            });
-            let siraliKeys = Object.keys(ayiklananMusteriler).sort();
-            siraliKeys.forEach(k => {
-                let m = ayiklananMusteriler[k]; let toplam = m.fiyat; let odemeStil = m.odeme === "Alındı" ? `color:var(--neon-green)` : `color:var(--neon-red)`;
-                let temizTel = m.tel.replace(/[^0-9]/g, ""); if(temizTel.startsWith('5')) temizTel = "90" + temizTel; if(temizTel.startsWith('05')) temizTel = "90" + temizTel.substring(1);
-                if(temizTel !== "Yok" && temizTel !== "") tumRehberMusterileri.push({ isim: m.isim, tel: temizTel });
-                let clickFisAyar = `seciliAdminMusteriBilgisi={isim:'${m.isim}',tarihKey:'${m.tarih}',süre:${m.süre},fiyat:${m.fiyat},odeme:'${m.odeme}',tel:'${m.tel}'};document.getElementById('btnAdminMusteriFis').style.display='block';rehberiKapat();`;
-                let waButonHtml = (temizTel !== "Yok" && temizTel !== "") ? `<a class="wa-link" href="https://wa.me/${temizTel}" target="_blank">💬 Git</a>` : `<i>No Yok</i>`;
-                gövde.innerHTML += `<tr style="cursor:pointer;" onclick="${clickFisAyar}"><td style="color:#ffffff; font-weight:800;">👤 ${m.isim.toUpperCase()}</td><td>📱 ${m.tel}</td><td>📅 ${m.tarih}</td><td style="text-align:center;">${m.süre}</td><td>-</td><td style="color:var(--neon-orange)">${toplam} TL</td><td style="${odemeStil}">${m.odeme}</td><td>${waButonHtml}</td></tr>`;
-            });
-        }
-        function rehberiKapat() { document.getElementById("rehberModal").style.display = "none"; }
-        function topluMesajGonder() {
-            let mesaj = document.getElementById("topluMesajMetni").value.trim(); if(!mesaj) { alert("Önce mesajı yaz!"); return; }
-            if(confirm(`Kayıtlı ${tumRehberMusterileri.length} kişiye gönderilecek. Onaylıyor musun?`)) {
-                tumRehberMusterileri.forEach(m => window.open(`https://wa.me/${m.tel}?text=${encodeURIComponent(mesaj)}`, '_blank'));
-                document.getElementById("topluMesajMetni").value = ""; alert("Sekmeler tetiklendi!");
-            }
-        }
-
-        function ayDegistir(yon) { simdikiAy += yon; if(simdikiAy === 13) { simdikiAy = 1; simdikiYil++; } if(simdikiAy === 0) { simdikiAy = 12; simdikiYil--; } duzenlemeModunuKapat(); listeyiYenile(); }
-        async function sifreyiBuluttaGuncelle() {
-            let yeni = document.getElementById("yeniSifreInput").value.trim();
-            if(!yeni) { alert("Şifre boş olamaz kanka!"); return; }
+        function verileriBulutaKaydet() {
             try {
-                await fetch(`${FIREBASE_URL}adminConfig/sifre.json`, { method: 'PUT', body: JSON.stringify(yeni) });
-                aktifAdminSifre = yeni; localStorage.setItem("misafirhane_admin_oturum", yeni);
-                alert("Yönetici şifresi güncellendi ve buluta kilitlendi! 💾");
-                document.getElementById("yeniSifreInput").value = "";
-            } catch(e) { alert("Şifre kayıt hatası!"); }
+                fetch(`${FIREBASE_URL}rezervasyonlar.json`, { method: 'PUT', body: JSON.stringify(rezervasyonlar) }).then(() => {
+                    listeyiYenile();
+                });
+            } catch (error) { alert("Bağlantı hatası!"); }
         }
     </script>
 </body>
