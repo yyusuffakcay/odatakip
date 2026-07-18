@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v43</title>
+    <title>Misafirhane Canlı Otomasyonu v44</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -296,13 +296,13 @@
 
                 <button id="btnAdminMusteriFis" style="display:none; background:linear-gradient(#06b6d4, #0891b2); border-bottom-color:#0e7490; width:100%; padding:10px; font-size:12px; font-weight:bold;" onclick="musteriyeRezervasyonFisiAt()">MÜŞTERİYE REZERVASYON FİŞİ GÖNDER 📱</button>
 
-                <div class="admin-sifre-degis-kutusu" id="adminHaritaConfigPanel" style="border-color:var(--neon-orange);">
+                <div class="admin-harita-panel" id="adminHaritaConfigPanel" style="border-color:var(--neon-orange); display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.3); padding:10px; border-radius:10px; margin-top:10px;">
                     <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">📍 CANLI HARİTA KONUMU GÜNCELLE:</label>
                     <input type="text" id="adminHaritaLinkInput" placeholder="Google Maps Linki">
                     <button style="background:var(--neon-orange); padding:5px; font-size:11px;" onclick="haritaLinkiniBulutaYukle()">Haritayı Buluta Mühürle 💾</button>
                 </div>
 
-                <div class="admin-sifre-degis-kutusu" id="adminSifreDegisPanel">
+                <div class="admin-sifre-panel" id="adminSifreDegisPanel" style="display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.3); padding:10px; border-radius:10px; border:1px solid var(--neon-blue); margin-top:10px;">
                     <label style="color:var(--neon-blue); font-size:10px; font-weight:700;">⚙️ YÖNETİCİ ŞİFRESİNİ DEĞİŞTİR:</label>
                     <input type="password" id="yeniSifreInput" placeholder="Yeni Şifre">
                     <input type="text" id="guvenlikSorusuInput" placeholder="Güvenlik Sorusu Cevabı">
@@ -685,7 +685,7 @@
             if(geceSüresi >= 3) {
                 let indirimliNet = Math.round(toplamBrut * 0.85); 
                 fiyatInput.value = indirimliNet;
-                if(indirimYazi) indirimYazi.style.display = "block";
+                if(indirimYazi) idrimYazi.style.display = "block";
             } else {
                 fiyatInput.value = toplamBrut;
                 if(indirimYazi) indirimYazi.style.display = "none";
@@ -714,7 +714,7 @@
                 indirimMetni = ` <span style="color:var(--neon-green); font-weight:800;">(%15 İndirim Uygulandı!)</span>`;
             }
 
-            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Önce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
+            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Omce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
 
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             for(let i = 0; i <= mGece; i++) {
@@ -813,7 +813,7 @@
 
             if(hedefIsim !== "") {
                 Object.keys(rezervasyonlar).forEach(kKey => {
-                    if(rezervasyonlar[kKey] && rezervervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
+                    if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
                         let rezTarih = kKey.substring(0, 10);
                         if(guncelKilitDurumu) {
                             bulutKilitliGunler[rezTarih] = true;
@@ -871,10 +871,6 @@
                 💳 <b>Ödeme Durumu:</b> <span style="color:${odeme === 'Alındı' ? 'var(--neon-green)':'var(--neon-red)'}; font-weight:800;">${odeme}</span>
             `;
             modalAc("modalGecmisSakinDetay");
-        }
-
-        function fatihCevresiAc() {
-            alert("Kanka Fatih çevresi gezilecek yerler listesi şu an boş, içini yakında seninle beraber dolduracağız! 🕌");
         }
 
         async function verileriBuluttanCek() {
