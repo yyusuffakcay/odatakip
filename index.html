@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v37</title>
+    <title>Misafirhane Canlı Otomasyonu v38</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -508,7 +508,6 @@
     </div>
 
     <script>
-        // FIREBASE LINKI ICINE GÖMÜLDÜ KANKA
         const FIREBASE_URL = "https://genel-proje-79c7f-default-rtdb.europe-west1.firebasedatabase.app/"; 
         const WHATSAPP_NO = "905319120141"; 
         
@@ -527,14 +526,13 @@
         const gunlerTr = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
         
         let rezervasyonlar = {}; 
-        let geriAlmaHafizasi = []; // CTRL Z İÇİN GEÇMİŞ HAFIZA SAKLAMA KUTUSU
+        let geriAlmaHafizasi = []; 
         let duzenlenenEskiIsim = null;
         let seciliAdminMusteriBilgisi = null;
         let bulutKilitliGunler = {}; 
         let kilitliKayitlariZorlaAc = {}; 
         let tumRehberMusterileri = [];
 
-        // CTRL Z KLAVYE GERİ ALMA FONKSİYONALİTESİ
         window.addEventListener('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
                 if(geriAlmaHafizasi.length > 0 && isAdmin) {
@@ -548,7 +546,7 @@
 
         function hafizayaKaydet() {
             if(Object.keys(rezervasyonlar).length > 0) {
-                if(geriAlmaHafizasi.length > 15) geriAlmaHafizasi.shift(); // Max 15 adım sakla
+                if(geriAlmaHafizasi.length > 15) geriAlmaHafizasi.shift(); 
                 geriAlmaHafizasi.push(JSON.parse(JSON.stringify(rezervasyonlar)));
             }
         }
@@ -713,75 +711,6 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', async () => {
-            let bugun = new Date();
-            let bugunStr = `${bugun.getFullYear()}-${String(bugun.getMonth()+1).padStart(2,'0')}-${String(bugun.getDate()).padStart(2,'0')}`;
-            if(document.getElementById("formGun")) document.getElementById("formGun").value = bugunStr;
-            if(document.getElementById("mFormGun")) document.getElementById("mFormGun").value = bugunStr;
-
-            await bulutSifresiniCek();
-            await bulutHaritaLinkiniCek();
-            await bulutKilitleriniCek();
-            bulutResimleriniYukle();
-            robotKutulariniDoldur();
-            adminFiyatHesaplaDinamik();
-            
-            let sonAktifEkran = sessionStorage.getItem("misafirhane_aktif_ekran");
-            let kayitliOtum = localStorage.getItem("misafirhane_admin_oturum");
-            
-            if (sonAktifEkran === "admin" && kayitliOtum === aktifAdminSifre) {
-                adminYetkileriniAc();
-            } else if (sonAktifEkran === "musteri") {
-                musteriModunuAc();
-            } else {
-                sessionStorage.setItem("misafirhane_aktif_ekran", "giris");
-            }
-        });
-
-        function musteriModunuAc() {
-            isAdmin = false;
-            sessionStorage.setItem("misafirhane_aktif_ekran", "musteri");
-            document.getElementById("girisEkrani").style.display = "none";
-            document.getElementById("programEkrani").style.display = "block";
-            document.getElementById("adminFormElemanlari").style.display = "none";
-            document.getElementById("adminSakinKutusu").style.display = "none";
-            document.getElementById("btnAdminRehber").style.display = "none";
-            document.getElementById("btnAdminRobotPopup").style.display = "none";
-            document.getElementById("adminUploadGiris").style.display = "none"; 
-            document.getElementById("adminSifreDegisPanel").style.display = "none";
-            document.getElementById("adminHaritaConfigPanel").style.display = "none";
-            document.getElementById("btnAdminMusteriFis").style.display = "none";
-            document.getElementById("musteriIletisimPaneli").style.display = "flex";
-            verileriBuluttanCek();
-        }
-
-        function yoneticiGirisSifre() {
-            let kayitliOturum = localStorage.getItem("misafirhane_admin_oturum");
-            if(kayitliOturum === aktifAdminSifre) { adminYetkileriniAc(); return; }
-            let s = prompt("Yönetim paneli şifresini gir kanka:");
-            if (s === aktifAdminSifre) {
-                localStorage.setItem("misafirhane_admin_oturum", s);
-                adminYetkileriniAc();
-            } else if(s !== null) { alert("Hatalı şifre!"); }
-        }
-
-        function adminYetkileriniAc() {
-            isAdmin = true;
-            sessionStorage.setItem("misafirhane_aktif_ekran", "admin");
-            document.getElementById("girisEkrani").style.display = "none";
-            document.getElementById("programEkrani").style.display = "block";
-            document.getElementById("adminFormElemanlari").style.display = "block";
-            document.getElementById("adminSakinKutusu").style.display = "flex";
-            document.getElementById("btnAdminRehber").style.display = "block";
-            document.getElementById("btnAdminRobotPopup").style.display = "block";
-            document.getElementById("adminUploadGiris").style.display = "flex"; 
-            document.getElementById("adminSifreDegisPanel").style.display = "flex";
-            document.getElementById("adminHaritaConfigPanel").style.display = "flex";
-            document.getElementById("musteriIletisimPaneli").style.display = "none";
-            verileriBuluttanCek();
-            adminFiyatHesaplaDinamik();
-        }
-
         function musteriTarihHesapla() {
             let mSecilenTarih = document.getElementById("mFormGun").value;
             let mGece = parseInt(document.getElementById("mFormSüre").value) || 1;
@@ -876,7 +805,7 @@
                            `------------------------------------------\n\n` +
                            `📍 *[ CONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
-                           `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n" +
+                           `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n` +
                            `↳ https://yoltarifi-linkiniz-buraya.com/fatih-rehberi\n\n` +
                            `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
                            `↳ Otopark bulma panelini canlı olarak ana sayfamızdaki "Otopark Bul" butonundan görebilirsiniz kanka!\n\n` +
@@ -905,7 +834,7 @@
 
             if(hedefIsim !== "") {
                 Object.keys(rezervasyonlar).forEach(kKey => {
-                    if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
+                    if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
                         let rezTarih = kKey.substring(0, 10);
                         if(guncelKilitDurumu) {
                             bulutKilitliGunler[rezTarih] = true;
@@ -1107,6 +1036,7 @@
             Object.keys(buAykiSakinler).forEach(isim => {
                 let sVeri = buAykiSakinler[isim]; 
                 let ekSınıf = "";
+                
                 let clickAksiyonu = `gecmisSakinDetayiniGoster('${isim.replace(/'/g, "\\'")}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
                 
                 if(sVeri.kilitliMi) {
@@ -1187,7 +1117,6 @@
             verileriBulutaKaydet();
         }
 
-        /* YENİ ESNEK VE DİNAMİK SİLME SİSTEMİ (TEK GÜN VE TÜM REZERVASYON SEÇENEKLİ) */
         function kayitSilDinamik(tarihStr) {
             if(!isAdmin) return;
             let temizTarih = tarihStr.substring(0, 10); 
@@ -1207,13 +1136,11 @@
             
             hafizayaKaydet();
             if(confirm(mesaj)) {
-                // Seçenek 1: Sadece o günkü kaydı sil (Tek gün düşürme)
                 delete rezervasyonlar[hedefTipKey];
                 duzenlemeModunuKapat(); 
                 verileriBulutaKaydet();
                 alert("Müşterinin sadece bugünkü konaklama kaydı temizlendi kanka! ✂️");
             } else {
-                // Seçenek 2: Müşteriye ait tüm günleri kökten sil
                 if(confirm("Emin misin kanka? Adamın medresedeki bütün günleri silinecek!")) {
                     Object.keys(rezervasyonlar).forEach(t => { 
                         if(rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === assetIsim.toLowerCase()) { 
