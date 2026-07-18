@@ -369,16 +369,58 @@
             </div>
             <div class="modal-body">
                 <div class="admin-upload-panel" id="adminUploadGiris">
-                    <b style="color:var(--neon-orange); font-size:11px;">⚙️ BULUT RESİM GÜNCELLEME SİSTEMİ (10 ODA):</b>
-                    <div style="display:flex; gap:10px; align-items:center; margin-top:5px;">
-                        <select id="secilenOdaNo" style="width:30%;">
-                            <option value="oda1">Oda 1 Resmi</option><option value="oda2">Oda 2 Resmi</option><option value="oda3">Oda 3 Resmi</option>
-                            <option value="oda4">Oda 4 Resmi</option><option value="oda5">Oda 5 Resmi</option><option value="oda6">Oda 6 Resmi</option>
-                            <option value="oda7">Oda 7 Resmi</option><option value="oda8">Oda 8 Resmi</option><option value="oda9">Oda 9 Resmi</option>
-                            <option value="oda10">Oda 10 Resmi</option>
-                        </select>
-                        <input type="file" id="odaResimDosya" accept="image/*" style="padding:5px;">
-                        <button style="background:var(--neon-green); border-bottom-color:#047857;" onclick="odaResminiBulutaYukle()">BULUTA YÜKLE 🔄</button>
+                    <b style="color:var(--neon-orange); font-size:11px;">⚙️ ODA RESİMLERİNİ YÜKLE:</b>
+                    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-top:10px; max-height: 250px; overflow-y: auto; padding-right:5px;">
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">1. Oda Resmi:</label>
+                            <input type="file" id="file-oda1" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda1', 'file-oda1')">1. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">2. Oda Resmi:</label>
+                            <input type="file" id="file-oda2" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda2', 'file-oda2')">2. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">3. Oda Resmi:</label>
+                            <input type="file" id="file-oda3" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda3', 'file-oda3')">3. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">4. Oda Resmi:</label>
+                            <input type="file" id="file-oda4" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda4', 'file-oda4')">4. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">5. Oda Resmi:</label>
+                            <input type="file" id="file-oda5" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda5', 'file-oda5')">5. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">6. Oda Resmi:</label>
+                            <input type="file" id="file-oda6" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda6', 'file-oda6')">6. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">7. Oda Resmi:</label>
+                            <input type="file" id="file-oda7" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda7', 'file-oda7')">7. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">8. Oda Resmi:</label>
+                            <input type="file" id="file-oda8" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda8', 'file-oda8')">8. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">9. Oda Resmi:</label>
+                            <input type="file" id="file-oda9" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda9', 'file-oda9')">9. ODAYA YÜKLE 🚀</button>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">10. Oda Resmi:</label>
+                            <input type="file" id="file-oda10" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
+                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda10', 'file-oda10')">10. ODAYA YÜKLE 🚀</button>
+                        </div>
                     </div>
                 </div>
 
@@ -392,7 +434,7 @@
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" /><div class="galeri-text">Misafir Odası 7</div></div>
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" /><div class="galeri-text">Misafir Odası 8</div></div>
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" /><div class="galeri-text">Misafir Odası 9</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda10" src="https://placehold.co/600x400/222/0ff?text=Oda+10+Gorsel" /><div class="galeri-text">Misafir Odası 10</div></div>
+                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda10" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=600" /><div class="galeri-text">Misafir Odası 10</div></div>
                 </div>
             </div>
         </div>
@@ -603,17 +645,16 @@
             document.getElementById("girisEkrani").style.display = "flex"; 
         }
 
-        async function odaResminiBulutaYukle() {
-            let secilenOda = document.getElementById("secilenOdaNo").value;
-            let dosyaGirdi = document.getElementById("odaResimDosya").files[0];
+        async function odaResminiBulutaYolla(odaId, inputId) {
+            let dosyaGirdi = document.getElementById(inputId).files[0];
             if(!dosyaGirdi) { alert("Önce resim seç kanka!"); return; }
             let okuyucu = new FileReader();
             okuyucu.onload = async function(e) {
                 let base64Resim = e.target.result;
-                let imgEleman = document.getElementById("img-" + secilenOda);
+                let imgEleman = document.getElementById("img-" + odaId);
                 if(imgEleman) imgEleman.src = base64Resim;
                 try {
-                    await fetch(`${FIREBASE_URL}galeri/${secilenOda}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
+                    await fetch(`${FIREBASE_URL}galeri/${odaId}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
                     alert("Oda resmi buluta mühürlendi! 🚀");
                 } catch(err) { alert("Bulut hatası!"); }
             }
