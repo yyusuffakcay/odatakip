@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v35</title>
+    <title>Misafirhane Canlı Otomasyonu v36</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -117,7 +117,7 @@
         .sakin-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
         .sakin-satir { background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center; color: #f1f5f9; }
         .sakin-satir-gecmis { opacity: 0.5; border-left: 4px solid #64748b; }
-        .sakin-satir-kilitli { text-decoration: line-through !important; opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
+        .sakin-satir-kilitli { opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
 
         .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; }
         .modal-kart { background: rgba(30, 41, 59, 0.85); border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 15px; }
@@ -157,14 +157,12 @@
         .hesap-makinesi-panel { background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 14px; border: 1px solid var(--neon-blue); display: flex; flex-direction: column; gap: 10px; }
         .robot-sonuc-kutusu { background: rgba(6, 182, 212, 0.15); border: 1px dashed var(--neon-blue); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: bold; line-height: 1.5; text-align: center; }
 
-        /* YENİ OTOPARK KUTULARI TASARIMI */
         .otopark-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
         .otopark-kart { background: rgba(15, 23, 42, 0.6); border: 2px solid var(--neon-blue); border-radius: 14px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 6px 15px rgba(6, 182, 212, 0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-decoration: none; color: white; }
         .otopark-kart:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4); border-color: var(--neon-orange); }
         .otopark-kart span { font-size: 24px; }
         .otopark-kart b { font-size: 13px; font-weight: 800; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
-        /* GEÇMİŞ SAKİN DETAY POPUP */
         .detay-ozet-box { background: rgba(15, 23, 42, 0.7); border: 2px solid var(--neon-orange); border-radius: 16px; padding: 25px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); font-size: 14px; font-weight: 600; line-height: 1.8; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         .detay-ozet-box b { color: var(--neon-blue); }
 
@@ -290,11 +288,9 @@
                 </div>
                 
                 <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
-                    <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
-                        <div class="sakin-kutusu" id="adminSakinKutusu">
-                            <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ:</label>
-                            <div class="sakin-scroll" id="sakinListesi"></div>
-                        </div>
+                    <div class="sakin-kutusu" id="adminSakinKutusu">
+                        <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ:</label>
+                        <div class="sakin-scroll" id="sakinListesi"></div>
                     </div>
                 </div>
 
@@ -394,7 +390,6 @@
         </div>
     </div>
 
-    <!-- 5 REZERVASYON OTOPARK ALANI - İSTEDİĞİN LİNKLER EKLENDİ -->
     <div id="modalOtoparklar" class="modal-arka">
         <div class="modal-kart" style="max-width:600px; height:auto; max-height:85vh;">
             <div class="modal-header">
@@ -425,11 +420,11 @@
         </div>
     </div>
 
-    <!-- GEÇMİŞ ZAMANLI ADAMA TIKLAYINCA AÇILACAK DETAY POPUP MODALI -->
+    <!-- MÜŞTERİ BİLGİ POPUP KARTI -->
     <div id="modalGecmisSakinDetay" class="modal-arka">
         <div class="modal-kart" style="max-width:500px; height:auto; max-height:80vh;">
             <div class="modal-header">
-                <h2 style="margin:0; font-size:18px; color:var(--neon-orange)">📋 MÜŞTERİ ARŞİV BİLGİ KARTI</h2>
+                <h2 style="margin:0; font-size:18px; color:var(--neon-orange)">📋 REZERVASYON DETAY KARTI</h2>
                 <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:#ef4444;">KAPAT ✖</button>
             </div>
             <div class="modal-body" style="padding:15px;">
@@ -854,7 +849,7 @@
                            `↳ Saat: Öğleden Sonra (14:00 Sonrası)\n\n` +
                            `🛬 *[ ÇIKIŞ GÜNÜ ]*\n` +
                            `↳ ${bitis.getFullYear()}-${String(bitis.getMonth()+1).padStart(2,'0')}-${String(bitis.getDate()).padStart(2,'0')} - ${cGunAdi} Günü\n` +
-                           `↳ Saat: Öğleden Önce (11:00 Öncesi)\n\n` +
+                           `↳ Saat: Öğleden Omce (11:00 Öncesi)\n\n` +
                            `🌙 *[ KONAKLAMA ]*\n` +
                            `↳ ${m.süre} Gece\n\n` +
                            `💰 *[ TOPLAM TUTAR ]*\n` +
@@ -876,12 +871,10 @@
             window.open(`https://wa.me/${temizTel}?text=${encodeURIComponent(fisMetni)}`, '_blank');
         }
 
-        /* AKILLI TOPLU MANUEL KİLİTLEME SİSTEMİ (İSME AİT TÜM GÜNLERİ KAPATIR/AÇAR) */
         async function gunuManüelKilitle(tarihKey, e) {
             if(e) e.stopPropagation(); 
             if(!isAdmin) return;
             
-            // Tıklanan günde kayıtlı bir sakin var mı bulalım
             let hedefIsim = "";
             let temizTarih = tarihKey.substring(0, 10);
             Object.keys(rezervasyonlar).forEach(k => {
@@ -893,7 +886,6 @@
             let guncelKilitDurumu = !bulutKilitliGunler[temizTarih];
 
             if(hedefIsim !== "") {
-                // Eğer o gün birisi kalıyorsa, o kişinin kaldığı TÜM günlerin kilidini aynı anda senkronize et
                 Object.keys(rezervasyonlar).forEach(kKey => {
                     if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
                         let rezTarih = kKey.substring(0, 10);
@@ -905,7 +897,6 @@
                     }
                 });
             } else {
-                // Eğer gün boşsa sadece o tek günü kilitle/aç
                 if(guncelKilitDurumu) {
                     bulutKilitliGunler[temizTarih] = true;
                 } else {
@@ -926,7 +917,7 @@
             listeyiYenile();
         }
 
-        /* ARŞİV DETAY PANELİNİ POPUP'TA AÇAN AKILLI FONKSİYON */
+        /* YENİ GELEN VE SORUNSUZ DETAY KARTI POPUP GÖSTERİMİ */
         function gecmisSakinDetayiniGoster(isim, tarihKey, süre, fiyat, odeme, tel) {
             let parca = tarihKey.split('-');
             let yil = parca[0];
@@ -934,15 +925,26 @@
             let gun = parca[2];
             let ayAdi = aylarTr[ayNo - 1];
 
+            // Giriş ve çıkış tarihlerine ait gün isimlerini hesapla
+            let baslangicObj = new Date(parseInt(yil), ayNo - 1, parseInt(gun));
+            let gGunAdi = gunlerTr[baslangicObj.getDay()];
+            
+            let bitisObj = new Date(baslangicObj);
+            bitisObj.setDate(baslangicObj.getDate() + parseInt(süre));
+            let cGunAdi = gunlerTr[bitisObj.getDay()];
+            let bitisTarihStr = `${bitisObj.getDate()} ${aylarTr[bitisObj.getMonth()]} ${bitisObj.getFullYear()}`;
+
             let icerikDiv = document.getElementById("gecmisSakinDetayIcerik");
             icerikDiv.innerHTML = `
-                👤 <b>Müşteri Adı:</b> ${isim.toUpperCase()}<br>
-                📱 <b>Telefon Numarası:</b> ${tel || 'Kayıtlı Değil'}<br>
-                📅 <b>Giriş Tarihi:</b> ${gun} ${ayAdi} ${yil}<br>
-                🌙 <b>Konaklama Süresi:</b> ${süre} Gece<br>
-                💰 <b>Toplam Alınan Ücret:</b> ${fiyat} TL<br>
-                💳 <b>Ödeme Durumu:</b> <span style="color:${odeme === 'Alındı' ? 'var(--neon-green)':'var(--neon-red)'}">${odeme}</span><br>
-                <p style="margin-top:15px; font-size:11px; color:#cbd5e1; text-align:center;">🔒 Bu kayıt geçmiş zaman kilit korumasındadır. Düzenlemek için takvim kutusundan kilidini açabilirsiniz.</p>
+                👤 <b>Müşteri Adı Soyadı:</b> ${isim.toUpperCase()}<br>
+                📱 <b>Telefon Numarası:</b> ${tel || 'Yok'}<br>
+                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.2); margin:10px 0;">
+                🛫 <b>Giriş Günü:</b> ${gun} ${ayAdi} ${yil} - ${gGunAdi} <span style="color:var(--neon-green);">(Öğleden Sonra)</span><br>
+                🛬 <b>Çıkış Günü:</b> ${bitisTarihStr} - ${cGunAdi} <span style="color:var(--neon-red);">(Öğleden Önce)</span><br>
+                🌙 <b>Toplam Kalınan Süre:</b> ${süre} Gece<br>
+                <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.2); margin:10px 0;">
+                💰 <b>Alınan Toplam Ücret:</b> <span style="color:var(--neon-orange); font-size:16px;">${fiyat} TL</span><br>
+                💳 <b>Ödeme Durumu:</b> <span style="color:${odeme === 'Alındı' ? 'var(--neon-green)':'var(--neon-red)'}; font-weight:800;">${odeme}</span>
             `;
             modalAc("modalGecmisSakinDetay");
         }
@@ -985,7 +987,7 @@
                 let temizTarih = tKey.substring(0, 10);
                 if(temizTarih.startsWith(`${simdikiYil}-${String(simdikiAy).padStart(2, '0')}`)) {
                     if(rez.tip === "giris") { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].girisler.push(rez); }
-                    else if(rez.tip === "cikis") { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].cikislar.push(rez); }
+                    else if(rez.tip === "cikis") { if(gunDurUniform = gunDurumlari[temizTarih]) gunDurumlari[temizTarih].cikislar.push(rez); }
                     else { if(gunDurumlari[temizTarih]) gunDurumlari[temizTarih].tamDolu = rez; }
                     let parsedGun = parseInt(rez.bGun) || 1;
                     let isGecmisZaman = (simdikiYil < bugunYilVal) || (simdikiYil === bugunYilVal && simdikiAy < bugunAyVal) || (simdikiYil === bugunYilVal && simdikiAy === bugunAyVal && parsedGun < bugunGunVal);
@@ -1019,7 +1021,7 @@
                     eylemdurumu = "konaklıyor"; 
                 }
 
-                if(durum.cikislar.length > 0 && durum.gridDiv !== null && durum.girisler.length > 0) {
+                if(durum.cikislar.length > 0 && durum.girisler.length > 0) {
                     let cikisVeri = durum.cikislar[0]; let girisVeri = durum.girisler[0];
                     boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
@@ -1088,18 +1090,17 @@
             Object.keys(buAykiSakinler).forEach(isim => {
                 let sVeri = buAykiSakinler[isim]; 
                 let ekSınıf = "";
-                let clickAksiyonu = "";
+                
+                // Kilitli ya da geçmiş zaman fark etmeksizin detay kartını açan aksiyon ataması
+                let clickAksiyonu = `gecmisSakinDetayiniGoster('${isim.replace(/'/g, "\\'")}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
                 
                 if(sVeri.kilitliMi) {
                     ekSınıf = "sakin-satir-kilitli"; 
-                    // Kilitli geçmiş sakine tıklanınca popup arşiv kartını açar
-                    clickAksiyonu = `gecmisSakinDetayiniGoster('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
                 } else if(sVeri.gecmisMi) {
                     ekSınıf = "sakin-satir-gecmis";
-                    clickAksiyonu = `gecmisSakinDetayiniGoster('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
                 } else {
-                    // Kilitli değilse düzenleme formunu açar
-                    clickAksiyonu = `duzenlemeModunuAc('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}', ${sVeri.gun}, ${sVeri.gecmisMi})`;
+                    // Sadece kilitli DEĞİLSE ve gelecek zamanlıysa formu doldurup düzenleme yaptırır
+                    clickAksiyonu = `duzenlemeModunuAc('${isim.replace(/'/g, "\\'")}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}', ${sVeri.gun}, ${sVeri.gecmisMi})`;
                 }
                 
                 if(sakinDiv) sakinDiv.innerHTML += `<div class="sakin-satir ${ekSınıf}" onclick="${clickAksiyonu}"><span class="sakin-isim">👤 ${isim}</span><span class="sakin-gun-badge">Gün ${sVeri.gun}</span></div>`;
