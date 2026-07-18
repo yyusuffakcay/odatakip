@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v44</title>
+    <title>Misafirhane Canlı Otomasyonu v43</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -30,7 +30,7 @@
         
         .ana-btn { 
             flex: 1; background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-            color: white; border: 1px solid rgba(255,255,255,0.3); padding: 14px 8px;
+            color: white; border: 1px solid rgba(255, 255, 255, 0.3); padding: 14px 8px;
             font-size: 13px; font-weight: 800; border-radius: 12px; cursor: pointer;
             box-shadow: 0 8px 16px rgba(6, 182, 212, 0.2), inset 0 1px 1px rgba(255,255,255,0.4);
             border-bottom: 4px solid #0e7490; transition: all 0.1s ease; text-transform: uppercase;
@@ -685,7 +685,7 @@
             if(geceSüresi >= 3) {
                 let indirimliNet = Math.round(toplamBrut * 0.85); 
                 fiyatInput.value = indirimliNet;
-                if(indirimYazi) idrimYazi.style.display = "block";
+                if(indirimYazi) indirimYazi.style.display = "block";
             } else {
                 fiyatInput.value = toplamBrut;
                 if(indirimYazi) indirimYazi.style.display = "none";
@@ -714,7 +714,7 @@
                 indirimMetni = ` <span style="color:var(--neon-green); font-weight:800;">(%15 İndirim Uygulandı!)</span>`;
             }
 
-            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Omce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
+            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Önce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
 
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             for(let i = 0; i <= mGece; i++) {
@@ -1121,6 +1121,10 @@
                     alert("Müşterinin tüm rezervasyon geçmişi sistemden kazındı! ⌫");
                 }
             }
+        }
+
+        function fatihCevresiAc() {
+            alert("Kanka Fatih çevresi gezilecek yerler listesi şu an boş, içini yakında seninle beraber dolduracağız! 🕌");
         }
 
         function verileriBulutaKaydet() {
