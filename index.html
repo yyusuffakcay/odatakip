@@ -6,51 +6,67 @@
     <title>Misafirhane Canlı Otomasyonu v36</title>
     <style>
         :root {
-            --bg-card: rgba(15, 23, 42, 0.25); 
-            --bg-input: rgba(15, 23, 42, 0.55);
+            --bg-card: rgba(15, 23, 42, 0.45); 
+            --bg-input: rgba(15, 23, 42, 0.65);
             --neon-green: #10b981;
-            --neon-blue: #06b6d4; 
+            --neon-blue: #06b6d4; /* Turkuaz / Cyan ağırlıklı */
             --neon-red: #ef4444;
             --neon-orange: #f59e0b;
             --text-light: #f8fafc;
         }
         
         body { 
-            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(15, 23, 42, 0.15)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
             background-size: cover;
             color: var(--text-light); 
             font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif; 
             padding: 15px; margin: 0; box-sizing: border-box; 
         }
 
+        /* YÜZEN SAYDAM BUTONLAR VE ANA EKRAN TASARIMI */
         .giris-ekrani { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 95vh; gap: 15px; padding-bottom: 20px; }
-        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.6); }
+        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
         
         .buton-grid-ust, .buton-grid-alt { display: flex; gap: 15px; width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box; }
         
         .ana-btn { 
-            flex: 1; background: rgba(6, 182, 212, 0.15); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            color: #ffffff; border: 1px solid rgba(6, 182, 212, 0.4); padding: 14px 8px;
-            font-size: 13px; font-weight: 800; border-radius: 12px; cursor: pointer;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.2);
-            border-bottom: 4px solid rgba(6, 182, 212, 0.6); transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); text-transform: uppercase;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            flex: 1; 
+            background: rgba(6, 182, 212, 0.15); 
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            color: #fff; 
+            border: 1px solid rgba(6, 182, 212, 0.5); 
+            padding: 14px 8px;
+            font-size: 13px; font-weight: 800; border-radius: 16px; cursor: pointer;
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.2);
+            border-bottom: 3px solid rgba(6, 182, 212, 0.6); 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            text-transform: uppercase;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; 
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
         }
-        .ana-btn:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.25); border-color: rgba(6, 182, 212, 0.8); }
+        .ana-btn:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.5); 
+            background: rgba(6, 182, 212, 0.25);
+            border-color: rgba(6, 182, 212, 0.8);
+        }
         .ana-btn:active { transform: translateY(2px); border-bottom-width: 1px; }
-        .ana-btn span { font-size: 22px; margin-bottom: 2px; }
+        .ana-btn span { font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
 
         .btn-fiyat-kirmizi {
-            background: rgba(239, 68, 68, 0.2) !important;
-            border: 1px solid rgba(239, 68, 68, 0.5) !important;
-            border-bottom: 4px solid rgba(239, 68, 68, 0.8) !important;
-            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3), inset 0 1px 1px rgba(255,255,255,0.2) !important;
+            background: rgba(239, 68, 68, 0.15) !important;
+            border-color: rgba(239, 68, 68, 0.5) !important;
+            border-bottom-color: rgba(239, 68, 68, 0.6) !important;
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.8) !important;
         }
-        .btn-fiyat-kirmizi:hover { background: rgba(239, 68, 68, 0.35) !important; box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5) !important; border-color: var(--neon-red) !important;}
-        .btn-fiyat-kirmizi:active { border-bottom-width: 1px !important; }
+        .btn-fiyat-kirmizi:hover { 
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5) !important; 
+            background: rgba(239, 68, 68, 0.25) !important;
+        }
 
         .medrese-aciklama-notu {
-            background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px;
             width: 100%; max-width: 730px; text-align: center; font-size: 11px; line-height: 1.5; font-weight: 600; color: #e2e8f0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.5); margin-top: 5px;
@@ -61,7 +77,8 @@
         .program-ekrani { display: none; }
         .ana-duzen { display: flex; flex-direction: row; gap: 15px; width: 100%; max-width: 1500px; margin: 0 auto; height: calc(100vh - 100px); }
         
-        .sol-bolum { width: 28%; min-width: 240px; background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 15px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.25); overflow-y: auto; }
+        .sol-bolum { width: 28%; min-width: 240px; background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 15px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.15); overflow-y: auto; }
+        
         .sag-bolum { width: 72%; background: transparent; padding: 15px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; border: none; box-shadow: none; }
         
         .ay-kontrol-satiri { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
@@ -76,6 +93,7 @@
         
         .form-group { display: flex; flex-direction: column; gap: 4px; position: relative; }
         label { font-weight: 700; font-size: 11px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+        
         input, select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: var(--bg-input); box-sizing: border-box; font-size: 13px; font-weight: 600; color: white; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
         
         .ulke-badge { position: absolute; right: 10px; top: 0; font-size: 10px; font-weight: bold; color: var(--neon-orange); background: rgba(0,0,0,0.5); padding: 1px 6px; border-radius: 4px; }
@@ -84,15 +102,17 @@
         .takvim-ic-alan { min-width: 800px; display: flex; flex-direction: column; }
 
         .hafta-gunleri { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-weight: 800; font-size: 12px; color: #ffffff; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid rgba(255,255,255,0.3); text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-        .takvim-grid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: minmax(115px, 1fr); gap: 8px; }
+        
+        .takvim-grid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: minmax(130px, 1fr); gap: 8px; }
         
         .gun-kutusu { display: flex; flex-direction: column; justify-content: space-between; padding: 8px; border-radius: 12px; font-size: 11px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.2); position: relative; overflow: hidden; transition: all 0.2s ease; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
         .gun-satir-ust { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4px; }
         .gun-no { font-size: 11px; font-weight: 800; background: rgba(0,0,0,0.5); padding: 3px 6px; border-radius: 5px; color: #ffffff; width: max-content; }
         .gun-icerik { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 3px; font-size: 11px; text-align: left; white-space: normal; word-break: break-word; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
         
-        .bos { background: rgba(6, 182, 212, 0.25); border-top: 4px solid var(--neon-blue); }
-        .bos .gun-no { background: var(--neon-blue); color: white; }
+        /* BOŞ GÜNLER TURKUAZ YAPILDI */
+        .bos { background: rgba(6, 182, 212, 0.2); border-top: 4px solid var(--neon-blue); }
+        .bos .gun-no { background: var(--neon-blue); }
         .tam-dolu-odendi, .tam-dolu-odenmedi, .giris-odendi, .giris-odenmedi, .cikis-odendi, .cikis-odenmedi, .cakisma-odendi, .cakisma-odenmedi { background: rgba(239, 68, 68, 0.45); border-top: 4px solid var(--neon-red); }
 
         .manuel-kilitli-gun { background: rgba(30, 41, 59, 0.7) !important; border-top: 4px solid #64748b !important; color: #94a3b8 !important; opacity: 0.6; }
@@ -108,20 +128,19 @@
         .isaretli-gun { border: 4px solid #fffb00 !important; box-shadow: 0 0 40px #fffb00, inset 0 0 20px #fffb00 !important; z-index: 25; animation: kalpAtisiEfekti 0.6s infinite alternate cubic-bezier(0.25, 0.8, 0.25, 1); }
         @keyframes kalpAtisiEfekti { from { transform: scale(1.01); } to { transform: scale(1.06); } }
 
-        .btn-box-sil { background: rgba(255, 255, 255, 0.25); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 6px; padding: 4px; font-size: 9px; cursor: pointer; width: 100%; font-weight: bold; transition: all 0.2s ease;}
+        .btn-box-sil { background: rgba(255, 255, 255, 0.25); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 6px; padding: 4px; font-size: 10px; cursor: pointer; width: 100%; margin-top: 4px; font-weight: bold; }
         .btn-box-sil:hover { background: var(--neon-red); }
 
-        .sakin-kutusu { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; height: 160px; box-sizing: border-box; }
-        .sakin-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; padding-right: 5px;}
-        .sakin-satir { background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center; color: #f1f5f9; transition: all 0.2s; }
-        .sakin-satir:hover { background: rgba(6, 182, 212, 0.2); border-color: var(--neon-blue); }
+        .sakin-kutusu { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; height: 140px; box-sizing: border-box; }
+        .sakin-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
+        .sakin-satir { background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center; color: #f1f5f9; }
         .sakin-satir-gecmis { opacity: 0.5; border-left: 4px solid #64748b; }
         .sakin-satir-kilitli { text-decoration: line-through !important; opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
 
-        .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; }
-        .modal-kart { background: rgba(30, 41, 59, 0.85); border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 15px; }
+        .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 100; justify-content: center; align-items: center; }
+        .modal-kart { background: rgba(15, 23, 42, 0.95); border: 2px solid rgba(6, 182, 212, 0.5); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
-        .modal-body { flex: 1; overflow-y: auto; padding-right: 5px; }
+        .modal-body { flex: 1; overflow-y: auto; }
         
         .galeri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 10px; }
         .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; cursor: pointer; }
@@ -156,8 +175,8 @@
         .otopark-kart span { font-size: 24px; }
         .otopark-kart b { font-size: 13px; font-weight: 800; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
-        .detay-ozet-box { background: rgba(15, 23, 42, 0.7); border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); font-size: 14px; font-weight: 600; line-height: 1.8; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-        .detay-ozet-box b { color: var(--neon-orange); }
+        .detay-ozet-box { background: rgba(15, 23, 42, 0.7); border: 2px solid var(--neon-orange); border-radius: 16px; padding: 25px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); font-size: 14px; font-weight: 600; line-height: 1.8; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+        .detay-ozet-box b { color: var(--neon-blue); }
 
         @media (max-width: 1024px) {
             .ana-duzen { flex-direction: column; height: auto; }
@@ -171,7 +190,7 @@
 
     <div id="girisEkrani" class="giris-ekrani">
         <div class="ana-baslik">
-            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(6,182,212,0.8);">🏛️ MİSAFİRHANE</h1>
+            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(6,182,212,0.8); color: #0ff;">🏛️ MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600;">Canlı Rezervasyon & Takip Sistemi</p>
         </div>
         
@@ -197,7 +216,7 @@
         </div>
 
         <div class="medrese-aciklama-notu">
-            ⭐ <b>İLK İKRA MEDRESESİ</b> Mahmud Efendi Hz. uslübü ve yolu üzere eğitimlerine devam etmektedir. 
+            ⭐ <b>İLK İKRA MEDRESESİ</b> Mahmud Efendi Hz. uslübü và yolu üzere eğitimlerine devam etmektedir. 
             Talebelerimiz küçük yaşta başlayıp eğitimlerini sırasıyla <i>(Elif Cüzü, Talim, Tecvit, Kuran-ı Kerim Düzgün Okuma ve Hafızlık, Arapça)</i> 
             tamamlayarak medresemizden mezun olur. Sizler de bu talebelere destek olmak isterseniz 
             bizlere ulaşabilirsiniz: <a href="https://wa.me/905319120141" target="_blank" class="medrese-link-no">📞 0531 912 01 41</a> ✨
@@ -206,7 +225,7 @@
 
     <div id="programEkrani" class="program-ekrani">
         <div style="display:flex; justify-content:space-between; align-items:center; max-width:1500px; margin:0 auto 10px auto; padding: 0 10px;">
-            <h2 style="margin:0; font-size:20px;">🏨 REZERVASYON KONTROL MERKEZİ</h2>
+            <h2 style="margin:0; font-size:20px; color:var(--neon-blue);">🏨 REZERVASYON KONTROL MERKEZİ</h2>
             <button onclick="anaEkraDon()" style="background:linear-gradient(#ef4444, #b91c1c); border-bottom-color:#7f1d1d; padding:10px 20px;">🚪 ANA SAYFAYA DÖN</button>
         </div>
         
@@ -217,7 +236,7 @@
                     <span id="ayYilBaslik">Temmuz 2026</span>
                     <button onclick="ayDegistir(1)">▶</button>
                 </div>
-                <div id="loading" style="text-align:center; font-size:12px; color:var(--neon-green); margin-bottom:5px;">Veriler Eşitleniyor...</div>
+                <div id="loading">Veriler Eşitleniyor...</div>
                 
                 <div id="adminFormElemanlari">
                     <div class="form-group">
@@ -236,6 +255,22 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Manuel Müşteri İndirimi:</label>
+                        <select id="formAdminIndirim" onchange="adminFiyatHesaplaDinamik()">
+                            <option value="0">İndirim Yok (%0)</option>
+                            <option value="5">%5 İndirim</option>
+                            <option value="10">%10 İndirim</option>
+                            <option value="15">%15 İndirim</option>
+                            <option value="20">%20 İndirim</option>
+                            <option value="25">%25 İndirim</option>
+                            <option value="30">%30 İndirim</option>
+                            <option value="40">%40 İndirim</option>
+                            <option value="50">%50 İndirim</option>
+                            <option value="75">%75 İndirim</option>
+                            <option value="100">%100 İndirim (Ücretsiz)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Telefon No:</label>
                         <span id="ulkeGosterge" class="ulke-badge">🇹🇷 TÜRKİYE</span>
                         <input type="text" id="formTel" placeholder="0534 000 00 00">
@@ -245,15 +280,9 @@
                         <input type="number" id="formSüre" value="1" min="1" oninput="adminFiyatHesaplaDinamik()">
                     </div>
                     <div class="form-group">
-                        <label>Manuel İndirim Uygula:</label>
-                        <select id="formIndirim" onchange="adminFiyatHesaplaDinamik()">
-                            <!-- JavaScript ile dinamik doldurulacak -->
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label>Toplam Hesaplanan Fiyat (TL):</label>
                         <input type="number" id="formFiyat" value="2500" min="0">
-                        <small id="adminIndirimBilgi" style="color:var(--neon-green); font-weight:bold; display:none; margin-top:3px;">✨ %0 İndirim Uygulandı!</small>
+                        <small id="adminIndirimBilgi" style="color:var(--neon-green); font-weight:bold; display:none;">✨ Seçilen İndirim Uygulandı!</small>
                     </div>
                     <div class="form-group">
                         <label>Ödeme:</label>
@@ -263,10 +292,10 @@
                         </select>
                     </div>
                     <button class="btn-kaydet" id="btnIslem" onclick="rezervasyonKaydet()">KAYDET</button>
-                    <button id="btnIptal" style="display:none; background:#ef4444; margin-top:2px; width:100%; padding:10px;" onclick="duzenlemeModunuKapat()">İptal Et</button>
+                    <button id="btnIptal" style="display:none; background:#ef4444; margin-top:2px;" onclick="duzenlemeModunuKapat()">İptal Et</button>
                 </div>
 
-                <div id="musteriIletisimPaneli" style="display:none; flex-direction:column; gap:8px;">
+                <div id="musteriIletisimPaneli" style="display:none; display:flex; flex-direction:column; gap:8px;">
                     <div class="form-group">
                         <label>Giriş Yapacağınız Tarih:</label>
                         <input type="date" id="mFormGun" value="2026-07-01" onchange="musteriTarihHesapla()">
@@ -288,12 +317,12 @@
                 
                 <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
                     <div class="sakin-kutusu" id="adminSakinKutusu">
-                        <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ (Detay İçin Tıkla):</label>
+                        <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ:</label>
                         <div class="sakin-scroll" id="sakinListesi"></div>
                     </div>
                 </div>
 
-                <button id="btnAdminMusteriFis" style="display:none; background:linear-gradient(#06b6d4, #0891b2); border-bottom-color:#0e7490; width:100%; padding:10px; font-size:12px; font-weight:bold; margin-top:5px;" onclick="musteriyeRezervasyonFisiAt()">MÜŞTERİYE REZERVASYON FİŞİ GÖNDER 📱</button>
+                <button id="btnAdminMusteriFis" style="display:none; background:linear-gradient(#06b6d4, #0891b2); border-bottom-color:#0e7490; width:100%; padding:10px; font-size:12px; font-weight:bold;" onclick="musteriyeRezervasyonFisiAt()">MÜŞTERİYE REZERVASYON FİŞİ GÖNDER 📱</button>
 
                 <div class="admin-sifre-degis-kutusu" id="adminHaritaConfigPanel" style="border-color:var(--neon-orange);">
                     <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">📍 CANLI HARİTA KONUMU GÜNCELLE:</label>
@@ -304,13 +333,14 @@
                 <div class="admin-sifre-degis-kutusu" id="adminSifreDegisPanel">
                     <label style="color:var(--neon-blue); font-size:10px; font-weight:700;">⚙️ YÖNETİCİ ŞİFRESİNİ DEĞİŞTİR:</label>
                     <input type="password" id="yeniSifreInput" placeholder="Yeni Şifre">
+                    <input type="text" id="guvenlikSorusuInput" placeholder="Güvenlik Kodu (İLKİKRA)">
                     <button style="background:var(--neon-blue); padding:5px; font-size:11px;" onclick="sifreyiBuluttaGuncelle()">Şifreyi Güncelle 💾</button>
                 </div>
             </div>
             
             <div class="sag-bolum">
                 <div class="ay-kontrol-satiri">
-                    <h3 id="listeBaslik">📊 DURUM LİSTESİ</h3>
+                    <h3 id="listeBaslik" style="color:var(--neon-blue);">📊 DURUM LİSTESİ</h3>
                     <div style="display:flex; gap:10px;">
                         <button class="btn-rehber" id="btnAdminRehber" onclick="rehberiAc()">📜 MÜŞTERİ REHBERİ</button>
                         <button class="btn-robot-tetik" id="btnAdminRobotPopup" style="display:none;" onclick="modalAc('modalHesapRobotu')">📐 HESAP ROBOTU</button>
@@ -330,6 +360,7 @@
         </div>
     </div>
 
+    <!-- BÜTÜN MODALLAR (Açılır Pencereler) BURADAN İTİBAREN BAŞLIYOR, İÇ İÇE GEÇMEYECEK -->
     <div id="modalTanitim" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -338,16 +369,16 @@
             </div>
             <div class="modal-body">
                 <div class="admin-upload-panel" id="adminUploadGiris">
-                    <b style="color:var(--neon-orange); font-size:11px;">⚙️ BULUT RESİM GÜNCELLEME SİSTEMİ:</b>
+                    <b style="color:var(--neon-orange); font-size:11px;">⚙️ BULUT RESİM GÜNCELLEME SİSTEMİ (10 ODA):</b>
                     <div style="display:flex; gap:10px; align-items:center; margin-top:5px;">
                         <select id="secilenOdaNo" style="width:30%;">
-                            <option value="oda1">Oda 1</option><option value="oda2">Oda 2</option><option value="oda3">Oda 3</option>
-                            <option value="oda4">Oda 4</option><option value="oda5">Oda 5</option><option value="oda6">Oda 6</option>
-                            <option value="oda7">Oda 7</option><option value="oda8">Oda 8</option><option value="oda9">Oda 9</option>
-                            <option value="oda10">Oda 10</option>
+                            <option value="oda1">Oda 1 Resmi</option><option value="oda2">Oda 2 Resmi</option><option value="oda3">Oda 3 Resmi</option>
+                            <option value="oda4">Oda 4 Resmi</option><option value="oda5">Oda 5 Resmi</option><option value="oda6">Oda 6 Resmi</option>
+                            <option value="oda7">Oda 7 Resmi</option><option value="oda8">Oda 8 Resmi</option><option value="oda9">Oda 9 Resmi</option>
+                            <option value="oda10">Oda 10 Resmi</option>
                         </select>
                         <input type="file" id="odaResimDosya" accept="image/*" style="padding:5px;">
-                        <button style="background:var(--neon-green); border-bottom-color:#047857;" onclick="odaResminiBulutaYukle()">YÜKLE 🔄</button>
+                        <button style="background:var(--neon-green); border-bottom-color:#047857;" onclick="odaResminiBulutaYukle()">BULUTA YÜKLE 🔄</button>
                     </div>
                 </div>
 
@@ -361,7 +392,7 @@
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" /><div class="galeri-text">Misafir Odası 7</div></div>
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" /><div class="galeri-text">Misafir Odası 8</div></div>
                     <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" /><div class="galeri-text">Misafir Odası 9</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda10" src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=600" /><div class="galeri-text">Misafir Odası 10</div></div>
+                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda10" src="https://placehold.co/600x400/222/0ff?text=Oda+10+Gorsel" /><div class="galeri-text">Misafir Odası 10</div></div>
                 </div>
             </div>
         </div>
@@ -380,11 +411,11 @@
                     </div>
                     <div class="musteri-fiyat-satir" style="color:var(--neon-blue); margin-top:20px;">
                         🏛️ ÇİFT ODA: <span style="color:var(--neon-orange);">3500 TL</span> <small style="font-size:11px; color:#cbd5e1;">/ Gece</small>
-                <div class="admin-sifre-degis-kutusu" id="adminSifreDegisPanel">
-                    <label style="color:var(--neon-blue); font-size:10px; font-weight:700;">⚙️ YÖNETİCİ ŞİFRESİNİ DEĞİŞTİR:</label>
-                    <input type="password" id="yeniSifreInput" placeholder="Yeni Şifre">
-                    <input type="text" id="guvenlikSorusuInput" placeholder="Güvenlik Kodu (İLKİKRA)">
-                    <button style="background:var(--neon-blue); padding:5px; font-size:11px;" onclick="sifreyiBuluttaGuncelle()">Şifreyi Güncelle 💾</button>
+                    </div>
+                    
+                    <div class="musteri-tabela-not">
+                        ✨ İndirimli fiyatları öğrenmek ve avantajlardan yararlanmak için mesaj atmayı unutmayın! ✨
+                    </div>
                 </div>
             </div>
         </div>
@@ -420,11 +451,10 @@
         </div>
     </div>
 
-    <!-- TEK BİR SAKİN DETAY POPUP'I (Aktif ve Geçmiş Arşiv İçin) -->
     <div id="modalSakinDetay" class="modal-arka">
         <div class="modal-kart" style="max-width:500px; height:auto; max-height:80vh;">
             <div class="modal-header">
-                <h2 style="margin:0; font-size:18px; color:var(--neon-blue)">📋 MÜŞTERİ BİLGİ KARTI</h2>
+                <h2 style="margin:0; font-size:18px; color:var(--neon-orange)">📋 MÜŞTERİ ARŞİV BİLGİ KARTI</h2>
                 <button onclick="modalKapat('modalSakinDetay')" style="background:#ef4444;">KAPAT ✖</button>
             </div>
             <div class="modal-body" style="padding:15px;">
@@ -485,8 +515,9 @@
             </div>
             <div class="modal-body" style="height:100%; display:flex; flex-direction:column; gap:10px;">
                 <p style="font-size:12px; font-weight:600; margin:0;">Misafirhanemiz merkezi konumda olup, ulaşımı son derece kolaydır kanka:</p>
+                <!-- Default geçerli bir harita linki eklendi, siyah ekran vermemesi için -->
                 <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" height="80%" style="border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
-                <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; font-size:13px; text-decoration:none;">🌐 Google Maps Uygulamasında Açmak İçin Tıkla kanka</a>
+                <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; font-size:13px; text-decoration:none;">🌐 Google Maps Uygulamasında Açmak İçin Tıkla kanka</a>
             </div>
         </div>
     </div>
@@ -579,7 +610,8 @@
             let okuyucu = new FileReader();
             okuyucu.onload = async function(e) {
                 let base64Resim = e.target.result;
-                document.getElementById("img-" + secilenOda).src = base64Resim;
+                let imgEleman = document.getElementById("img-" + secilenOda);
+                if(imgEleman) imgEleman.src = base64Resim;
                 try {
                     await fetch(`${FIREBASE_URL}galeri/${secilenOda}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
                     alert("Oda resmi buluta mühürlendi! 🚀");
@@ -648,29 +680,15 @@
         function robotKutulariniDoldur() {
             let süreSelect = document.getElementById("robotGeceSüresi");
             let yüzdeSelect = document.getElementById("robotIndirimYüzde");
-            let formYuzdeSelect = document.getElementById("formIndirim"); // Yeni Admin İndirim Menüsü
+            if(!süreSelect || !yüzdeSelect || süreSelect.children.length > 0) return;
 
-            if(süreSelect && süreSelect.children.length === 0) {
-                for(let i=1; i<=30; i++) {
-                    süreSelect.innerHTML += `<option value="${i}">${i} Gece</option>`;
-                }
-                süreSelect.value = "3";
+            for(let i=3; i<=30; i++) {
+                süreSelect.innerHTML += `<option value="${i}">${i} Gece</option>`;
             }
-            if(yüzdeSelect && yüzdeSelect.children.length === 0) {
-                for(let j=0; j<=50; j+=5) {
-                    yüzdeSelect.innerHTML += `<option value="${j}">%${j} İndirim</option>`;
-                }
-                yüzdeSelect.value = "15";
+            for(let j=0; j<=50; j+=5) {
+                yüzdeSelect.innerHTML += `<option value="${j}">%${j} İndirim</option>`;
             }
-            
-            // Admin paneli için 0'dan 100'e kadar indirim seçeneği oluşturma
-            if(formYuzdeSelect && formYuzdeSelect.children.length === 0) {
-                formYuzdeSelect.innerHTML = `<option value="0">İndirim Yok (%0)</option>`;
-                for(let k=5; k<=100; k+=5) {
-                    formYuzdeSelect.innerHTML += `<option value="${k}">%${k} İndirim</option>`;
-                }
-                formYuzdeSelect.value = "0";
-            }
+            yüzdeSelect.value = "20";
         }
 
         function canliRobotHesapla() {
@@ -690,27 +708,27 @@
             `;
         }
 
+        // YÖNETİCİ MANUEL İNDİRİM YÜZDESİ EKLENDİ
         function adminFiyatHesaplaDinamik() {
             let odaTipi = document.getElementById("formOdaTipiAdmin").value;
             let geceSüresi = parseInt(document.getElementById("formSüre").value) || 1;
-            let indirimYuzdesi = parseInt(document.getElementById("formIndirim").value) || 0;
+            let secilenIndirimYuzde = parseInt(document.getElementById("formAdminIndirim").value) || 0;
+            
             let fiyatInput = document.getElementById("formFiyat");
             let indirimYazi = document.getElementById("adminIndirimBilgi");
 
             let tabanFiyat = (odaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
             let toplamBrut = tabanFiyat * geceSüresi;
 
-            let dusenTutar = Math.round(toplamBrut * (indirimYuzdesi / 100));
-            let indirimliNet = toplamBrut - dusenTutar;
-
-            fiyatInput.value = indirimliNet;
-
-            if(indirimYuzdesi > 0) {
+            if(secilenIndirimYuzde > 0) {
+                let indirimliNet = Math.round(toplamBrut * ((100 - secilenIndirimYuzde) / 100)); 
+                fiyatInput.value = indirimliNet;
                 if(indirimYazi) {
                     indirimYazi.style.display = "block";
-                    indirimYazi.innerText = `✨ %${indirimYuzdesi} Manuel İndirim Uygulandı! (-${dusenTutar} TL)`;
+                    indirimYazi.innerText = `✨ %${secilenIndirimYuzde} Manuel İndirim Uygulandı!`;
                 }
             } else {
+                fiyatInput.value = toplamBrut;
                 if(indirimYazi) indirimYazi.style.display = "none";
             }
         }
@@ -784,6 +802,7 @@
             adminFiyatHesaplaDinamik();
         }
 
+        // DİREKT %15 WEB İNDİRİMİ EKLENDİ
         function musteriTarihHesapla() {
             let mSecilenTarih = document.getElementById("mFormGun").value;
             let mGece = parseInt(document.getElementById("mFormSüre").value) || 1;
@@ -800,11 +819,11 @@
             let birimFiyat = (mOdaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
             let brutTutar = birimFiyat * mGece;
             
-            // Site üzerinden rezervasyon yapanlara direkt %15 indirim
+            // Site üzerinden yapıldığı için DİREKT %15 indirim
             brutTutar = Math.round(brutTutar * 0.85); 
-            let indirimMetni = ` <span style="color:var(--neon-green); font-weight:800;">(Web'e Özel %15 İndirim Uygulandı!)</span>`;
+            let indirimMetni = ` <br><span style="color:var(--neon-green); font-weight:800;">(%15 Web Rezervasyon İndirimi Uygulandı!)</span>`;
 
-            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Önce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
+            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Ö.S)<br>🛬 Çıkış: ${cGunAdi} (Ö.Ö)<br>🌙 Süre: ${mGece} Gece<br>💰 NET Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
 
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             for(let i = 0; i <= mGece; i++) {
@@ -831,14 +850,14 @@
             let birimFiyat = (mOdaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
             let sonTutar = birimFiyat * mGece;
             
-            // Site üzerinden onaylayıp mesaj atanlara direkt %15 indirim
+            // Site üzerinden %15 indirim yansıması
             sonTutar = Math.round(sonTutar * 0.85);
-            let indirimNotu = " (Web'e Özel %15 İndirim Dahildir)";
+            let indirimNotu = " (%15 Web İndirimi Dahildir)";
 
             let odaYazi = mOdaTipi === "tek" ? "Tek Oda" : "Çift Oda";
 
             let hazirMesaj = `Selamun Aleykum hocam,\n\n` +
-                             `Takvimden boş günleri inceledim.\n` +
+                             `Siteden boş günleri inceledim.\n` +
                              `🛏️ Oda Tipi: ${odaYazi}\n` +
                              `🛫 Giriş: ${gGunAdi} Günü (Öğleden Sonra)\n` +
                              `🛬 Çıkış: ${cGunAdi} Günü (Öğleden Önce)\n` +
@@ -876,7 +895,7 @@
                            `📍 *[ KONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
                            `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n` +
-                           `↳ Çok yakında eklenecek!\n\n` +
+                           `↳ Yakında eklenecektir...\n\n` +
                            `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
                            `1. Çukurbostan: https://maps.app.goo.gl/WbhqqWKnScXQmiEv5\n` +
                            `2. Nişanca 1: https://maps.app.goo.gl/VaqTVDMWzyZAAqsR8\n` +
@@ -938,7 +957,7 @@
             listeyiYenile();
         }
 
-        /* YENİ: Ortak Sakin Bilgi Detay Penceresi (Hem aktif, hem geçmiş) */
+        // AKILLI SAKİN BİLGİ DETAY PENCERESİ (YENİ)
         function sakinDetayGoster(isim, tarihKey, süre, fiyat, odeme, tel, gunNo, gecmisMi, kilitliMi) {
             let parca = tarihKey.split('-');
             let baslangic = new Date(parseInt(parca[0]), parseInt(parca[1]) - 1, parseInt(parca[2]));
@@ -951,7 +970,7 @@
             let uyariNotu = "";
 
             if (!gecmisMi && !kilitliMi) {
-                // Aktif ve kilitli olmayanlar için düzenleme butonu gösterilir
+                // Aktif ve kilitli olmayanlar için düzenleme butonu
                 duzenleButon = `<button style="width:100%; margin-top:15px; background:var(--neon-blue); padding:12px; font-size:13px; font-weight:bold; border-bottom: 4px solid #0e7490;" onclick="modalKapat('modalSakinDetay'); duzenlemeModunuAc('${isim}', '${tarihKey}', ${süre}, ${fiyat}, '${odeme}', '${tel}', ${gunNo}, ${gecmisMi})">✏️ BİLGİLERİ DÜZENLE</button>`;
             } else {
                 // Geçmiş veya kilitli ise uyarı notu düşülür
@@ -969,6 +988,20 @@
                 ${duzenleButon}
                 ${uyariNotu}
             `;
+            
+            // Kişiye tıklandığında takvimdeki günlerinin parlaması (sarı yanıp sönme)
+            document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
+            document.querySelectorAll('.gun-kutusu').forEach(box => {
+                let gunNoId = box.id.replace("gunBox-", "");
+                let tStr = `${simdikiYil}-${String(simdikiAy).padStart(2, '0')}-${String(gunNoId).padStart(2, '0')}`;
+                let sName = isim.replace(/[^a-zA-Z0-9]/g, "");
+                if(rezervasyonlar[`${tStr}_giris_var_${sName}`] || 
+                   rezervasyonlar[`${tStr}_ara_var_${sName}`] || 
+                   rezervasyonlar[`${tStr}_cikis_var_${sName}`]) {
+                    box.classList.add('isaretli-gun');
+                }
+            });
+
             modalAc("modalSakinDetay");
         }
 
@@ -1044,6 +1077,7 @@
                     eylemdurumu = "konaklıyor"; 
                 }
 
+                // EKSİLTME, UZATMA VE TÜM SİL BUTONLARI EKLENDİ
                 if(durum.cikislar.length > 0 && durum.girisler.length > 0) {
                     let cikisVeri = durum.cikislar[0]; let girisVeri = durum.girisler[0];
                     boxClass = "tam-dolu-odendi";
@@ -1052,10 +1086,10 @@
                                         <b style="color:var(--neon-red)">🛬 Çıkış:</b> ${cikisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Gidiyor)</small><br>
                                         <b style="color:var(--neon-green)">🛫 Giriş:</b> ${girisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Girdi)</small>
                                       </div>`;
-                        silButonHtml = `
-                            <div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1 Gün</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Komple Sil</button>
+                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
+                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
                             </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
@@ -1064,10 +1098,10 @@
                     if(isAdmin) {
                         let telNo = veri.tel ? `<br>📱 ${veri.tel}` : "";
                         icerikHtml = `<span>🛫 <b>${veri.isim.toUpperCase()}</b>${telNo}<br><i style="color:var(--neon-green)">🛫 Giriş: Ö.S.</i></span>`;
-                        silButonHtml = `
-                            <div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1 Gün</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Komple Sil</button>
+                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
+                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
                             </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
@@ -1075,10 +1109,10 @@
                     let veri = durum.cikislar[0]; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<span>🛬 <b>${veri.isim.toUpperCase()}</b><br><i style="color:var(--neon-red)">🛬 Çıkış: Ö.Ö.</i></span>`;
-                        silButonHtml = `
-                            <div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1 Gün</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Komple Sil</button>
+                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
+                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
                             </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
@@ -1086,10 +1120,10 @@
                     let veri = durum.tamDolu; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<span>🔴 <b>${veri.isim.toUpperCase()}</b></span>`;
-                        silButonHtml = `
-                            <div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1 Gün</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Komple Sil</button>
+                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
+                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
+                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
                             </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
@@ -1108,7 +1142,7 @@
                 if(!bulutKilitliGunler[tarihStr] && eylemdurumu === "konakladı" && boxClass !== "bos") {
                     boxClass += " gecmis-kilitli-gun";
                     if(isAdmin) {
-                        kilitHtml = `<div class="kilit-rozeti" onclick="kilidiZorlaAc(${g})">🔒 Geçmiş</div>`;
+                        kilitHtml = `<div class="kilit-rozeti" onclick="kilidiZorlaAc(${g}, event)">🔒 Geçmiş</div>`;
                         if(kilitliKayitlariZorlaAc[g]) kilitHtml = `<div class="kilit-rozeti" style="color:var(--neon-green)">🔓 Açık</div>`;
                         else silButonHtml = "";
                     }
@@ -1129,8 +1163,7 @@
             Object.keys(buAykiSakinler).forEach(isim => {
                 let sVeri = buAykiSakinler[isim]; 
                 let ekSınıf = "";
-                
-                // Artık duruma göre pencere açıyoruz (Düzenleme butonu pencere içerisinde)
+                // Tıklandığında detayı göster
                 let clickAksiyonu = `sakinDetayGoster('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}', ${sVeri.gun}, ${sVeri.gecmisMi}, ${sVeri.kilitliMi})`;
                 
                 if(sVeri.kilitliMi) {
@@ -1154,7 +1187,6 @@
             document.getElementById("formIsim").value = isim; document.getElementById("formTel").value = tel || "";
             document.getElementById("formGun").value = tarihKey; document.getElementById("formSüre").value = süre;
             document.getElementById("formFiyat").value = Math.max(0, parseInt(fiyat) || 0); document.getElementById("formOdeme").value = odeme;
-            document.getElementById("formIndirim").value = "0"; // Düzenleme modunda manuel indirimi sıfırla, mevcut fiyatı gösterir
             
             setTimeout(() => {
                 let formEleman = document.getElementById("solKontrolPaneli");
@@ -1163,17 +1195,6 @@
                 }
             }, 100);
 
-            document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
-            document.querySelectorAll('.gun-kutusu').forEach(box => {
-                let gunNoId = box.id.replace("gunBox-", "");
-                let tarihStr = `${simdikiYil}-${String(simdikiAy).padStart(2, '0')}-${String(gunNoId).padStart(2, '0')}`;
-                if(rezervasyonlar[`${tarihStr}_giris_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`] || 
-                   rezervasyonlar[`${tarihStr}_ara_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`] || 
-                   rezervasyonlar[`${tarihStr}_cikis_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`]) {
-                    box.classList.add('isaretli-gun');
-                }
-            });
-
             let btn = document.getElementById("btnIslem"); btn.innerText = "REZERVASYONU GÜNCELLE";
             btn.style.background = "linear-gradient(to bottom, #f59e0b, #d97706)"; document.getElementById("btnIptal").style.display = "block";
         }
@@ -1181,7 +1202,7 @@
         function duzenlemeModunuKapat() {
             duzenlenenEskiIsim = null; seciliAdminMusteriBilgisi = null; document.getElementById("btnAdminMusteriFis").style.display = "none";
             document.getElementById("formIsim").value = ""; document.getElementById("formTel").value = ""; document.getElementById("formSüre").value = "1"; document.getElementById("formFiyat").value = "2500";
-            document.getElementById("formIndirim").value = "0";
+            document.getElementById("formAdminIndirim").value = "0"; // İndirimi sıfırla
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             let btn = document.getElementById("btnIslem"); btn.innerText = "KAYDET"; btn.style.background = "linear-gradient(to bottom, #10b981, #059669)"; document.getElementById("btnIptal").style.display = "none";
             adminFiyatHesaplaDinamik();
@@ -1206,10 +1227,11 @@
             }
             seciliAdminMusteriBilgisi = { isim, tarihKey: tarihVal, süre, fiyat, odeme, tel };
             document.getElementById("btnAdminMusteriFis").style.display = "block";
+            duzenlemeModunuKapat();
             verileriBulutaKaydet();
         }
 
-        /* YENİ: Sadece İlgili Günü Silme ve Rezervasyon Dengesini Hizalama */
+        // SEÇİLEN GÜNÜ EKSİLTİR (-1)
         async function kayitSilGun(tarihStr, e) {
             e.stopPropagation();
             if(!isAdmin) return;
@@ -1223,71 +1245,82 @@
 
             if(!targetKey) return;
 
-            if(confirm(`${tarihStr} tarihindeki "${targetIsim.toUpperCase()}" kaydını silmek istiyor musun? (Sadece bu gün silinip diğer günler birleşecek)`)) {
+            if(confirm(`${tarihStr} tarihindeki "${targetIsim.toUpperCase()}" kaydını düşürmek (-1) istiyor musun?`)) {
                 delete rezervasyonlar[targetKey];
-                rezervasyonlariYenidenSirala(targetIsim);
                 duzenlemeModunuKapat();
                 verileriBulutaKaydet();
             }
         }
 
-        function rezervasyonlariYenidenSirala(isim) {
-            let kisininKayitlari = [];
+        // KONAKLAMAYI UZATIR (+1)
+        async function kayitEkleGun(tarihStr, e) {
+            e.stopPropagation();
+            if(!isAdmin) return;
+            
+            let temizTarih = tarihStr.substring(0, 10);
+            let targetIsim = "";
             Object.keys(rezervasyonlar).forEach(k => {
-                if(rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === isim.toLowerCase()) {
-                    kisininKayitlari.push({key: k, data: rezervasyonlar[k], dateStr: k.substring(0,10)});
-                }
+                if(k.startsWith(temizTarih)) { targetIsim = rezervasyonlar[k].isim; }
             });
-            if(kisininKayitlari.length === 0) return; // Müşterinin kaydı kalmadıysa işlem yapma
 
-            kisininKayitlari.sort((a,b) => new Date(a.dateStr) - new Date(b.dateStr));
+            if(!targetIsim) return;
 
-            let gercekSure = kisininKayitlari.length - 1;
-            if(gercekSure < 0) gercekSure = 0;
-
-            let firstDateVal = kisininKayitlari[0].dateStr;
-            let firstGun = parseInt(firstDateVal.split('-')[2]);
-
-            for(let i = 0; i < kisininKayitlari.length; i++) {
-                let item = kisininKayitlari[i];
-                let newTip = "ara";
-                if(i === 0) newTip = "giris";
-                if(i === kisininKayitlari.length - 1 && kisininKayitlari.length > 1) newTip = "cikis";
-
-                let oldKey = item.key;
-                let safeName = isim.replace(/[^a-zA-Z0-9]/g, "");
-                let newKey = `${item.dateStr}_${newTip}_var_${safeName}`;
-
-                let newData = {...item.data};
-                newData.tip = newTip;
-                newData.süre = gercekSure;
-                newData.bGun = firstGun;
-                newData.bTarihVal = firstDateVal;
-
-                if(oldKey !== newKey) {
-                    delete rezervasyonlar[oldKey];
-                    rezervasyonlar[newKey] = newData;
-                } else {
-                    rezervasyonlar[oldKey] = newData;
+            if(confirm(`"${targetIsim.toUpperCase()}" adlı kişinin konaklamasını 1 gün daha UZATMAK istiyor musun?`)) {
+                let kisininKayitlari = [];
+                Object.keys(rezervasyonlar).forEach(k => {
+                    if(rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === targetIsim.toLowerCase()) {
+                        kisininKayitlari.push({key: k, data: rezervasyonlar[k], dateStr: k.substring(0,10)});
+                    }
+                });
+                
+                if(kisininKayitlari.length === 0) return;
+                kisininKayitlari.sort((a,b) => new Date(a.dateStr) - new Date(b.dateStr));
+                let sonKayit = kisininKayitlari[kisininKayitlari.length - 1]; 
+                
+                let lastDate = new Date(sonKayit.dateStr);
+                lastDate.setDate(lastDate.getDate() + 1); 
+                
+                let y = lastDate.getFullYear();
+                let m = String(lastDate.getMonth() + 1).padStart(2, '0');
+                let d = String(lastDate.getDate()).padStart(2, '0');
+                let yeniTarihStr = `${y}-${m}-${d}`;
+                
+                let safeName = targetIsim.replace(/[^a-zA-Z0-9]/g, "");
+                let newKey = `${yeniTarihStr}_cikis_var_${safeName}`;
+                
+                let newData = {...sonKayit.data};
+                newData.tip = "cikis";
+                if(sonKayit.data.tip === "cikis") {
+                    rezervasyonlar[sonKayit.key].tip = "ara"; // Eski çıkışı ara yap
                 }
+                
+                rezervasyonlar[newKey] = newData;
+                duzenlemeModunuKapat();
+                verileriBulutaKaydet();
             }
         }
 
+        // KİŞİYİ TÜMDEN SİLER
         async function kayitSilTum(tarihStr, e) {
             e.stopPropagation();
             if(!isAdmin) return;
-            if(confirm("DİKKAT: Bu kişiye ait TÜM rezervasyon günlerini silmek istiyor musun?")) {
-                let temizTarih = tarihStr.substring(0, 10);
-                let assetIsim = "";
-                Object.keys(rezervasyonlar).forEach(k => { if(k.startsWith(temizTarih)) assetIsim = rezervasyonlar[k].isim; });
-                if(assetIsim) {
-                    Object.keys(rezervasyonlar).forEach(t => {
-                        if(rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === assetIsim.toLowerCase()) {
-                            delete rezervasyonlar[t];
-                        }
-                    });
-                }
-                duzenlemeModunuKapat(); verileriBulutaKaydet();
+            
+            let temizTarih = tarihStr.substring(0, 10);
+            let targetIsim = "";
+            Object.keys(rezervasyonlar).forEach(k => {
+                if(k.startsWith(temizTarih)) { targetIsim = rezervasyonlar[k].isim; }
+            });
+
+            if(!targetIsim) return;
+
+            if(confirm(`"${targetIsim.toUpperCase()}" isimli kişinin TÜM rezervasyonunu silmek istiyor musun?`)) {
+                Object.keys(rezervasyonlar).forEach(k => {
+                    if(rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === targetIsim.toLowerCase()) {
+                        delete rezervasyonlar[k];
+                    }
+                });
+                duzenlemeModunuKapat();
+                verileriBulutaKaydet();
             }
         }
 
@@ -1309,9 +1342,7 @@
                 gövde.innerHTML += `<tr style="cursor:pointer;" onclick="${clickFisAyar}"><td style="color:#ffffff; font-weight:800;">👤 ${m.isim.toUpperCase()}</td><td>📱 ${m.tel}</td><td>📅 ${m.tarih}</td><td style="text-align:center;">${m.süre}</td><td>-</td><td style="color:var(--neon-orange)">${toplam} TL</td><td style="${odemeStil}">${m.odeme}</td><td>${waButonHtml}</td></tr>`;
             });
         }
-        
         function rehberiKapat() { document.getElementById("rehberModal").style.display = "none"; }
-        
         function topluMesajGonder() {
             let mesaj = document.getElementById("topluMesajMetni").value.trim(); if(!mesaj) { alert("Önce mesajı yaz!"); return; }
             if(confirm(`Kayıtlı ${tumRehberMusterileri.length} kişiye gönderilecek. Onaylıyor musun?`)) {
@@ -1322,12 +1353,16 @@
 
         function ayDegistir(yon) { simdikiAy += yon; if(simdikiAy === 13) { simdikiAy = 1; simdikiYil++; } if(simdikiAy === 0) { simdikiAy = 12; simdikiYil--; } duzenlemeModunuKapat(); listeyiYenile(); }
         
+        // ŞİFRE DEĞİŞTİRME GÜVENLİK KODLU
         async function sifreyiBuluttaGuncelle() {
             let yeni = document.getElementById("yeniSifreInput").value.trim();
             let guvenlikKodu = document.getElementById("guvenlikSorusuInput").value.trim();
             
+            if(guvenlikKodu !== "İLKİKRA") {
+                alert("Güvenlik kodu hatalı kanka! Şifreyi değiştirmeye yetkin yok.");
+                return;
+            }
             if(!yeni) { alert("Şifre boş olamaz kanka!"); return; }
-            if(guvenlikKodu !== "İLKİKRA") { alert("Güvenlik kodu hatalı kanka! Şifreyi değiştiremezsin."); return; }
             
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/sifre.json`, { method: 'PUT', body: JSON.stringify(yeni) });
