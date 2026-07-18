@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v42</title>
+    <title>Misafirhane Canlı Otomasyonu v43</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -813,7 +813,7 @@
 
             if(hedefIsim !== "") {
                 Object.keys(rezervasyonlar).forEach(kKey => {
-                    if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
+                    if(rezervasyonlar[kKey] && rezervervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
                         let rezTarih = kKey.substring(0, 10);
                         if(guncelKilitDurumu) {
                             bulutKilitliGunler[rezTarih] = true;
@@ -830,7 +830,6 @@
                 }
             }
             
-            hafizayaKaydet();
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`, { method: 'PUT', body: JSON.stringify(bulutKilitliGunler) });
                 listeyiYenile();
@@ -1077,7 +1076,6 @@
             let süre = parseInt(document.getElementById("formSüre").value); let fiyat = parseInt(document.getElementById("formFiyat").value) || 0; let odeme = document.getElementById("formOdeme").value;
             if(!isim || !süre) { alert("İsim yaz kanka!"); return; }
             
-            hafizayaKaydet();
             if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
             let baslangic = new Date(rYil, rAy - 1, rGun);
             for(let i=0; i<=süre; i++) {
@@ -1110,7 +1108,6 @@
 
             let mesaj = `👤 Müşteri: ${assetIsim.toUpperCase()}\n\nHangi işlemi yapmak istersin kanka?\n\n[Tamam]'a basarsan SADECE BU TEK GÜNÜ siler (Konaklama kısalır).\n[İptal]'e basarsan MÜŞTERİNİN TÜM GÜNLERİNİ siler.`;
             
-            hafizayaKaydet();
             if(confirm(mesaj)) {
                 delete rezervasyonlar[hedefTipKey];
                 duzenlemeModunuKapat(); 
