@@ -117,7 +117,7 @@
         .sakin-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
         .sakin-satir { background: rgba(255,255,255,0.08); padding: 9px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center; color: #f1f5f9; }
         .sakin-satir-gecmis { opacity: 0.5; border-left: 4px solid #64748b; }
-        .sakin-satir-kilitli { text-decoration: line-through !important; opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
+        .sakin-satir-kilitli { opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
 
         .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; }
         .modal-kart { background: rgba(30, 41, 59, 0.85); border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 15px; }
@@ -157,14 +157,12 @@
         .hesap-makinesi-panel { background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 14px; border: 1px solid var(--neon-blue); display: flex; flex-direction: column; gap: 10px; }
         .robot-sonuc-kutusu { background: rgba(6, 182, 212, 0.15); border: 1px dashed var(--neon-blue); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: bold; line-height: 1.5; text-align: center; }
 
-        /* YENİ OTOPARK KUTULARI TASARIMI */
         .otopark-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
         .otopark-kart { background: rgba(15, 23, 42, 0.6); border: 2px solid var(--neon-blue); border-radius: 14px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 6px 15px rgba(6, 182, 212, 0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-decoration: none; color: white; }
         .otopark-kart:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4); border-color: var(--neon-orange); }
         .otopark-kart span { font-size: 24px; }
         .otopark-kart b { font-size: 13px; font-weight: 800; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
-        /* GEÇMİŞ SAKİN DETAY POPUP */
         .detay-ozet-box { background: rgba(15, 23, 42, 0.7); border: 2px solid var(--neon-orange); border-radius: 16px; padding: 25px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); font-size: 14px; font-weight: 600; line-height: 1.8; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         .detay-ozet-box b { color: var(--neon-blue); }
 
@@ -290,11 +288,9 @@
                 </div>
                 
                 <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
-                    <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
-                        <div class="sakin-kutusu" id="adminSakinKutusu">
-                            <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ:</label>
-                            <div class="sakin-scroll" id="sakinListesi"></div>
-                        </div>
+                    <div class="sakin-kutusu" id="adminSakinKutusu">
+                        <label style="color:var(--neon-orange); font-size:10px; font-weight:700;">✏️ SAKİN LİSTESİ:</label>
+                        <div class="sakin-scroll" id="sakinListesi"></div>
                     </div>
                 </div>
 
@@ -394,7 +390,6 @@
         </div>
     </div>
 
-    <!-- 5 REZERVASYON OTOPARK ALANI - İSTEDİĞİN LİNKLER EKLENDİ -->
     <div id="modalOtoparklar" class="modal-arka">
         <div class="modal-kart" style="max-width:600px; height:auto; max-height:85vh;">
             <div class="modal-header">
@@ -425,7 +420,6 @@
         </div>
     </div>
 
-    <!-- GEÇMİŞ VEYA KİLİTLİ ADAMA TIKLAYINCA AÇILACAK DETAY POPUP MODALI -->
     <div id="modalGecmisSakinDetay" class="modal-arka">
         <div class="modal-kart" style="max-width:500px; height:auto; max-height:80vh;">
             <div class="modal-header">
@@ -722,7 +716,7 @@
                 indirimMetni = ` <span style="color:var(--neon-green); font-weight:800;">(%15 İndirim Uygulandı!)</span>`;
             }
 
-            ozetDiv.innerHTML = `Giriş: ${gGunAdi} (Öğleden Sonra)<br>Çıkış: ${cGunAdi} (Öğleden Önce)<br>Süre: ${mGece} Gece<br>Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
+            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Öğleden Sonra)<br>🛬 Çıkış: ${cGunAdi} (Öğleden Önce)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
 
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             for(let i = 0; i <= mGece; i++) {
@@ -758,11 +752,11 @@
 
             let hazirMesaj = `Selamun Aleykum hocam,\n\n` +
                              `Takvimden boş günleri inceledim.\n` +
-                             `Oda Tipi: ${odaYazi}\n` +
-                             `Giriş: ${gGunAdi} Günü (Öğleden Sonra)\n` +
-                             `Çıkış: ${cGunAdi} Günü (Öğleden Önce)\n` +
-                             `Süre: ${mGece} Gece\n` +
-                             `Hesaplanan Tutar: ${sonTutar} TL${indirimNotu}\n\n` +
+                             `🛏️ Oda Tipi: ${odaYazi}\n` +
+                             `🛫 Giriş: ${gGunAdi} Günü (Öğleden Sonra)\n` +
+                             `🛬 Çıkış: ${cGunAdi} Günü (Öğleden Önce)\n` +
+                             `🌙 Süre: ${mGece} Gece\n` +
+                             `💰 Hesaplanan Tutar: ${sonTutar} TL${indirimNotu}\n\n` +
                              `Rezervasyon yaptırmak istiyorum.`;
             window.open(`https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(hazirMesaj)}`, '_blank');
         }
@@ -873,7 +867,7 @@
                 📱 <b>Telefon Numarası:</b> ${tel || 'Yok'}<br>
                 <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.2); margin:10px 0;">
                 🛫 <b>Giriş Günü:</b> ${gun} ${ayAdi} ${yil} - ${gGunAdi} <span style="color:var(--neon-green);">(Öğleden Sonra)</span><br>
-                🛬 <b>Çıkış Günü:</b> ${bitisTarihStr} - ${cGunAdi} <span style="color:var(--neon-red);">(Öğleden Önce)</span><br>
+                ` + `🛬 <b>Çıkış Günü:</b> ${bitisTarihStr} - ${cGunAdi} <span style="color:var(--neon-red);">(Öğleden Önce)</span><br>
                 🌙 <b>Toplam Kalınan Süre:</b> ${süre} Gece<br>
                 <hr style="border:0; border-top:1px dashed rgba(255,255,255,0.2); margin:10px 0;">
                 💰 <b>Alınan Toplam Ücret:</b> <span style="color:var(--neon-orange); font-size:16px;">${fiyat} TL</span><br>
@@ -1095,7 +1089,7 @@
             verileriBulutaKaydet();
         }
 
-        /* TEK GÜN VE TÜM GÜNLER SİLME SEÇENEKLİ ESNEK SİLME SİSTEMİ */
+        /* SİLME İŞLEMİNDE TEK GÜN VEYA TÜM REZERVASYON SEÇENEĞİ */
         function kayitSilDinamik(tarihStr) {
             if(!isAdmin) return;
             let temizTarih = tarihStr.substring(0, 10); 
