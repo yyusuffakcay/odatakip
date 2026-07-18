@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v41</title>
+    <title>Misafirhane Canlı Otomasyonu v42</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -526,30 +526,11 @@
         const gunlerTr = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
         
         let rezervasyonlar = {}; 
-        let geriAlmaHafizasi = []; 
         let duzenlenenEskiIsim = null;
         let seciliAdminMusteriBilgisi = null;
         let bulutKilitliGunler = {}; 
         let kilitliKayitlariZorlaAc = {}; 
         let tumRehberMusterileri = [];
-
-        window.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
-                if(geriAlmaHafizasi.length > 0 && isAdmin) {
-                    e.preventDefault();
-                    rezervasyonlar = geriAlmaHafizasi.pop();
-                    verileriBulutaKaydet();
-                    alert("Son yaptığın değişiklik klavyeden geri alındı kanka! 🔄");
-                }
-            }
-        });
-
-        function hafizayaKaydet() {
-            if(Object.keys(rezervasyonlar).length > 0) {
-                if(geriAlmaHafizasi.length > 15) geriAlmaHafizasi.shift(); 
-                geriAlmaHafizasi.push(JSON.parse(JSON.stringify(rezervasyonlar)));
-            }
-        }
 
         function modalAc(id) { 
             document.getElementById(id).style.display = "flex"; 
