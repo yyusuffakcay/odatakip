@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misafirhane Canlı Otomasyonu v39</title>
+    <title>Misafirhane Canlı Otomasyonu v40</title>
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.25); 
@@ -805,7 +805,7 @@
                            `------------------------------------------\n\n` +
                            `📍 *[ CONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
-                           `🇺A *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
+                           `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
                            `↳ Otopark bulma panelini canlı olarak ana sayfamızdaki "Otopark Bul" butonundan görebilirsiniz kanka!\n\n` +
                            `Sizleri ağırlamaktan şeref duyarız, hayırlı yolculuklar dileriz. ⭐✨`;
 
@@ -849,7 +849,7 @@
                 }
             }
             
-            制造hafizayaKaydet();
+            hafizayaKaydet();
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`, { method: 'PUT', body: JSON.stringify(bulutKilitliGunler) });
                 listeyiYenile();
@@ -1096,8 +1096,8 @@
             let süre = parseInt(document.getElementById("formSüre").value); let fiyat = parseInt(document.getElementById("formFiyat").value) || 0; let odeme = document.getElementById("formOdeme").value;
             if(!isim || !süre) { alert("İsim yaz kanka!"); return; }
             
-            制造hafizayaKaydet();
-            if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
+            hafizayaKaydet();
+            if (duzenlenenEskiIsim) { Object.keys(rezervasyonlar).forEach(t => { if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervervasyonlar[t].isim.toLowerCase() === duzenlenenEskiIsim.toLowerCase()) { delete rezervasyonlar[t]; } }); }
             let baslangic = new Date(rYil, rAy - 1, rGun);
             for(let i=0; i<=süre; i++) {
                 let yeniTarih = new Date(baslangic); yeniTarih.setDate(baslangic.getDate() + i);
@@ -1129,7 +1129,7 @@
 
             let mesaj = `👤 Müşteri: ${assetIsim.toUpperCase()}\n\nHangi işlemi yapmak istersin kanka?\n\n[Tamam]'a basarsan SADECE BU TEK GÜNÜ siler (Konaklama kısalır).\n[İptal]'e basarsan MÜŞTERİNİN TÜM GÜNLERİNİ siler.`;
             
-            制造hafizayaKaydet();
+            hafizayaKaydet();
             if(confirm(mesaj)) {
                 delete rezervasyonlar[hedefTipKey];
                 duzenlemeModunuKapat(); 
