@@ -6,8 +6,8 @@
     <title>Misafirhane Canlı Otomasyonu v36</title>
     <style>
         :root {
-            --bg-card: rgba(15, 23, 42, 0.45); 
-            --bg-input: rgba(15, 23, 42, 0.65);
+            --bg-card: rgba(15, 23, 42, 0.25); 
+            --bg-input: rgba(15, 23, 42, 0.55);
             --neon-green: #10b981;
             --neon-blue: #06b6d4; 
             --neon-red: #ef4444;
@@ -16,7 +16,7 @@
         }
         
         body { 
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(15, 23, 42, 0.15)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
             background-size: cover;
             color: var(--text-light); 
             font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif; 
@@ -24,9 +24,8 @@
         }
 
         .giris-ekrani { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 95vh; gap: 15px; padding-bottom: 20px; }
-        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
+        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.6); cursor: pointer; }
         
-        /* MÜKEMMEL TURKUAZ SAYDAM (CAM EFEKTİ) YÜZEN BUTON TASARIMLARI */
         .buton-grid-ust, .buton-grid-alt { display: flex; gap: 15px; width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box; }
         
         .ana-btn { 
@@ -63,7 +62,7 @@
         .btn-fiyat-kirmizi:hover { box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5) !important; background: rgba(239, 68, 68, 0.25) !important; border-color: rgba(239, 68, 68, 0.8) !important; }
 
         .medrese-aciklama-notu {
-            background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px;
             width: 100%; max-width: 730px; text-align: center; font-size: 11px; line-height: 1.5; font-weight: 600; color: #e2e8f0;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.5); margin-top: 5px;
@@ -74,8 +73,9 @@
         .program-ekrani { display: none; }
         .ana-duzen { display: flex; flex-direction: row; gap: 15px; width: 100%; max-width: 1500px; margin: 0 auto; height: calc(100vh - 100px); }
         
-        .sol-bolum { width: 28%; min-width: 240px; background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 15px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.15); overflow-y: auto; }
-        .sag-bolum { width: 72%; background: transparent; padding: 15px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+        .sol-bolum { width: 28%; min-width: 240px; background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 15px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.25); overflow-y: auto; }
+        
+        .sag-bolum { width: 72%; background: transparent; padding: 15px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; border: none; box-shadow: none; }
         
         .ay-kontrol-satiri { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
         .ay-kontrol { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); flex: 1; }
@@ -136,7 +136,7 @@
         .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; }
         .modal-kart { background: rgba(30, 41, 59, 0.95); border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 15px; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
-        .modal-body { flex: 1; overflow-y: auto; }
+        .modal-body { flex: 1; overflow-y: auto; padding-right: 5px;}
         
         .galeri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 10px; }
         .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; cursor: pointer; }
@@ -152,6 +152,10 @@
         .lightbox-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; backdrop-filter: blur(5px); touch-action: pinch-zoom; overflow: auto; }
         .lightbox-resim { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); transition: transform 0.2s ease; }
         .lightbox-kapat-btn { position: fixed; top: 20px; right: 20px; background: #ef4444; color: white; border: 2px solid white; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 210; }
+        .lightbox-ok { position: absolute; top: 50%; transform: translateY(-50%); font-size: 40px; color: white; cursor: pointer; user-select: none; z-index: 215; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50%; transition: background 0.2s; }
+        .lightbox-ok.sol { left: 20px; }
+        .lightbox-ok.sag { right: 20px; }
+        .lightbox-ok:hover { background: var(--neon-blue); }
 
         .rehber-tablo { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }
         .rehber-tablo th { background: rgba(15, 23, 42, 0.7); padding: 12px 10px; color: var(--neon-green); border-bottom: 2px solid rgba(255,255,255,0.2); }
@@ -180,6 +184,15 @@
         .detay-ozet-box { background: rgba(15, 23, 42, 0.7); border: 2px solid var(--neon-orange); border-radius: 16px; padding: 25px; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); font-size: 14px; font-weight: 600; line-height: 1.8; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         .detay-ozet-box b { color: var(--neon-blue); }
 
+        .fatih-kategori-baslik { font-size: 16px; color: var(--neon-orange); border-bottom: 2px solid var(--neon-blue); padding-bottom: 5px; margin-top: 15px; margin-bottom: 10px; text-transform: uppercase; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .fatih-item { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.2s; }
+        .fatih-item:hover { border-color: var(--neon-blue); transform: translateX(5px); }
+        .fatih-item-baslik { font-size: 14px; font-weight: bold; color: var(--neon-green); display: flex; justify-content: space-between; align-items: center; }
+        .fatih-item-detay { font-size: 11px; color: #cbd5e1; line-height: 1.5; font-weight: 600; }
+        .fatih-link-btn { background: rgba(6, 182, 212, 0.2); border: 1px solid var(--neon-blue); color: white; padding: 5px 10px; border-radius: 6px; font-size: 11px; text-decoration: none; display: inline-block; width: max-content; margin-top: 4px; font-weight: bold; }
+        .fatih-link-btn:hover { background: var(--neon-blue); }
+        .fatih-sil-btn { background: var(--neon-red); color: white; border: none; border-radius: 4px; font-size: 9px; padding: 4px 8px; cursor: pointer; font-weight: bold; }
+
         @media (max-width: 1024px) {
             .ana-duzen { flex-direction: column; height: auto; }
             .sol-bolum, .sag-bolum { width: 100%; height: auto; }
@@ -193,7 +206,7 @@
 
     <div id="girisEkrani" class="giris-ekrani">
         <!-- GİZLİ YÖNETİCİ GİRİŞİ (Sadece başlığa tıklandığında şifre sorar, buton gizlendi) -->
-        <div class="ana-baslik" onclick="yoneticiGirisSifre()" style="cursor: pointer;">
+        <div class="ana-baslik" onclick="yoneticiGirisSifre()">
             <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(6,182,212,0.6);">🏛️ MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600;">Canlı Rezervasyon & Takip Sistemi</p>
         </div>
@@ -267,12 +280,9 @@
                         <label>Konaklama (Gece Süresi):</label>
                         <input type="number" id="formSüre" value="1" min="1" oninput="adminFiyatHesaplaDinamik()">
                     </div>
-                    <!-- YENİ EKLENEN MANUEL İNDİRİM MENÜSÜ -->
                     <div class="form-group">
                         <label style="color:var(--neon-green);">✂️ Yönetici Özel İndirimi:</label>
-                        <select id="formIndirimAdmin" onchange="adminFiyatHesaplaDinamik()">
-                            <!-- JS ile 5-100 arası dolacak -->
-                        </select>
+                        <select id="formIndirimAdmin" onchange="adminFiyatHesaplaDinamik()"></select>
                     </div>
                     <div class="form-group">
                         <label>Toplam Hesaplanan Fiyat (TL):</label>
@@ -364,16 +374,16 @@
                 
                 <!-- SLAYT GÖSTERİSİ -->
                 <div class="slayt-container">
-                    <img class="slayt-img active" id="slayt-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" onclick="resimYakinlastir(this)">
-                    <img class="slayt-img" id="slayt-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img active" id="slayt-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" onclick="resimKutuYakinlastir(1)">
+                    <img class="slayt-img" id="slayt-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" onclick="resimKutuYakinlastir(2)">
+                    <img class="slayt-img" id="slayt-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" onclick="resimKutuYakinlastir(3)">
+                    <img class="slayt-img" id="slayt-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" onclick="resimKutuYakinlastir(4)">
+                    <img class="slayt-img" id="slayt-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" onclick="resimKutuYakinlastir(5)">
+                    <img class="slayt-img" id="slayt-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" onclick="resimKutuYakinlastir(6)">
+                    <img class="slayt-img" id="slayt-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" onclick="resimKutuYakinlastir(7)">
+                    <img class="slayt-img" id="slayt-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" onclick="resimKutuYakinlastir(8)">
+                    <img class="slayt-img" id="slayt-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" onclick="resimKutuYakinlastir(9)">
+                    <img class="slayt-img" id="slayt-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" onclick="resimKutuYakinlastir(10)">
                     
                     <div class="slayt-yazi" id="slaytYaziEtiketi">Oda 1</div>
                 </div>
@@ -382,7 +392,6 @@
                 <div class="admin-upload-panel" id="adminUploadGiris">
                     <b style="color:var(--neon-orange); font-size:12px; text-align:center;">⚙️ BULUT RESİM GÜNCELLEME SİSTEMİ (10 ODA)</b>
                     <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top:5px;">
-                        <!-- JS Kodu içindeki bir döngü yerine buraya saf html ile 10 kutu yazıldı daha anlaşılır olsun diye -->
                         <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
                             <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 1</span>
                             <input type="file" id="odaDosya1" accept="image/*" style="padding:2px; font-size:9px;">
@@ -533,7 +542,9 @@
 
     <div id="lightboxModal" class="lightbox-arka">
         <button class="lightbox-kapat-btn" onclick="lightboxKapat()">✖</button>
+        <div class="lightbox-ok sol" onclick="lightboxGez(-1)">&#10094;</div>
         <img id="lightboxGorsel" class="lightbox-resim" src="" alt="Büyütülmüş Görsel">
+        <div class="lightbox-ok sag" onclick="lightboxGez(1)">&#10095;</div>
     </div>
 
     <div id="modalHarita" class="modal-arka">
@@ -544,9 +555,41 @@
             </div>
             <div class="modal-body" style="height:100%; display:flex; flex-direction:column; gap:10px;">
                 <p style="font-size:12px; font-weight:600; margin:0;">Misafirhanemiz merkezi konumda olup, ulaşımı son derece kolaydır kanka:</p>
-                <!-- Standart Harita Gömülü Bırakıldı -->
                 <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" height="80%" style="border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
                 <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; font-size:13px; text-decoration:none;">🌐 Google Maps Uygulamasında Açmak İçin Tıkla kanka</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalFatihCevresi" class="modal-arka">
+        <div class="modal-kart" style="max-width:700px; height:auto; max-height:85vh;">
+            <div class="modal-header">
+                <h2 style="margin:0; font-size:18px; color:var(--neon-green)">🕌 FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ</h2>
+                <button onclick="modalKapat('modalFatihCevresi')" style="background:#ef4444;">KAPAT ✖</button>
+            </div>
+            <div class="modal-body" style="padding:15px;">
+                
+                <!-- YÖNETİCİ İÇİN EKLEME PANELİ (Sadece admin görür) -->
+                <div id="fatihAdminEkleForm" style="display:none; background:rgba(0,0,0,0.4); padding:15px; border-radius:12px; border:2px dashed var(--neon-orange); margin-bottom:15px; flex-direction:column; gap:10px; box-shadow:0 8px 20px rgba(0,0,0,0.4);">
+                    <b style="color:var(--neon-orange); font-size:13px; text-align:center; display:block;">🛠️ YÖNETİCİ YENİ MEKAN EKLEME PANELİ</b>
+                    <div style="display:flex; gap:10px;">
+                        <select id="fatihKategoriSec" style="width:35%; padding:8px; font-size:12px;">
+                            <option value="camiler">🕌 Camiler</option>
+                            <option value="kabirler">📿 Kabirler & Türbeler</option>
+                            <option value="parklar">🌲 Parklar</option>
+                        </select>
+                        <input type="text" id="fatihAdInput" placeholder="Mekan Adı (Örn: Çarşamba Pazarı)" style="flex:1; padding:8px; font-size:12px;">
+                    </div>
+                    <input type="text" id="fatihLinkInput" placeholder="Google Maps Linki (https://maps.app.goo.gl/...)" style="padding:8px; font-size:12px;">
+                    <textarea id="fatihDetayInput" placeholder="Alt Detaylar / Orada Yatan İsimler (İsteğe bağlı. Virgülle ayırabilirsiniz)" rows="2" style="padding:8px; font-size:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.3); background:var(--bg-input); color:white; width:100%; box-sizing:border-box;"></textarea>
+                    <button style="background:linear-gradient(to bottom, #10b981, #059669); border-bottom:4px solid #047857; color:white; padding:10px; font-size:12px; font-weight:bold; border-radius:8px; cursor:pointer;" onclick="fatihEkle()">LİSTEYE EKLE VE BULUTA MÜHÜRLE 💾</button>
+                </div>
+
+                <!-- DİNAMİK LİSTE -->
+                <div id="fatihListeIcerik">
+                    <!-- Javascript ile Fatih verileri buraya çizilecek -->
+                </div>
+
             </div>
         </div>
     </div>
@@ -591,9 +634,8 @@
         let kilitliKayitlariZorlaAc = {}; 
         let tumRehberMusterileri = [];
 
-        function fatihCevresiAc() {
-            alert("Kanka Fatih çevresi gezilecek yerler listesi şu an boş, içini yakında seninle beraber dolduracağız! 🕌");
-        }
+        /* YENİ: Fatih Rehberi Dinamik Verisi */
+        let fatihVerisi = { camiler: [], kabirler: [], parklar: [] };
 
         function modalAc(id) { 
             document.getElementById(id).style.display = "flex"; 
@@ -602,7 +644,6 @@
         }
         function modalKapat(id) { document.getElementById(id).style.display = "none"; }
 
-        // SLAYT GÖSTERİSİ KODLARI
         let aktifSlayt = 1;
         function slaytDondur() {
             let resimler = document.querySelectorAll('.slayt-img');
@@ -620,18 +661,25 @@
         }
         setInterval(slaytDondur, 3500);
 
-        function resimYakinlastir(etiket) {
-            document.getElementById("lightboxGorsel").src = etiket.src;
-            document.getElementById("lightboxModal").style.display = "flex";
-            history.pushState({ modalId: "lightboxModal" }, ""); 
-        }
-
+        let aktifLightboxOdaNo = 1;
         function resimKutuYakinlastir(odaNo) {
+            aktifLightboxOdaNo = odaNo;
             let src = document.getElementById("grid-oda" + odaNo).src;
             document.getElementById("lightboxGorsel").src = src;
             document.getElementById("lightboxModal").style.display = "flex";
             history.pushState({ modalId: "lightboxModal" }, ""); 
         }
+
+        // Yeni Yön Gezdirici (Sol Sağ Okları İçin)
+        function lightboxGez(yon) {
+            aktifLightboxOdaNo += yon;
+            if(aktifLightboxOdaNo > 10) aktifLightboxOdaNo = 1;
+            if(aktifLightboxOdaNo < 1) aktifLightboxOdaNo = 10;
+            
+            let src = document.getElementById("grid-oda" + aktifLightboxOdaNo).src;
+            document.getElementById("lightboxGorsel").src = src;
+        }
+
         function lightboxKapat() { document.getElementById("lightboxModal").style.display = "none"; }
 
         window.addEventListener("popstate", function(event) {
@@ -727,6 +775,111 @@
             } catch(e){}
         }
 
+        // --- FATİH ÇEVRESİ REHBERİ BULUT İŞLEMLERİ ---
+        async function fatihRehberiCek() {
+            try {
+                let r = await fetch(`${FIREBASE_URL}fatihRehberi.json`);
+                let d = await r.json();
+                if(d) {
+                    fatihVerisi = d;
+                } else {
+                    // Veritabanı boşsa senin istediğin default değerleri yerleştirelim
+                    fatihVerisi = {
+                        camiler: [
+                            { id: "c1", ad: "İSMAİL AĞA CAMİ", link: "https://maps.app.goo.gl/xZhxYjugfTPXWJcM6", detay: "" },
+                            { id: "c2", ad: "NİŞANCA CAMİ", link: "https://maps.app.goo.gl/AXokyZ9hwT1joEQq5", detay: "" },
+                            { id: "c3", ad: "FATİH CAMİ", link: "https://maps.app.goo.gl/vd5Ahbyf6R9cASaS9", detay: "" },
+                            { id: "c4", ad: "YAVUZ SULTAN SELİM", link: "https://maps.app.goo.gl/C3Nq3B1SsCfhKjNq9", detay: "" }
+                        ],
+                        kabirler: [
+                            { id: "k1", ad: "EDİRNEKAPI ŞEHİTLİĞİ", link: "https://maps.app.goo.gl/qfCYMesWSeXfd9e96", detay: "Mahmut Efendi Hz, Ali Haydar Efendi Hz, Şehit Bayram Hoca, Gönenli Mehmet Efendi Hz, Abdülmetin Hoca, Şehit Ali Hızır Hoca" }
+                        ],
+                        parklar: []
+                    };
+                    await fetch(`${FIREBASE_URL}fatihRehberi.json`, { method: 'PUT', body: JSON.stringify(fatihVerisi) });
+                }
+            } catch(e) { console.log(e); }
+        }
+
+        function fatihCevresiAc() {
+            fatihRehberiniCiz();
+            modalAc('modalFatihCevresi');
+        }
+
+        function fatihRehberiniCiz() {
+            let adminForm = document.getElementById("fatihAdminEkleForm");
+            if(isAdmin) adminForm.style.display = "flex"; else adminForm.style.display = "none";
+
+            let listeDiv = document.getElementById("fatihListeIcerik");
+            listeDiv.innerHTML = "";
+
+            let kategoriler = [
+                { key: "camiler", baslik: "🕌 CAMİLER" },
+                { key: "kabirler", baslik: "📿 KABİRLER VE TÜRBELER" },
+                { key: "parklar", baslik: "🌲 PARKLAR VE DİNLENME ALANLARI" }
+            ];
+
+            kategoriler.forEach(kat => {
+                if(fatihVerisi[kat.key] && fatihVerisi[kat.key].length > 0) {
+                    listeDiv.innerHTML += `<div class="fatih-kategori-baslik">${kat.baslik}</div>`;
+                    
+                    fatihVerisi[kat.key].forEach((item, index) => {
+                        let silBtn = isAdmin ? `<button class="fatih-sil-btn" onclick="fatihSil('${kat.key}', ${index})">SİL ✖</button>` : "";
+                        let detayHtml = item.detay ? `<div class="fatih-item-detay">📜 ${item.detay}</div>` : "";
+                        
+                        listeDiv.innerHTML += `
+                            <div class="fatih-item">
+                                <div class="fatih-item-baslik">
+                                    <span>${item.ad.toUpperCase()}</span>
+                                    ${silBtn}
+                                </div>
+                                ${detayHtml}
+                                <a href="${item.link}" target="_blank" class="fatih-link-btn">📍 Google Haritalar'da Aç</a>
+                            </div>
+                        `;
+                    });
+                }
+            });
+
+            if(listeDiv.innerHTML === "") {
+                listeDiv.innerHTML = `<div style="text-align:center; padding:20px; color:#cbd5e1; font-weight:bold;">Şu an rehberde kayıtlı mekan bulunmamaktadır.</div>`;
+            }
+        }
+
+        async function fatihEkle() {
+            if(!isAdmin) return;
+            let kat = document.getElementById("fatihKategoriSec").value;
+            let ad = document.getElementById("fatihAdInput").value.trim();
+            let link = document.getElementById("fatihLinkInput").value.trim();
+            let detay = document.getElementById("fatihDetayInput").value.trim();
+
+            if(!ad || !link) { alert("Mekan Adı ve Linki boş olamaz kanka!"); return; }
+
+            if(!fatihVerisi[kat]) fatihVerisi[kat] = [];
+            fatihVerisi[kat].push({ id: Date.now().toString(), ad: ad, link: link, detay: detay });
+
+            document.getElementById("fatihAdInput").value = "";
+            document.getElementById("fatihLinkInput").value = "";
+            document.getElementById("fatihDetayInput").value = "";
+
+            try {
+                await fetch(`${FIREBASE_URL}fatihRehberi.json`, { method: 'PUT', body: JSON.stringify(fatihVerisi) });
+                fatihRehberiniCiz();
+            } catch(e) { alert("Mekan kaydedilirken bulut hatası oluştu!"); }
+        }
+
+        async function fatihSil(kat, index) {
+            if(!isAdmin) return;
+            if(confirm("Bu mekanı rehberden kalıcı olarak silmek istediğine emin misin kanka?")) {
+                fatihVerisi[kat].splice(index, 1);
+                try {
+                    await fetch(`${FIREBASE_URL}fatihRehberi.json`, { method: 'PUT', body: JSON.stringify(fatihVerisi) });
+                    fatihRehberiniCiz();
+                } catch(e) { alert("Silinirken hata oluştu!"); }
+            }
+        }
+        // --- FATİH ÇEVRESİ SONU ---
+
         function robotKutulariniDoldur() {
             let süreSelect = document.getElementById("robotGeceSüresi");
             let yüzdeSelect = document.getElementById("robotIndirimYüzde");
@@ -794,6 +947,7 @@
             await bulutSifresiniCek();
             await bulutHaritaLinkiniCek();
             await bulutKilitleriniCek();
+            await fatihRehberiCek(); // Yeni veriyi çeker
             bulutResimleriniYukle();
             adminFiyatHesaplaDinamik();
             
@@ -942,7 +1096,7 @@
                            `📍 *[ KONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
                            `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n` +
-                           `↳ (Yakında Eklenecek)\n\n` +
+                           `↳ https://ismailagacemaati.com.tr (Veya sitemizdeki 4. Buton)\n\n` +
                            `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
                            `1. Çukurbostan: https://maps.app.goo.gl/WbhqqWKnScXQmiEv5\n` +
                            `2. Nişanca 1: https://maps.app.goo.gl/VaqTVDMWzyZAAqsR8\n` +
