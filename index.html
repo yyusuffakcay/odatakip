@@ -9,7 +9,7 @@
             --bg-card: rgba(15, 23, 42, 0.45); 
             --bg-input: rgba(15, 23, 42, 0.65);
             --neon-green: #10b981;
-            --neon-blue: #06b6d4; /* Turkuaz / Cyan ağırlıklı */
+            --neon-blue: #06b6d4; 
             --neon-red: #ef4444;
             --neon-orange: #f59e0b;
             --text-light: #f8fafc;
@@ -23,10 +23,10 @@
             padding: 15px; margin: 0; box-sizing: border-box; 
         }
 
-        /* YÜZEN SAYDAM BUTONLAR VE ANA EKRAN TASARIMI */
         .giris-ekrani { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 95vh; gap: 15px; padding-bottom: 20px; }
         .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
         
+        /* MÜKEMMEL TURKUAZ SAYDAM (CAM EFEKTİ) YÜZEN BUTON TASARIMLARI */
         .buton-grid-ust, .buton-grid-alt { display: flex; gap: 15px; width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box; }
         
         .ana-btn { 
@@ -51,7 +51,7 @@
             border-color: rgba(6, 182, 212, 0.8);
         }
         .ana-btn:active { transform: translateY(2px); border-bottom-width: 1px; }
-        .ana-btn span { font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .ana-btn span { font-size: 22px; }
 
         .btn-fiyat-kirmizi {
             background: rgba(239, 68, 68, 0.15) !important;
@@ -60,10 +60,7 @@
             box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important;
             text-shadow: 0 0 10px rgba(239, 68, 68, 0.8) !important;
         }
-        .btn-fiyat-kirmizi:hover { 
-            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5) !important; 
-            background: rgba(239, 68, 68, 0.25) !important;
-        }
+        .btn-fiyat-kirmizi:hover { box-shadow: 0 15px 35px rgba(239, 68, 68, 0.5) !important; background: rgba(239, 68, 68, 0.25) !important; border-color: rgba(239, 68, 68, 0.8) !important; }
 
         .medrese-aciklama-notu {
             background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -78,8 +75,7 @@
         .ana-duzen { display: flex; flex-direction: row; gap: 15px; width: 100%; max-width: 1500px; margin: 0 auto; height: calc(100vh - 100px); }
         
         .sol-bolum { width: 28%; min-width: 240px; background: var(--bg-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); padding: 15px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.15); overflow-y: auto; }
-        
-        .sag-bolum { width: 72%; background: transparent; padding: 15px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; border: none; box-shadow: none; }
+        .sag-bolum { width: 72%; background: transparent; padding: 15px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
         
         .ay-kontrol-satiri { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
         .ay-kontrol { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); flex: 1; }
@@ -102,7 +98,6 @@
         .takvim-ic-alan { min-width: 800px; display: flex; flex-direction: column; }
 
         .hafta-gunleri { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-weight: 800; font-size: 12px; color: #ffffff; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid rgba(255,255,255,0.3); text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-        
         .takvim-grid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: minmax(130px, 1fr); gap: 8px; }
         
         .gun-kutusu { display: flex; flex-direction: column; justify-content: space-between; padding: 8px; border-radius: 12px; font-size: 11px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.2); position: relative; overflow: hidden; transition: all 0.2s ease; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
@@ -110,9 +105,10 @@
         .gun-no { font-size: 11px; font-weight: 800; background: rgba(0,0,0,0.5); padding: 3px 6px; border-radius: 5px; color: #ffffff; width: max-content; }
         .gun-icerik { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 3px; font-size: 11px; text-align: left; white-space: normal; word-break: break-word; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
         
-        /* BOŞ GÜNLER TURKUAZ YAPILDI */
+        /* TURKUAZ BOŞ GÜN TASARIMI */
         .bos { background: rgba(6, 182, 212, 0.2); border-top: 4px solid var(--neon-blue); }
         .bos .gun-no { background: var(--neon-blue); }
+        
         .tam-dolu-odendi, .tam-dolu-odenmedi, .giris-odendi, .giris-odenmedi, .cikis-odendi, .cikis-odenmedi, .cakisma-odendi, .cakisma-odenmedi { background: rgba(239, 68, 68, 0.45); border-top: 4px solid var(--neon-red); }
 
         .manuel-kilitli-gun { background: rgba(30, 41, 59, 0.7) !important; border-top: 4px solid #64748b !important; color: #94a3b8 !important; opacity: 0.6; }
@@ -128,8 +124,8 @@
         .isaretli-gun { border: 4px solid #fffb00 !important; box-shadow: 0 0 40px #fffb00, inset 0 0 20px #fffb00 !important; z-index: 25; animation: kalpAtisiEfekti 0.6s infinite alternate cubic-bezier(0.25, 0.8, 0.25, 1); }
         @keyframes kalpAtisiEfekti { from { transform: scale(1.01); } to { transform: scale(1.06); } }
 
-        .btn-box-sil { background: rgba(255, 255, 255, 0.25); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 6px; padding: 4px; font-size: 10px; cursor: pointer; width: 100%; margin-top: 4px; font-weight: bold; }
-        .btn-box-sil:hover { background: var(--neon-red); }
+        .btn-box-sil { color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 6px; padding: 4px; font-size: 9px; cursor: pointer; width: 100%; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+        .btn-box-sil:hover { filter: brightness(1.2); transform: scale(1.05); }
 
         .sakin-kutusu { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; height: 140px; box-sizing: border-box; }
         .sakin-scroll { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
@@ -137,8 +133,8 @@
         .sakin-satir-gecmis { opacity: 0.5; border-left: 4px solid #64748b; }
         .sakin-satir-kilitli { text-decoration: line-through !important; opacity: 0.4 !important; border-left: 4px solid #ef4444 !important; }
 
-        .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 100; justify-content: center; align-items: center; }
-        .modal-kart { background: rgba(15, 23, 42, 0.95); border: 2px solid rgba(6, 182, 212, 0.5); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; }
+        .modal-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; }
+        .modal-kart { background: rgba(30, 41, 59, 0.95); border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; width: 90%; max-width: 950px; height: 85vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 15px; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
         .modal-body { flex: 1; overflow-y: auto; }
         
@@ -146,6 +142,12 @@
         .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; cursor: pointer; }
         .galeri-item img { width: 100%; height: 140px; object-fit: cover; display: block; }
         .galeri-text { position: absolute; bottom: 0; background: rgba(0,0,0,0.6); width:100%; padding: 5px; font-size: 11px; text-align: center; font-weight: bold; }
+
+        /* SLAYT CSS */
+        .slayt-container { position:relative; width:100%; height:300px; overflow:hidden; border-radius:12px; margin-bottom:15px; border: 2px solid var(--neon-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .slayt-img { width:100%; height:100%; object-fit:cover; position:absolute; transition:opacity 1s ease-in-out; opacity: 0; cursor: pointer; }
+        .slayt-img.active { opacity: 1; }
+        .slayt-yazi { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid var(--neon-blue); }
 
         .lightbox-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; backdrop-filter: blur(5px); touch-action: pinch-zoom; overflow: auto; }
         .lightbox-resim { max-width: 95%; max-height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); transition: transform 0.2s ease; }
@@ -159,13 +161,13 @@
         .admin-upload-panel { display: none; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 10px; border: 1px solid var(--neon-orange); margin-bottom: 15px; flex-direction: column; gap: 8px; }
         .admin-sifre-degis-kutusu { display: none; flex-direction: column; gap: 6px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; border: 1px solid var(--neon-blue); margin-top: 10px; }
 
-        .musteri-hesap-ozet { background: rgba(16, 182, 212, 0.15); padding: 8px; border-radius: 8px; border: 1px solid var(--neon-blue); font-size: 11px; font-weight: bold; text-align: center; color: #ffffff; }
+        .musteri-hesap-ozet { background: rgba(16, 182, 212, 0.15); padding: 8px; border-radius: 8px; border: 1px solid var(--neon-blue); font-size: 11px; font-weight: bold; text-align: center; color: #ffffff; line-height: 1.5; }
 
+        .fiyat-tablo-tabela { width: 100%; border-collapse: collapse; font-size: 12px; text-align: center; }
         .musteri-tabela-tasarim { border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; background: rgba(15, 23, 42, 0.6); box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); text-align: center; }
         .musteri-fiyat-satir { font-size: 18px; font-weight: 800; margin: 12px 0; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .musteri-tabela-not { font-size: 13px; color: #fffb00; font-weight: 700; margin-top: 25px; line-height: 1.6; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 0 8px rgba(255,251,0,0.5); animation: yaziParlama 1.5s infinite alternate; }
-        @keyframes yaziParlama { from { opacity: 0.8; } to { opacity: 1; } }
-
+        
         .hesap-makinesi-panel { background: rgba(15, 23, 42, 0.6); padding: 15px; border-radius: 14px; border: 1px solid var(--neon-blue); display: flex; flex-direction: column; gap: 10px; }
         .robot-sonuc-kutusu { background: rgba(6, 182, 212, 0.15); border: 1px dashed var(--neon-blue); padding: 10px; border-radius: 8px; font-size: 13px; font-weight: bold; line-height: 1.5; text-align: center; }
 
@@ -183,14 +185,16 @@
             .sol-bolum, .sag-bolum { width: 100%; height: auto; }
             .galeri-grid, .otopark-grid { grid-template-columns: repeat(1, 1fr); }
             .buton-grid-ust, .buton-grid-alt { flex-direction: column; gap: 10px; }
+            .admin-upload-panel > div { grid-template-columns: repeat(1, 1fr) !important; }
         }
     </style>
 </head>
 <body>
 
     <div id="girisEkrani" class="giris-ekrani">
-        <div class="ana-baslik">
-            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(6,182,212,0.8); color: #0ff;">🏛️ MİSAFİRHANE</h1>
+        <!-- GİZLİ YÖNETİCİ GİRİŞİ (Sadece başlığa tıklandığında şifre sorar, buton gizlendi) -->
+        <div class="ana-baslik" onclick="yoneticiGirisSifre()" style="cursor: pointer;">
+            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(6,182,212,0.6);">🏛️ MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600;">Canlı Rezervasyon & Takip Sistemi</p>
         </div>
         
@@ -205,14 +209,14 @@
             </button>
         </div>
 
+        <!-- YÖNETİM BUTONU KALDIRILDI, SIRALAMA GÜNCELLENDİ -->
         <div class="buton-grid-alt">
-            <button class="ana-btn" onclick="yoneticiGirisSifre()"><span>🔐</span>3. Yönetim Paneli</button>
-            <button class="ana-btn" onclick="modalAc('modalHarita')"><span>📍</span>4. Konum & Harita</button>
+            <button class="ana-btn" onclick="modalAc('modalHarita')"><span>📍</span>3. Konum & Harita</button>
+            <button class="ana-btn" onclick="fatihCevresiAc()"><span>🕌</span>4. Fatih Çevresi</button>
         </div>
 
         <div class="buton-grid-alt">
-            <button class="ana-btn" onclick="fatihCevresiAc()"><span>🕌</span>5. Fatih Çevresi Gezilecek Yerler</button>
-            <button class="ana-btn" onclick="modalAc('modalOtoparklar')"><span>🚗</span>6. Otopark Bul</button>
+            <button class="ana-btn" onclick="modalAc('modalOtoparklar')" style="width:100%;"><span>🚗</span>5. Otopark Bul</button>
         </div>
 
         <div class="medrese-aciklama-notu">
@@ -225,7 +229,7 @@
 
     <div id="programEkrani" class="program-ekrani">
         <div style="display:flex; justify-content:space-between; align-items:center; max-width:1500px; margin:0 auto 10px auto; padding: 0 10px;">
-            <h2 style="margin:0; font-size:20px; color:var(--neon-blue);">🏨 REZERVASYON KONTROL MERKEZİ</h2>
+            <h2 style="margin:0; font-size:20px;">🏨 REZERVASYON KONTROL MERKEZİ</h2>
             <button onclick="anaEkraDon()" style="background:linear-gradient(#ef4444, #b91c1c); border-bottom-color:#7f1d1d; padding:10px 20px;">🚪 ANA SAYFAYA DÖN</button>
         </div>
         
@@ -255,22 +259,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Manuel Müşteri İndirimi:</label>
-                        <select id="formAdminIndirim" onchange="adminFiyatHesaplaDinamik()">
-                            <option value="0">İndirim Yok (%0)</option>
-                            <option value="5">%5 İndirim</option>
-                            <option value="10">%10 İndirim</option>
-                            <option value="15">%15 İndirim</option>
-                            <option value="20">%20 İndirim</option>
-                            <option value="25">%25 İndirim</option>
-                            <option value="30">%30 İndirim</option>
-                            <option value="40">%40 İndirim</option>
-                            <option value="50">%50 İndirim</option>
-                            <option value="75">%75 İndirim</option>
-                            <option value="100">%100 İndirim (Ücretsiz)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label>Telefon No:</label>
                         <span id="ulkeGosterge" class="ulke-badge">🇹🇷 TÜRKİYE</span>
                         <input type="text" id="formTel" placeholder="0534 000 00 00">
@@ -279,10 +267,17 @@
                         <label>Konaklama (Gece Süresi):</label>
                         <input type="number" id="formSüre" value="1" min="1" oninput="adminFiyatHesaplaDinamik()">
                     </div>
+                    <!-- YENİ EKLENEN MANUEL İNDİRİM MENÜSÜ -->
+                    <div class="form-group">
+                        <label style="color:var(--neon-green);">✂️ Yönetici Özel İndirimi:</label>
+                        <select id="formIndirimAdmin" onchange="adminFiyatHesaplaDinamik()">
+                            <!-- JS ile 5-100 arası dolacak -->
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>Toplam Hesaplanan Fiyat (TL):</label>
                         <input type="number" id="formFiyat" value="2500" min="0">
-                        <small id="adminIndirimBilgi" style="color:var(--neon-green); font-weight:bold; display:none;">✨ Seçilen İndirim Uygulandı!</small>
+                        <small id="adminIndirimBilgi" style="color:var(--neon-green); font-weight:bold; display:none;">✨ Özel İndirim Uygulandı!</small>
                     </div>
                     <div class="form-group">
                         <label>Ödeme:</label>
@@ -312,7 +307,7 @@
                         <input type="number" id="mFormSüre" value="1" min="1" oninput="musteriTarihHesapla()">
                     </div>
                     <div class="musteri-hesap-ozet" id="mHesapÖzetYazi">Giriş ve Çıkış saatleri burada hesaplanacak...</div>
-                    <button id="btnMusteriWa" style="background:linear-gradient(#25d366, #128c7e); border-bottom-color:#075e54; width:100%; padding:12px; font-size:13px;" onclick="musteriWaGit()">  WHATSAPP İLE REZERVASYON YAP</button>
+                    <button id="btnMusteriWa" style="background:linear-gradient(#25d366, #128c7e); border-bottom-color:#075e54; width:100%; padding:12px; font-size:13px;" onclick="musteriWaGit()">  WHATSAPP İLE REZERVASYON YAP</button>
                 </div>
                 
                 <div class="susu-paneller" style="display:flex; flex-direction:column; gap:2px;">
@@ -333,14 +328,14 @@
                 <div class="admin-sifre-degis-kutusu" id="adminSifreDegisPanel">
                     <label style="color:var(--neon-blue); font-size:10px; font-weight:700;">⚙️ YÖNETİCİ ŞİFRESİNİ DEĞİŞTİR:</label>
                     <input type="password" id="yeniSifreInput" placeholder="Yeni Şifre">
-                    <input type="text" id="guvenlikSorusuInput" placeholder="Güvenlik Kodu (İLKİKRA)">
+                    <input type="password" id="guvenlikSorusuInput" placeholder="Güvenlik Kodu Girin">
                     <button style="background:var(--neon-blue); padding:5px; font-size:11px;" onclick="sifreyiBuluttaGuncelle()">Şifreyi Güncelle 💾</button>
                 </div>
             </div>
             
             <div class="sag-bolum">
                 <div class="ay-kontrol-satiri">
-                    <h3 id="listeBaslik" style="color:var(--neon-blue);">📊 DURUM LİSTESİ</h3>
+                    <h3 id="listeBaslik">📊 DURUM LİSTESİ</h3>
                     <div style="display:flex; gap:10px;">
                         <button class="btn-rehber" id="btnAdminRehber" onclick="rehberiAc()">📜 MÜŞTERİ REHBERİ</button>
                         <button class="btn-robot-tetik" id="btnAdminRobotPopup" style="display:none;" onclick="modalAc('modalHesapRobotu')">📐 HESAP ROBOTU</button>
@@ -355,87 +350,105 @@
                         <div class="takvim-grid" id="takvimGrid"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- BÜTÜN MODALLAR (Açılır Pencereler) BURADAN İTİBAREN BAŞLIYOR, İÇ İÇE GEÇMEYECEK -->
     <div id="modalTanitim" class="modal-arka">
-        <div class="modal-kart">
+        <div class="modal-kart" style="max-width: 800px;">
             <div class="modal-header">
                 <h2 style="margin:0; font-size:18px; color:var(--neon-blue)">🛏️ Odalarımız ve Galeri</h2>
                 <button onclick="modalKapat('modalTanitim')" style="background:#ef4444;">KAPAT ✖</button>
             </div>
             <div class="modal-body">
+                
+                <!-- SLAYT GÖSTERİSİ -->
+                <div class="slayt-container">
+                    <img class="slayt-img active" id="slayt-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" onclick="resimYakinlastir(this)">
+                    <img class="slayt-img" id="slayt-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" onclick="resimYakinlastir(this)">
+                    
+                    <div class="slayt-yazi" id="slaytYaziEtiketi">Oda 1</div>
+                </div>
+
+                <!-- ADMIN 10 KUTU YÜKLEME ALANI -->
                 <div class="admin-upload-panel" id="adminUploadGiris">
-                    <b style="color:var(--neon-orange); font-size:11px;">⚙️ ODA RESİMLERİNİ YÜKLE:</b>
-                    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-top:10px; max-height: 250px; overflow-y: auto; padding-right:5px;">
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">1. Oda Resmi:</label>
-                            <input type="file" id="file-oda1" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda1', 'file-oda1')">1. ODAYA YÜKLE 🚀</button>
+                    <b style="color:var(--neon-orange); font-size:12px; text-align:center;">⚙️ BULUT RESİM GÜNCELLEME SİSTEMİ (10 ODA)</b>
+                    <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top:5px;">
+                        <!-- JS Kodu içindeki bir döngü yerine buraya saf html ile 10 kutu yazıldı daha anlaşılır olsun diye -->
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 1</span>
+                            <input type="file" id="odaDosya1" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(1)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">2. Oda Resmi:</label>
-                            <input type="file" id="file-oda2" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda2', 'file-oda2')">2. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 2</span>
+                            <input type="file" id="odaDosya2" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(2)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">3. Oda Resmi:</label>
-                            <input type="file" id="file-oda3" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda3', 'file-oda3')">3. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 3</span>
+                            <input type="file" id="odaDosya3" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(3)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">4. Oda Resmi:</label>
-                            <input type="file" id="file-oda4" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda4', 'file-oda4')">4. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 4</span>
+                            <input type="file" id="odaDosya4" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(4)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">5. Oda Resmi:</label>
-                            <input type="file" id="file-oda5" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda5', 'file-oda5')">5. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 5</span>
+                            <input type="file" id="odaDosya5" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(5)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">6. Oda Resmi:</label>
-                            <input type="file" id="file-oda6" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda6', 'file-oda6')">6. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 6</span>
+                            <input type="file" id="odaDosya6" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(6)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">7. Oda Resmi:</label>
-                            <input type="file" id="file-oda7" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda7', 'file-oda7')">7. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 7</span>
+                            <input type="file" id="odaDosya7" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(7)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">8. Oda Resmi:</label>
-                            <input type="file" id="file-oda8" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda8', 'file-oda8')">8. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 8</span>
+                            <input type="file" id="odaDosya8" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(8)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">9. Oda Resmi:</label>
-                            <input type="file" id="file-oda9" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda9', 'file-oda9')">9. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 9</span>
+                            <input type="file" id="odaDosya9" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(9)">Yükle</button>
                         </div>
-                        <div style="background:rgba(0,0,0,0.4); padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <label style="color:var(--neon-blue); font-size:11px; font-weight:bold;">10. Oda Resmi:</label>
-                            <input type="file" id="file-oda10" accept="image/*" style="padding:4px; font-size:10px; margin:6px 0; width:100%; box-sizing:border-box;">
-                            <button style="background:var(--neon-green); border-bottom-color:#047857; font-size:11px; padding:6px; width:100%; border-radius:6px;" onclick="odaResminiBulutaYolla('oda10', 'file-oda10')">10. ODAYA YÜKLE 🚀</button>
+                        <div style="background:rgba(0,0,0,0.5); padding:8px; border-radius:8px; border:1px solid var(--neon-blue); display:flex; flex-direction:column; align-items:center; gap:5px;">
+                            <span style="font-size:10px; font-weight:bold; color:#fff;">Oda 10</span>
+                            <input type="file" id="odaDosya10" accept="image/*" style="padding:2px; font-size:9px;">
+                            <button style="background:var(--neon-green); font-size:9px; padding:4px; width:100%; border:none; color:#fff; border-radius:4px; cursor:pointer;" onclick="odaAyrilmisResimYukle(10)">Yükle</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="galeri-grid">
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" /><div class="galeri-text">Misafir Odası 1</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" /><div class="galeri-text">Misafir Odası 2</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" /><div class="galeri-text">Misafir Odası 3</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" /><div class="galeri-text">Misafir Odası 4</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" /><div class="galeri-text">Misafir Odası 5</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" /><div class="galeri-text">Misafir Odası 6</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" /><div class="galeri-text">Misafir Odası 7</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" /><div class="galeri-text">Misafir Odası 8</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" /><div class="galeri-text">Misafir Odası 9</div></div>
-                    <div class="galeri-item" onclick="resimYakinlastir(this)"><img id="img-oda10" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=600" /><div class="galeri-text">Misafir Odası 10</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(1)"><img id="grid-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" /><div class="galeri-text">Oda 1</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(2)"><img id="grid-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" /><div class="galeri-text">Oda 2</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(3)"><img id="grid-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" /><div class="galeri-text">Oda 3</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(4)"><img id="grid-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" /><div class="galeri-text">Oda 4</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(5)"><img id="grid-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" /><div class="galeri-text">Oda 5</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(6)"><img id="grid-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" /><div class="galeri-text">Oda 6</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(7)"><img id="grid-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" /><div class="galeri-text">Oda 7</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(8)"><img id="grid-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" /><div class="galeri-text">Oda 8</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(9)"><img id="grid-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" /><div class="galeri-text">Oda 9</div></div>
+                    <div class="galeri-item" onclick="resimKutuYakinlastir(10)"><img id="grid-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" /><div class="galeri-text">Oda 10</div></div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -456,7 +469,7 @@
                     </div>
                     
                     <div class="musteri-tabela-not">
-                        ✨ İndirimli fiyatları öğrenmek ve avantajlardan yararlanmak için mesaj atmayı unutmayın! ✨
+                        ✨ Sitemiz üzerinden ulaşan misafirlerimize anında %15 indirim uygulanmaktadır! ✨
                     </div>
                 </div>
             </div>
@@ -471,38 +484,27 @@
             </div>
             <div class="modal-body" style="padding:15px;">
                 <div class="otopark-grid">
-                    <a href="https://maps.app.goo.gl/WbhqqWKnScXQmiEv5" target="_blank" class="otopark-kart">
-                        <span>🅿️</span><b>1. ÇUKURBOSTAN OTOPARK</b>
-                    </a>
-                    <a href="https://maps.app.goo.gl/VaqTVDMWzyZAAqsR8" target="_blank" class="otopark-kart">
-                        <span>🅿️</span><b>2. NİŞANCA OTOPARK 1</b>
-                    </a>
-                    <a href="https://maps.app.goo.gl/pdfmC2Y3gaYKJi6PA" target="_blank" class="otopark-kart">
-                        <span>🅿️</span><b>3. NİŞANCA OTOPARK 2</b>
-                    </a>
-                    <a href="https://maps.app.goo.gl/UQ1Hn3v1hVf8VbMe6" target="_blank" class="otopark-kart">
-                        <span>🅿️</span><b>4. YAVUZSELİM OTOPARK</b>
-                    </a>
+                    <a href="https://maps.app.goo.gl/WbhqqWKnScXQmiEv5" target="_blank" class="otopark-kart"><span>🅿️</span><b>1. ÇUKURBOSTAN OTOPARK</b></a>
+                    <a href="https://maps.app.goo.gl/VaqTVDMWzyZAAqsR8" target="_blank" class="otopark-kart"><span>🅿️</span><b>2. NİŞANCA OTOPARK 1</b></a>
+                    <a href="https://maps.app.goo.gl/pdfmC2Y3gaYKJi6PA" target="_blank" class="otopark-kart"><span>🅿️</span><b>3. NİŞANCA OTOPARK 2</b></a>
+                    <a href="https://maps.app.goo.gl/UQ1Hn3v1hVf8VbMe6" target="_blank" class="otopark-kart"><span>🅿️</span><b>4. YAVUZSELİM OTOPARK</b></a>
                 </div>
                 <div style="margin-top:10px; padding:0 10px;">
-                    <a href="https://maps.app.goo.gl/x3DSVD6oxRPRHp147" target="_blank" class="otopark-kart" style="width:100%; box-sizing:border-box;">
-                        <span>🅿️</span><b>5. BEYCEĞİZ OTOPARK</b>
-                    </a>
+                    <a href="https://maps.app.goo.gl/x3DSVD6oxRPRHp147" target="_blank" class="otopark-kart" style="width:100%; box-sizing:border-box;"><span>🅿️</span><b>5. BEYCEĞİZ OTOPARK</b></a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="modalSakinDetay" class="modal-arka">
+    <div id="modalGecmisSakinDetay" class="modal-arka">
         <div class="modal-kart" style="max-width:500px; height:auto; max-height:80vh;">
             <div class="modal-header">
                 <h2 style="margin:0; font-size:18px; color:var(--neon-orange)">📋 MÜŞTERİ ARŞİV BİLGİ KARTI</h2>
-                <button onclick="modalKapat('modalSakinDetay')" style="background:#ef4444;">KAPAT ✖</button>
+                <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:#ef4444;">KAPAT ✖</button>
             </div>
             <div class="modal-body" style="padding:15px;">
-                <div class="detay-ozet-box" id="sakinDetayIcerik">
-                    <!-- Dinamik yüklenecek -->
-                </div>
+                <div class="detay-ozet-box" id="gecmisSakinDetayIcerik"></div>
+                <button id="btnArsivDuzenle" style="width:100%; margin-top:15px; background:var(--neon-blue); padding:10px; font-weight:bold; display:none;">KİLİDİ AÇ VE BİLGİLERİ DÜZENLE ✏️</button>
             </div>
         </div>
     </div>
@@ -518,27 +520,12 @@
                     <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
                         <div class="form-group">
                             <label>Oda Tipi:</label>
-                            <select id="robotOdaTipi" onchange="canliRobotHesapla()">
-                                <option value="2500">Tek Oda (2500 TL)</option>
-                                <option value="3500">Çift Oda (3500 TL)</option>
-                            </select>
+                            <select id="robotOdaTipi" onchange="canliRobotHesapla()"><option value="2500">Tek Oda (2500 TL)</option><option value="3500">Çift Oda (3500 TL)</option></select>
                         </div>
-                        <div class="form-group">
-                            <label>Gece Süresi:</label>
-                            <select id="robotGeceSüresi" onchange="canliRobotHesapla()">
-                                <!-- Script dinamik dolduracak -->
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>İndirim Oranı:</label>
-                            <select id="robotIndirimYüzde" onchange="canliRobotHesapla()">
-                                <!-- Script dinamik dolduracak -->
-                            </select>
-                        </div>
+                        <div class="form-group"><label>Gece Süresi:</label><select id="robotGeceSüresi" onchange="canliRobotHesapla()"></select></div>
+                        <div class="form-group"><label>İndirim Oranı:</label><select id="robotIndirimYüzde" onchange="canliRobotHesapla()"></select></div>
                     </div>
-                    <div class="robot-sonuc-kutusu" id="robotSonucYazi">
-                        Lütfen hesaplamak istediğiniz kriterleri seçin kanka.
-                    </div>
+                    <div class="robot-sonuc-kutusu" id="robotSonucYazi">Lütfen hesaplamak istediğiniz kriterleri seçin kanka.</div>
                 </div>
             </div>
         </div>
@@ -557,9 +544,9 @@
             </div>
             <div class="modal-body" style="height:100%; display:flex; flex-direction:column; gap:10px;">
                 <p style="font-size:12px; font-weight:600; margin:0;">Misafirhanemiz merkezi konumda olup, ulaşımı son derece kolaydır kanka:</p>
-                <!-- Default geçerli bir harita linki eklendi, siyah ekran vermemesi için -->
+                <!-- Standart Harita Gömülü Bırakıldı -->
                 <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" height="80%" style="border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
-                <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; font-size:13px; text-decoration:none;">🌐 Google Maps Uygulamasında Açmak İçin Tıkla kanka</a>
+                <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; font-size:13px; text-decoration:none;">🌐 Google Maps Uygulamasında Açmak İçin Tıkla kanka</a>
             </div>
         </div>
     </div>
@@ -611,25 +598,41 @@
         function modalAc(id) { 
             document.getElementById(id).style.display = "flex"; 
             history.pushState({ modalId: id }, ""); 
-            if(id === 'modalHesapRobotu') {
-                canliRobotHesapla();
-            }
+            if(id === 'modalHesapRobotu') canliRobotHesapla();
         }
-        
-        function modalKapat(id) { 
-            document.getElementById(id).style.display = "none"; 
+        function modalKapat(id) { document.getElementById(id).style.display = "none"; }
+
+        // SLAYT GÖSTERİSİ KODLARI
+        let aktifSlayt = 1;
+        function slaytDondur() {
+            let resimler = document.querySelectorAll('.slayt-img');
+            if(resimler.length === 0) return;
+            resimler.forEach(r => r.classList.remove("active"));
+            
+            let seciliSlayt = document.getElementById('slayt-oda' + aktifSlayt);
+            if(seciliSlayt) seciliSlayt.classList.add("active");
+            
+            let yazi = document.getElementById('slaytYaziEtiketi');
+            if(yazi) yazi.innerText = "Oda " + aktifSlayt;
+
+            aktifSlayt++;
+            if(aktifSlayt > 10) aktifSlayt = 1;
         }
+        setInterval(slaytDondur, 3500);
 
         function resimYakinlastir(etiket) {
-            let gorselSrc = etiket.querySelector('img').src;
-            document.getElementById("lightboxGorsel").src = gorselSrc;
+            document.getElementById("lightboxGorsel").src = etiket.src;
             document.getElementById("lightboxModal").style.display = "flex";
             history.pushState({ modalId: "lightboxModal" }, ""); 
         }
-        
-        function lightboxKapat() { 
-            document.getElementById("lightboxModal").style.display = "none"; 
+
+        function resimKutuYakinlastir(odaNo) {
+            let src = document.getElementById("grid-oda" + odaNo).src;
+            document.getElementById("lightboxGorsel").src = src;
+            document.getElementById("lightboxModal").style.display = "flex";
+            history.pushState({ modalId: "lightboxModal" }, ""); 
         }
+        function lightboxKapat() { document.getElementById("lightboxModal").style.display = "none"; }
 
         window.addEventListener("popstate", function(event) {
             if (event.state && event.state.modalId) {
@@ -645,17 +648,20 @@
             document.getElementById("girisEkrani").style.display = "flex"; 
         }
 
-        async function odaResminiBulutaYolla(odaId, inputId) {
-            let dosyaGirdi = document.getElementById(inputId).files[0];
-            if(!dosyaGirdi) { alert("Önce resim seç kanka!"); return; }
+        async function odaAyrilmisResimYukle(odaNo) {
+            let dosyaGirdi = document.getElementById("odaDosya" + odaNo).files[0];
+            if(!dosyaGirdi) { alert(odaNo + ". Oda için önce resim seç kanka!"); return; }
             let okuyucu = new FileReader();
             okuyucu.onload = async function(e) {
                 let base64Resim = e.target.result;
-                let imgEleman = document.getElementById("img-" + odaId);
-                if(imgEleman) imgEleman.src = base64Resim;
+                let idTipi = "oda" + odaNo;
+                
+                document.getElementById("slayt-" + idTipi).src = base64Resim;
+                document.getElementById("grid-" + idTipi).src = base64Resim;
+                
                 try {
-                    await fetch(`${FIREBASE_URL}galeri/${odaId}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
-                    alert("Oda resmi buluta mühürlendi! 🚀");
+                    await fetch(`${FIREBASE_URL}galeri/${idTipi}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
+                    alert(odaNo + ". Oda resmi buluta mühürlendi! 🚀");
                 } catch(err) { alert("Bulut hatası!"); }
             }
             okuyucu.readAsDataURL(dosyaGirdi);
@@ -666,12 +672,15 @@
                 let response = await fetch(`${FIREBASE_URL}galeri.json`);
                 let data = await response.json();
                 if(data) {
-                    Object.keys(data).forEach(odaKey => {
+                    for(let i=1; i<=10; i++) {
+                        let odaKey = "oda" + i;
                         if(data[odaKey] && data[odaKey].src) {
-                            let imgEleman = document.getElementById("img-" + odaKey);
-                            if(imgEleman) imgEleman.src = data[odaKey].src;
+                            let sImg = document.getElementById("slayt-" + odaKey);
+                            let gImg = document.getElementById("grid-" + odaKey);
+                            if(sImg) sImg.src = data[odaKey].src;
+                            if(gImg) gImg.src = data[odaKey].src;
                         }
-                    });
+                    }
                 }
             } catch(e) {}
         }
@@ -721,15 +730,18 @@
         function robotKutulariniDoldur() {
             let süreSelect = document.getElementById("robotGeceSüresi");
             let yüzdeSelect = document.getElementById("robotIndirimYüzde");
-            if(!süreSelect || !yüzdeSelect || süreSelect.children.length > 0) return;
+            let adminYuzde = document.getElementById("formIndirimAdmin");
 
-            for(let i=3; i<=30; i++) {
-                süreSelect.innerHTML += `<option value="${i}">${i} Gece</option>`;
+            if(adminYuzde && adminYuzde.children.length === 0) {
+                adminYuzde.innerHTML = `<option value="0">İndirim Yok</option>`;
+                for(let k=5; k<=100; k+=5) adminYuzde.innerHTML += `<option value="${k}">%${k} İndirim</option>`;
             }
-            for(let j=0; j<=50; j+=5) {
-                yüzdeSelect.innerHTML += `<option value="${j}">%${j} İndirim</option>`;
-            }
-            yüzdeSelect.value = "20";
+
+            if(!süreSelect || !yüzdeSelect || süreSelect.children.length > 0) return;
+            for(let i=1; i<=30; i++) süreSelect.innerHTML += `<option value="${i}">${i} Gece</option>`;
+            for(let j=0; j<=100; j+=5) yüzdeSelect.innerHTML += `<option value="${j}">%${j} İndirim</option>`;
+            yüzdeSelect.value = "15"; // default customer web discount
+            süreSelect.value = "3";
         }
 
         function canliRobotHesapla() {
@@ -749,24 +761,22 @@
             `;
         }
 
-        // YÖNETİCİ MANUEL İNDİRİM YÜZDESİ EKLENDİ
         function adminFiyatHesaplaDinamik() {
             let odaTipi = document.getElementById("formOdaTipiAdmin").value;
             let geceSüresi = parseInt(document.getElementById("formSüre").value) || 1;
-            let secilenIndirimYuzde = parseInt(document.getElementById("formAdminIndirim").value) || 0;
-            
+            let indirimYuzde = parseInt(document.getElementById("formIndirimAdmin").value) || 0;
             let fiyatInput = document.getElementById("formFiyat");
             let indirimYazi = document.getElementById("adminIndirimBilgi");
 
             let tabanFiyat = (odaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
             let toplamBrut = tabanFiyat * geceSüresi;
 
-            if(secilenIndirimYuzde > 0) {
-                let indirimliNet = Math.round(toplamBrut * ((100 - secilenIndirimYuzde) / 100)); 
+            if(indirimYuzde > 0) {
+                let indirimliNet = Math.round(toplamBrut * ((100 - indirimYuzde) / 100)); 
                 fiyatInput.value = indirimliNet;
                 if(indirimYazi) {
+                    indirimYazi.innerText = `✨ Özel %${indirimYuzde} İndirim Uygulandı!`;
                     indirimYazi.style.display = "block";
-                    indirimYazi.innerText = `✨ %${secilenIndirimYuzde} Manuel İndirim Uygulandı!`;
                 }
             } else {
                 fiyatInput.value = toplamBrut;
@@ -780,11 +790,11 @@
             if(document.getElementById("formGun")) document.getElementById("formGun").value = bugunStr;
             if(document.getElementById("mFormGun")) document.getElementById("mFormGun").value = bugunStr;
 
+            robotKutulariniDoldur();
             await bulutSifresiniCek();
             await bulutHaritaLinkiniCek();
             await bulutKilitleriniCek();
             bulutResimleriniYukle();
-            robotKutulariniDoldur();
             adminFiyatHesaplaDinamik();
             
             let sonAktifEkran = sessionStorage.getItem("misafirhane_aktif_ekran");
@@ -819,7 +829,7 @@
         function yoneticiGirisSifre() {
             let kayitliOturum = localStorage.getItem("misafirhane_admin_oturum");
             if(kayitliOturum === aktifAdminSifre) { adminYetkileriniAc(); return; }
-            let s = prompt("Yönetim paneli şifresini gir kanka:");
+            let s = prompt("Gizli Yönetim paneli şifresini gir kanka:");
             if (s === aktifAdminSifre) {
                 localStorage.setItem("misafirhane_admin_oturum", s);
                 adminYetkileriniAc();
@@ -843,7 +853,6 @@
             adminFiyatHesaplaDinamik();
         }
 
-        // DİREKT %15 WEB İNDİRİMİ EKLENDİ
         function musteriTarihHesapla() {
             let mSecilenTarih = document.getElementById("mFormGun").value;
             let mGece = parseInt(document.getElementById("mFormSüre").value) || 1;
@@ -860,11 +869,11 @@
             let birimFiyat = (mOdaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
             let brutTutar = birimFiyat * mGece;
             
-            // Site üzerinden yapıldığı için DİREKT %15 indirim
-            brutTutar = Math.round(brutTutar * 0.85); 
-            let indirimMetni = ` <br><span style="color:var(--neon-green); font-weight:800;">(%15 Web Rezervasyon İndirimi Uygulandı!)</span>`;
+            // WEB ÜZERİNDEN GELENLERE DİREKT %15 İNDİRİM
+            let indirimTutar = Math.round(brutTutar * 0.85); 
+            let indirimMetni = ` <span style="color:var(--neon-green); font-weight:800;">(Web'e Özel %15 İndirim Uygulandı!)</span>`;
 
-            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Ö.S)<br>🛬 Çıkış: ${cGunAdi} (Ö.Ö)<br>🌙 Süre: ${mGece} Gece<br>💰 NET Tutar: <b style="color:var(--neon-orange); font-size:14px;">${brutTutar} TL</b>${indirimMetni}`;
+            ozetDiv.innerHTML = `🛫 Giriş: ${gGunAdi} (Ö.S.)<br>🛬 Çıkış: ${cGunAdi} (Ö.Ö.)<br>🌙 Süre: ${mGece} Gece<br>💰 Toplam Tutar: <b style="color:var(--neon-orange); font-size:14px;">${indirimTutar} TL</b>${indirimMetni}`;
 
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             for(let i = 0; i <= mGece; i++) {
@@ -889,19 +898,16 @@
             let cGunAdi = gunlerTr[bitis.getDay()];
 
             let birimFiyat = (mOdaTipi === "tek") ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT;
-            let sonTutar = birimFiyat * mGece;
-            
-            // Site üzerinden %15 indirim yansıması
-            sonTutar = Math.round(sonTutar * 0.85);
-            let indirimNotu = " (%15 Web İndirimi Dahildir)";
-
+            let brutTutar = birimFiyat * mGece;
+            let sonTutar = Math.round(brutTutar * 0.85); // %15 indirim
+            let indirimNotu = " (%15 Site Web İndirimi Dahildir)";
             let odaYazi = mOdaTipi === "tek" ? "Tek Oda" : "Çift Oda";
 
             let hazirMesaj = `Selamun Aleykum hocam,\n\n` +
-                             `Siteden boş günleri inceledim.\n` +
+                             `Sitenizden boş günleri inceledim.\n` +
                              `🛏️ Oda Tipi: ${odaYazi}\n` +
-                             `🛫 Giriş: ${gGunAdi} Günü (Öğleden Sonra)\n` +
-                             `🛬 Çıkış: ${cGunAdi} Günü (Öğleden Önce)\n` +
+                             `🛫 Giriş: ${gGunAdi} Günü (Ö.S.)\n` +
+                             `🛬 Çıkış: ${cGunAdi} Günü (Ö.Ö.)\n` +
                              `🌙 Süre: ${mGece} Gece\n` +
                              `💰 Hesaplanan Tutar: ${sonTutar} TL${indirimNotu}\n\n` +
                              `Rezervasyon yaptırmak istiyorum.`;
@@ -936,7 +942,7 @@
                            `📍 *[ KONUM VE YOL TARİFİ ]*\n` +
                            `${aktifHaritaKonumLink}\n\n` +
                            `🕌 *[ FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ ]*\n` +
-                           `↳ Yakında eklenecektir...\n\n` +
+                           `↳ (Yakında Eklenecek)\n\n` +
                            `🚗 *[ MİSAFİRHANEMİZE EN YAKIN OTOPARKLAR ]*\n` +
                            `1. Çukurbostan: https://maps.app.goo.gl/WbhqqWKnScXQmiEv5\n` +
                            `2. Nişanca 1: https://maps.app.goo.gl/VaqTVDMWzyZAAqsR8\n` +
@@ -970,19 +976,13 @@
                 Object.keys(rezervasyonlar).forEach(kKey => {
                     if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
                         let rezTarih = kKey.substring(0, 10);
-                        if(guncelKilitDurumu) {
-                            bulutKilitliGunler[rezTarih] = true;
-                        } else {
-                            delete bulutKilitliGunler[rezTarih];
-                        }
+                        if(guncelKilitDurumu) bulutKilitliGunler[rezTarih] = true;
+                        else delete bulutKilitliGunler[rezTarih];
                     }
                 });
             } else {
-                if(guncelKilitDurumu) {
-                    bulutKilitliGunler[temizTarih] = true;
-                } else {
-                    delete bulutKilitliGunler[temizTarih];
-                }
+                if(guncelKilitDurumu) bulutKilitliGunler[temizTarih] = true;
+                else delete bulutKilitliGunler[temizTarih];
             }
             
             try {
@@ -998,52 +998,100 @@
             listeyiYenile();
         }
 
-        // AKILLI SAKİN BİLGİ DETAY PENCERESİ (YENİ)
-        function sakinDetayGoster(isim, tarihKey, süre, fiyat, odeme, tel, gunNo, gecmisMi, kilitliMi) {
-            let parca = tarihKey.split('-');
-            let baslangic = new Date(parseInt(parca[0]), parseInt(parca[1]) - 1, parseInt(parca[2]));
-            let gGunAdi = gunlerTr[baslangic.getDay()];
-            let bitis = new Date(baslangic); bitis.setDate(baslangic.getDate() + parseInt(süre));
-            let cGunAdi = gunlerTr[bitis.getDay()];
-
-            let icerikDiv = document.getElementById("sakinDetayIcerik");
-            let duzenleButon = "";
-            let uyariNotu = "";
-
-            if (!gecmisMi && !kilitliMi) {
-                // Aktif ve kilitli olmayanlar için düzenleme butonu
-                duzenleButon = `<button style="width:100%; margin-top:15px; background:var(--neon-blue); padding:12px; font-size:13px; font-weight:bold; border-bottom: 4px solid #0e7490;" onclick="modalKapat('modalSakinDetay'); duzenlemeModunuAc('${isim}', '${tarihKey}', ${süre}, ${fiyat}, '${odeme}', '${tel}', ${gunNo}, ${gecmisMi})">✏️ BİLGİLERİ DÜZENLE</button>`;
-            } else {
-                // Geçmiş veya kilitli ise uyarı notu düşülür
-                uyariNotu = `<p style="margin-top:15px; font-size:11px; color:#cbd5e1; text-align:center;">🔒 Bu kayıt kilitli veya geçmiş zamandadır. Düzenlemek için takvimden kilidini açabilirsiniz.</p>`;
-            }
-
-            icerikDiv.innerHTML = `
-                👤 <b>Müşteri Adı:</b> ${isim.toUpperCase()}<br>
-                📱 <b>Telefon No:</b> ${tel || 'Kayıtlı Değil'}<br>
-                🛫 <b>Giriş Tarihi:</b> ${parca[2]} ${aylarTr[parseInt(parca[1])-1]} ${parca[0]} (${gGunAdi})<br>
-                🛬 <b>Çıkış Tarihi:</b> ${String(bitis.getDate()).padStart(2,'0')} ${aylarTr[bitis.getMonth()]} ${bitis.getFullYear()} (${cGunAdi})<br>
-                🌙 <b>Konaklama Süresi:</b> ${süre} Gece<br>
-                💰 <b>Toplam Ücret:</b> ${fiyat} TL<br>
-                💳 <b>Ödeme Durumu:</b> <span style="color:${odeme === 'Alındı' ? 'var(--neon-green)':'var(--neon-red)'}">${odeme}</span><br>
-                ${duzenleButon}
-                ${uyariNotu}
-            `;
+        // AKILLI +1 / -1 GÜN PARÇALI DÜZENLEME
+        async function sureyiDegistir(isim, tarihKey, degisim, event) {
+            if(event) event.stopPropagation();
+            if(!isAdmin) return;
             
-            // Kişiye tıklandığında takvimdeki günlerinin parlaması (sarı yanıp sönme)
-            document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
-            document.querySelectorAll('.gun-kutusu').forEach(box => {
-                let gunNoId = box.id.replace("gunBox-", "");
-                let tStr = `${simdikiYil}-${String(simdikiAy).padStart(2, '0')}-${String(gunNoId).padStart(2, '0')}`;
-                let sName = isim.replace(/[^a-zA-Z0-9]/g, "");
-                if(rezervasyonlar[`${tStr}_giris_var_${sName}`] || 
-                   rezervasyonlar[`${tStr}_ara_var_${sName}`] || 
-                   rezervasyonlar[`${tStr}_cikis_var_${sName}`]) {
-                    box.classList.add('isaretli-gun');
+            let mevcutRez = null;
+            Object.keys(rezervasyonlar).forEach(k => {
+                let r = rezervasyonlar[k];
+                if(r && r.isim && r.isim.toLowerCase() === isim.toLowerCase() && k.startsWith(tarihKey.substring(0,10))) {
+                    mevcutRez = r;
                 }
             });
+            
+            if(!mevcutRez) return;
+            
+            let yeniSure = parseInt(mevcutRez.süre) + degisim;
+            if(yeniSure < 1) {
+                kayitSilOnay(isim, event);
+                return;
+            }
 
-            modalAc("modalSakinDetay");
+            Object.keys(rezervasyonlar).forEach(t => { 
+                if (rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === isim.toLowerCase()) { 
+                    delete rezervasyonlar[t]; 
+                } 
+            });
+
+            // Birim fiyatı bul ve yeni fiyata ekle (otomatik)
+            let inferredBirimFiyat = Math.round(mevcutRez.fiyat / mevcutRez.süre);
+            if(inferredBirimFiyat < 2000) inferredBirimFiyat = TEK_ODA_FIYAT; 
+            let yeniFiyat = inferredBirimFiyat * yeniSure;
+
+            let tParca = mevcutRez.bTarihVal.split('-');
+            let rYil = parseInt(tParca[0]); let rAy = parseInt(tParca[1]); let rGun = parseInt(tParca[2]);
+            let baslangic = new Date(rYil, rAy - 1, rGun);
+            let safeName = isim.replace(/[^a-zA-Z0-9]/g, ""); 
+            
+            for(let i=0; i<=yeniSure; i++) {
+                let yeniTarih = new Date(baslangic); yeniTarih.setDate(baslangic.getDate() + i);
+                let y = yeniTarih.getFullYear(); let m = String(yeniTarih.getMonth() + 1).padStart(2, '0'); let d = String(yeniTarih.getDate()).padStart(2, '0');
+                let tarihStr = `${y}-${m}-${d}`;
+                let tip = "ara"; if(i === 0) tip = "giris"; if(i === yeniSure) tip = "cikis";
+                let uniqKey = `${tarihStr}_${tip}_var_${safeName}`;
+                rezervasyonlar[uniqKey] = { 
+                    isim: mevcutRez.isim, tel: mevcutRez.tel, süre: yeniSure, 
+                    fiyat: yeniFiyat, odeme: mevcutRez.odeme, tip: tip, 
+                    bGun: rGun, bTarihVal: mevcutRez.bTarihVal 
+                };
+            }
+            
+            await verileriBulutaKaydet();
+        }
+
+        function kayitSilOnay(isim, event) {
+            if(event) event.stopPropagation();
+            if(!isAdmin) return;
+            if(confirm(isim + " isimli müşterinin tüm kayıtları komple silinsin mi?")) {
+                 Object.keys(rezervasyonlar).forEach(t => { 
+                    if(rezervasyonlar[t] && rezervasyonlar[t].isim && rezervasyonlar[t].isim.toLowerCase() === isim.toLowerCase()) { 
+                        delete rezervasyonlar[t]; 
+                    } 
+                 });
+                 duzenlemeModunuKapat(); verileriBulutaKaydet();
+            }
+        }
+
+        function gecmisSakinDetayiniGoster(isim, tarihKey, süre, fiyat, odeme, tel) {
+            let parca = tarihKey.split('-');
+            let yil = parca[0]; let ayNo = parseInt(parca[1]); let gun = parca[2];
+            let ayAdi = aylarTr[ayNo - 1];
+
+            let icerikDiv = document.getElementById("gecmisSakinDetayIcerik");
+            icerikDiv.innerHTML = `
+                👤 <b>Müşteri Adı:</b> ${isim.toUpperCase()}<br>
+                📱 <b>Telefon Numarası:</b> ${tel || 'Kayıtlı Değil'}<br>
+                📅 <b>Giriş Tarihi:</b> ${gun} ${ayAdi} ${yil}<br>
+                🌙 <b>Konaklama Süresi:</b> ${süre} Gece<br>
+                💰 <b>Toplam Alınan Ücret:</b> ${fiyat} TL<br>
+                💳 <b>Ödeme Durumu:</b> <span style="color:${odeme === 'Alındı' ? 'var(--neon-green)':'var(--neon-red)'}">${odeme}</span><br>
+            `;
+            modalAc("modalGecmisSakinDetay");
+            
+            // Eğer adminse butonu açarak düzenlemeye imkan tanı (Kilit açarak)
+            let dznBtn = document.getElementById("btnArsivDuzenle");
+            if(isAdmin) {
+                dznBtn.style.display = "block";
+                dznBtn.onclick = function() {
+                    kilidiZorlaAc(parseInt(gun));
+                    modalKapat('modalGecmisSakinDetay');
+                    duzenlemeModunuAc(isim, tarihKey, süre, fiyat, odeme, tel, parseInt(gun), true);
+                };
+            } else {
+                dznBtn.style.display = "none";
+            }
         }
 
         async function verileriBuluttanCek() {
@@ -1118,54 +1166,52 @@
                     eylemdurumu = "konaklıyor"; 
                 }
 
-                // EKSİLTME, UZATMA VE TÜM SİL BUTONLARI EKLENDİ
-                if(durum.cikislar.length > 0 && durum.girisler.length > 0) {
+                if(durum.cikislar.length > 0 && durum.gridDiv !== null && durum.girisler.length > 0) {
                     let cikisVeri = durum.cikislar[0]; let girisVeri = durum.girisler[0];
                     boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<div style="line-height:1.2;">
-                                        <b style="color:var(--neon-red)">🛬 Çıkış:</b> ${cikisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Gidiyor)</small><br>
-                                        <b style="color:var(--neon-green)">🛫 Giriş:</b> ${girisVeri.isim.split(' ')[0]}<br><small style="color:#cbd5e1;">(Girdi)</small>
+                                        <b style="color:var(--neon-red)">🛬 Çıkış:</b> ${cikisVeri.isim.split(' ')[0]}<br>
+                                        <b style="color:var(--neon-green)">🛫 Giriş:</b> ${girisVeri.isim.split(' ')[0]}
                                       </div>`;
-                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
-                            </div>`;
+                        silButonHtml = `<div style="display:flex; gap:2px; margin-top:4px;">
+                                           <button class="btn-box-sil" style="background:var(--neon-orange);" onclick="sureyiDegistir('${girisVeri.isim}', '${girisVeri.bTarihVal}', -1, event)">-1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-blue);" onclick="sureyiDegistir('${girisVeri.isim}', '${girisVeri.bTarihVal}', 1, event)">+1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-red);" onclick="kayitSilOnay('${girisVeri.isim}', event)">Tüm</button>
+                                        </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.girisler.length > 0) {
                     let veri = durum.girisler[0]; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
-                        let telNo = veri.tel ? `<br>📱 ${veri.tel}` : "";
-                        icerikHtml = `<span>🛫 <b>${veri.isim.toUpperCase()}</b>${telNo}<br><i style="color:var(--neon-green)">🛫 Giriş: Ö.S.</i></span>`;
-                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
-                            </div>`;
+                        icerikHtml = `<span>🛫 <b>${veri.isim.toUpperCase()}</b><br><i style="color:var(--neon-green)">🛫 Giriş</i></span>`;
+                        silButonHtml = `<div style="display:flex; gap:2px; margin-top:4px;">
+                                           <button class="btn-box-sil" style="background:var(--neon-orange);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', -1, event)">-1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-blue);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', 1, event)">+1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-red);" onclick="kayitSilOnay('${veri.isim}', event)">Tüm</button>
+                                        </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.cikislar.length > 0) {
                     let veri = durum.cikislar[0]; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
-                        icerikHtml = `<span>🛬 <b>${veri.isim.toUpperCase()}</b><br><i style="color:var(--neon-red)">🛬 Çıkış: Ö.Ö.</i></span>`;
-                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
-                            </div>`;
+                        icerikHtml = `<span>🛬 <b>${veri.isim.toUpperCase()}</b><br><i style="color:var(--neon-red)">🛬 Çıkış</i></span>`;
+                        silButonHtml = `<div style="display:flex; gap:2px; margin-top:4px;">
+                                           <button class="btn-box-sil" style="background:var(--neon-orange);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', -1, event)">-1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-blue);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', 1, event)">+1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-red);" onclick="kayitSilOnay('${veri.isim}', event)">Tüm</button>
+                                        </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
                 else if(durum.tamDolu) {
                     let veri = durum.tamDolu; boxClass = "tam-dolu-odendi";
                     if(isAdmin) {
                         icerikHtml = `<span>🔴 <b>${veri.isim.toUpperCase()}</b></span>`;
-                        silButonHtml = `<div style="display:flex; gap:4px; margin-top:5px; width:100%;">
-                                <button class="btn-box-sil" style="flex:1; background:rgba(245,158,11,0.3); border-color:var(--neon-orange);" onclick="kayitSilGun('${tarihStr}', event)">-1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(16,185,129,0.3); border-color:var(--neon-green);" onclick="kayitEkleGun('${tarihStr}', event)">+1</button>
-                                <button class="btn-box-sil" style="flex:1; background:rgba(239,68,68,0.3); border-color:var(--neon-red);" onclick="kayitSilTum('${tarihStr}', event)">Tüm Sil</button>
-                            </div>`;
+                        silButonHtml = `<div style="display:flex; gap:2px; margin-top:4px;">
+                                           <button class="btn-box-sil" style="background:var(--neon-orange);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', -1, event)">-1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-blue);" onclick="sureyiDegistir('${veri.isim}', '${veri.bTarihVal}', 1, event)">+1</button>
+                                           <button class="btn-box-sil" style="background:var(--neon-red);" onclick="kayitSilOnay('${veri.isim}', event)">Tüm</button>
+                                        </div>`;
                     } else { icerikHtml = "<span>🔴 DOLU</span>"; }
                 }
 
@@ -1183,7 +1229,7 @@
                 if(!bulutKilitliGunler[tarihStr] && eylemdurumu === "konakladı" && boxClass !== "bos") {
                     boxClass += " gecmis-kilitli-gun";
                     if(isAdmin) {
-                        kilitHtml = `<div class="kilit-rozeti" onclick="kilidiZorlaAc(${g}, event)">🔒 Geçmiş</div>`;
+                        kilitHtml = `<div class="kilit-rozeti" onclick="kilidiZorlaAc(${g})">🔒 Geçmiş</div>`;
                         if(kilitliKayitlariZorlaAc[g]) kilitHtml = `<div class="kilit-rozeti" style="color:var(--neon-green)">🔓 Açık</div>`;
                         else silButonHtml = "";
                     }
@@ -1204,14 +1250,13 @@
             Object.keys(buAykiSakinler).forEach(isim => {
                 let sVeri = buAykiSakinler[isim]; 
                 let ekSınıf = "";
-                // Tıklandığında detayı göster
-                let clickAksiyonu = `sakinDetayGoster('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}', ${sVeri.gun}, ${sVeri.gecmisMi}, ${sVeri.kilitliMi})`;
+                let clickAksiyonu = "";
                 
-                if(sVeri.kilitliMi) {
-                    ekSınıf = "sakin-satir-kilitli"; 
-                } else if(sVeri.gecmisMi) {
-                    ekSınıf = "sakin-satir-gecmis";
-                }
+                // Admin tarafında isme tıklanınca her türlü detay kartı açılsın
+                clickAksiyonu = `gecmisSakinDetayiniGoster('${isim}', '${sVeri.tarihKey}', ${sVeri.süre}, ${sVeri.fiyat}, '${sVeri.odeme}', '${sVeri.tel}')`;
+                
+                if(sVeri.kilitliMi) ekSınıf = "sakin-satir-kilitli"; 
+                else if(sVeri.gecmisMi) ekSınıf = "sakin-satir-gecmis";
                 
                 if(sakinDiv) sakinDiv.innerHTML += `<div class="sakin-satir ${ekSınıf}" onclick="${clickAksiyonu}"><span class="sakin-isim">👤 ${isim}</span><span class="sakin-gun-badge">Gün ${sVeri.gun}</span></div>`;
             });
@@ -1228,13 +1273,24 @@
             document.getElementById("formIsim").value = isim; document.getElementById("formTel").value = tel || "";
             document.getElementById("formGun").value = tarihKey; document.getElementById("formSüre").value = süre;
             document.getElementById("formFiyat").value = Math.max(0, parseInt(fiyat) || 0); document.getElementById("formOdeme").value = odeme;
+            document.getElementById("formIndirimAdmin").value = "0"; // Reset discount UI
             
             setTimeout(() => {
                 let formEleman = document.getElementById("solKontrolPaneli");
-                if (formEleman) {
-                    formEleman.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                if (formEleman) formEleman.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
+
+            // Tıklanan ismin grid kutularını sarı ile parlatma
+            document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
+            document.querySelectorAll('.gun-kutusu').forEach(box => {
+                let gunNoId = box.id.replace("gunBox-", "");
+                let tarihStr = `${simdikiYil}-${String(simdikiAy).padStart(2, '0')}-${String(gunNoId).padStart(2, '0')}`;
+                if(rezervasyonlar[`${tarihStr}_giris_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`] || 
+                   rezervasyonlar[`${tarihStr}_ara_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`] || 
+                   rezervasyonlar[`${tarihStr}_cikis_var_${isim.replace(/[^a-zA-Z0-9]/g, "")}`]) {
+                    box.classList.add('isaretli-gun');
+                }
+            });
 
             let btn = document.getElementById("btnIslem"); btn.innerText = "REZERVASYONU GÜNCELLE";
             btn.style.background = "linear-gradient(to bottom, #f59e0b, #d97706)"; document.getElementById("btnIptal").style.display = "block";
@@ -1243,7 +1299,7 @@
         function duzenlemeModunuKapat() {
             duzenlenenEskiIsim = null; seciliAdminMusteriBilgisi = null; document.getElementById("btnAdminMusteriFis").style.display = "none";
             document.getElementById("formIsim").value = ""; document.getElementById("formTel").value = ""; document.getElementById("formSüre").value = "1"; document.getElementById("formFiyat").value = "2500";
-            document.getElementById("formAdminIndirim").value = "0"; // İndirimi sıfırla
+            document.getElementById("formIndirimAdmin").value = "0";
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
             let btn = document.getElementById("btnIslem"); btn.innerText = "KAYDET"; btn.style.background = "linear-gradient(to bottom, #10b981, #059669)"; document.getElementById("btnIptal").style.display = "none";
             adminFiyatHesaplaDinamik();
@@ -1268,101 +1324,8 @@
             }
             seciliAdminMusteriBilgisi = { isim, tarihKey: tarihVal, süre, fiyat, odeme, tel };
             document.getElementById("btnAdminMusteriFis").style.display = "block";
-            duzenlemeModunuKapat();
             verileriBulutaKaydet();
-        }
-
-        // SEÇİLEN GÜNÜ EKSİLTİR (-1)
-        async function kayitSilGun(tarihStr, e) {
-            e.stopPropagation();
-            if(!isAdmin) return;
-            
-            let temizTarih = tarihStr.substring(0, 10);
-            let targetKey = null;
-            let targetIsim = null;
-            Object.keys(rezervasyonlar).forEach(k => {
-                if(k.startsWith(temizTarih)) { targetKey = k; targetIsim = rezervasyonlar[k].isim; }
-            });
-
-            if(!targetKey) return;
-
-            if(confirm(`${tarihStr} tarihindeki "${targetIsim.toUpperCase()}" kaydını düşürmek (-1) istiyor musun?`)) {
-                delete rezervasyonlar[targetKey];
-                duzenlemeModunuKapat();
-                verileriBulutaKaydet();
-            }
-        }
-
-        // KONAKLAMAYI UZATIR (+1)
-        async function kayitEkleGun(tarihStr, e) {
-            e.stopPropagation();
-            if(!isAdmin) return;
-            
-            let temizTarih = tarihStr.substring(0, 10);
-            let targetIsim = "";
-            Object.keys(rezervasyonlar).forEach(k => {
-                if(k.startsWith(temizTarih)) { targetIsim = rezervasyonlar[k].isim; }
-            });
-
-            if(!targetIsim) return;
-
-            if(confirm(`"${targetIsim.toUpperCase()}" adlı kişinin konaklamasını 1 gün daha UZATMAK istiyor musun?`)) {
-                let kisininKayitlari = [];
-                Object.keys(rezervasyonlar).forEach(k => {
-                    if(rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === targetIsim.toLowerCase()) {
-                        kisininKayitlari.push({key: k, data: rezervasyonlar[k], dateStr: k.substring(0,10)});
-                    }
-                });
-                
-                if(kisininKayitlari.length === 0) return;
-                kisininKayitlari.sort((a,b) => new Date(a.dateStr) - new Date(b.dateStr));
-                let sonKayit = kisininKayitlari[kisininKayitlari.length - 1]; 
-                
-                let lastDate = new Date(sonKayit.dateStr);
-                lastDate.setDate(lastDate.getDate() + 1); 
-                
-                let y = lastDate.getFullYear();
-                let m = String(lastDate.getMonth() + 1).padStart(2, '0');
-                let d = String(lastDate.getDate()).padStart(2, '0');
-                let yeniTarihStr = `${y}-${m}-${d}`;
-                
-                let safeName = targetIsim.replace(/[^a-zA-Z0-9]/g, "");
-                let newKey = `${yeniTarihStr}_cikis_var_${safeName}`;
-                
-                let newData = {...sonKayit.data};
-                newData.tip = "cikis";
-                if(sonKayit.data.tip === "cikis") {
-                    rezervasyonlar[sonKayit.key].tip = "ara"; // Eski çıkışı ara yap
-                }
-                
-                rezervasyonlar[newKey] = newData;
-                duzenlemeModunuKapat();
-                verileriBulutaKaydet();
-            }
-        }
-
-        // KİŞİYİ TÜMDEN SİLER
-        async function kayitSilTum(tarihStr, e) {
-            e.stopPropagation();
-            if(!isAdmin) return;
-            
-            let temizTarih = tarihStr.substring(0, 10);
-            let targetIsim = "";
-            Object.keys(rezervasyonlar).forEach(k => {
-                if(k.startsWith(temizTarih)) { targetIsim = rezervasyonlar[k].isim; }
-            });
-
-            if(!targetIsim) return;
-
-            if(confirm(`"${targetIsim.toUpperCase()}" isimli kişinin TÜM rezervasyonunu silmek istiyor musun?`)) {
-                Object.keys(rezervasyonlar).forEach(k => {
-                    if(rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === targetIsim.toLowerCase()) {
-                        delete rezervasyonlar[k];
-                    }
-                });
-                duzenlemeModunuKapat();
-                verileriBulutaKaydet();
-            }
+            duzenlemeModunuKapat();
         }
 
         function rehberiAc() {
@@ -1394,17 +1357,15 @@
 
         function ayDegistir(yon) { simdikiAy += yon; if(simdikiAy === 13) { simdikiAy = 1; simdikiYil++; } if(simdikiAy === 0) { simdikiAy = 12; simdikiYil--; } duzenlemeModunuKapat(); listeyiYenile(); }
         
-        // ŞİFRE DEĞİŞTİRME GÜVENLİK KODLU
         async function sifreyiBuluttaGuncelle() {
-            let yeni = document.getElementById("yeniSifreInput").value.trim();
-            let guvenlikKodu = document.getElementById("guvenlikSorusuInput").value.trim();
-            
-            if(guvenlikKodu !== "İLKİKRA") {
-                alert("Güvenlik kodu hatalı kanka! Şifreyi değiştirmeye yetkin yok.");
+            let kod = document.getElementById("guvenlikSorusuInput").value.trim();
+            if(kod !== "İLKİKRA") {
+                alert("Güvenlik kodu hatalı kanka! Şifreyi değiştiremezsin.");
                 return;
             }
-            if(!yeni) { alert("Şifre boş olamaz kanka!"); return; }
             
+            let yeni = document.getElementById("yeniSifreInput").value.trim();
+            if(!yeni) { alert("Şifre boş olamaz kanka!"); return; }
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/sifre.json`, { method: 'PUT', body: JSON.stringify(yeni) });
                 aktifAdminSifre = yeni; localStorage.setItem("misafirhane_admin_oturum", yeni);
