@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>İLK İKRA Misafirhane</title>
     
-    <!-- Mobil Uygulama (PWA) Ayarları -->
+    <!-- Mobil Uygulama (PWA) Ayarları ve Jilet Gibi Logo -->
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Logonu değiştirmek istersen aşağıdaki href linkini güncellemen yeterli kanka -->
-    <link rel="apple-touch-icon" href="https://i.ibb.co/6Z80hHn/misafirhane-logo.png">
-    <link rel="icon" type="image/png" href="https://i.ibb.co/6Z80hHn/misafirhane-logo.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/L5TXXT9/DALL-E-2025-02-15-23-45-03-A-modern-and-elegant-logo-design-for-LK-KRA-Misafirhane-a-guest-house-Th.jpg">
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/L5TXXT9/DALL-E-2025-02-15-23-45-03-A-modern-and-elegant-logo-design-for-LK-KRA-Misafirhane-a-guest-house-Th.jpg">
 
     <style>
         :root {
             --bg-card: rgba(15, 23, 42, 0.45); 
             --bg-input: rgba(15, 23, 42, 0.75);
             --neon-green: #10b981;
-            --neon-blue: #06b6d4; 
+            --neon-blue: #06b6d4; /* Turkuaz Tema Rengi */
             --neon-red: #ef4444;
             --neon-orange: #f59e0b;
             --text-light: #f8fafc;
@@ -38,20 +37,23 @@
         
         .buton-grid-ust, .buton-grid-alt { display: flex; gap: 15px; width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box; }
         
+        /* TURKUAZ, SAYDAM VE YÜZEN BUTON TASARIMI */
         .ana-btn { 
-            flex: 1; background: rgba(6, 182, 212, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            color: white; border: 1px solid var(--neon-blue); padding: 18px 10px;
+            flex: 1; background: linear-gradient(135deg, rgba(6, 182, 212, 0.4) 0%, rgba(8, 145, 178, 0.6) 100%);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            color: white; border: 1px solid rgba(255,255,255,0.3); padding: 18px 10px;
             font-size: 14px; font-weight: 800; border-radius: 16px; cursor: pointer;
             box-shadow: 0 8px 25px rgba(6, 182, 212, 0.2);
+            border-bottom: 4px solid rgba(6, 182, 212, 0.8);
             transition: all 0.3s ease; text-transform: uppercase;
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        .ana-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4); background: rgba(6, 182, 212, 0.25); }
-        .ana-btn:active { transform: translateY(2px); }
-        .ana-btn span { font-size: 24px; margin-bottom: 4px; }
+        .ana-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4); background: linear-gradient(135deg, rgba(6, 182, 212, 0.5) 0%, rgba(8, 145, 178, 0.7) 100%); }
+        .ana-btn:active { transform: translateY(2px); border-bottom-width: 1px; }
+        .ana-btn span { font-size: 24px; margin-bottom: 2px; }
 
-        .btn-fiyat-kirmizi { border-color: var(--neon-red) !important; background: rgba(239, 68, 68, 0.15) !important; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important; }
-        .btn-fiyat-kirmizi:hover { box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4) !important; background: rgba(239, 68, 68, 0.25) !important; }
+        .btn-fiyat-kirmizi { border-color: var(--neon-red) !important; border-bottom: 4px solid #b91c1c !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.4) 0%, rgba(185, 28, 28, 0.6) 100%) !important; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important; }
+        .btn-fiyat-kirmizi:hover { box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4) !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.5) 0%, rgba(185, 28, 28, 0.7) 100%) !important; }
 
         .medrese-aciklama-notu {
             background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -99,7 +101,6 @@
         .gun-icerik { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 3px; font-size: 11px; text-align: left; }
         .kilit-rozeti { font-size: 10px; cursor: pointer; background: rgba(0,0,0,0.6); padding: 3px 6px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2); }
 
-        /* YANIP SÖNME EFEKTİ (Düzeltildi) */
         .isaretli-gun { border: 3px solid #fffb00 !important; box-shadow: 0 0 25px #fffb00, inset 0 0 15px #fffb00 !important; z-index: 25; animation: kalpAtisiEfekti 0.6s infinite alternate; }
         @keyframes kalpAtisiEfekti { from { transform: scale(1.0); } to { transform: scale(1.04); } }
 
@@ -115,10 +116,12 @@
         .modal-kart { background: rgba(30, 41, 59, 0.95); border: 1px solid var(--neon-blue); border-radius: 20px; width: 95%; max-width: 950px; max-height: 90vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         
-        .galeri-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; padding: 10px 0; }
-        .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 8px 16px rgba(0,0,0,0.4); position: relative; cursor: pointer; transition: transform 0.2s; }
+        /* ESKİ ODALARIMIZ TASARIMI (3'LÜ GRID) */
+        .galeri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 10px; }
+        .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; cursor: pointer; transition: transform 0.2s; }
         .galeri-item:hover { transform: scale(1.03); border-color: var(--neon-blue); }
-        .galeri-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
+        .galeri-item img { width: 100%; height: 140px; object-fit: cover; display: block; }
+        .galeri-text { position: absolute; bottom: 0; background: rgba(0,0,0,0.7); width:100%; padding: 5px; font-size: 11px; text-align: center; font-weight: bold; color: white;}
         
         .lightbox-arka { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; flex-direction: column; }
         .lightbox-resim { max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
@@ -136,35 +139,40 @@
         .fatih-mekan-detay { font-size: 11px; color: #cbd5e1; margin-top: 4px; }
         .fatih-link-btn { background: var(--neon-orange); color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; text-decoration: none; font-weight: bold; }
 
-        /* Yüzen, şeffaf arka planlı geçmiş arşiv detay kutusu */
+        /* SÜRÜKLENEBİLİR KARTVİZİT ARKA PLANI */
         #modalGecmisSakinDetay {
             background: transparent !important;
-            backdrop-filter: none !important;
             pointer-events: none; /* Arkadaki takvime tıklamaya izin ver */
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 80px 20px 20px 20px;
+            display: none; 
         }
-        #modalGecmisSakinDetay .modal-kart {
+        #draggableKartvizit {
+            position: absolute;
             pointer-events: auto; /* Kendi üzerindeki tıklamaları yakala */
             width: 320px;
             max-width: 90%;
-            height: auto;
             border: 2px solid var(--neon-orange);
             box-shadow: 0 15px 40px rgba(0,0,0,0.9);
             background: rgba(15, 23, 42, 0.95);
+            z-index: 101;
+        }
+        #draggableKartvizitHeader {
+            cursor: move;
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
         @media (max-width: 1024px) {
             .ana-duzen { flex-direction: column; height: auto; }
             .sol-bolum, .sag-bolum { width: 100%; height: auto; }
             .buton-grid-ust, .buton-grid-alt { flex-direction: column; gap: 10px; }
-            #modalGecmisSakinDetay { justify-content: center; padding: 20px; align-items: center; }
+            .galeri-grid { grid-template-columns: repeat(1, 1fr); }
         }
     </style>
 </head>
 <body>
 
+    <!-- YENİ GÜVENLİ ÖZEL UYARI KUTULARI -->
     <div id="ozelUyariModal" class="modal-arka" style="z-index:9999;">
         <div class="modal-kart" style="max-width:350px; height:auto; text-align:center; padding:25px; border-color:var(--neon-blue);">
             <h3 id="uyariBaslik" style="margin-top:0; color:var(--neon-blue);">BİLGİLENDİRME</h3>
@@ -189,7 +197,7 @@
     </div>
 
     <div id="girisEkrani" class="giris-ekrani">
-        <!-- Müşteri buraya tıkladığında admin şifre ekranı açılacağını bilmeyecek -->
+        <!-- Müşteri buraya tıkladığında admin şifre ekranı açılacağını bilmeyecek (GİZLİ GEÇİT) -->
         <div class="ana-baslik" onclick="modalAc('modalAdminGiris')">
             <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 20px rgba(6,182,212,0.8); color:var(--neon-blue);">🏛️ İLK İKRA MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600; letter-spacing: 1px;">Canlı Rezervasyon & Takip Sistemi</p>
@@ -323,6 +331,7 @@
         </div>
     </div>
 
+    <!-- ODALARIMIZ MODALI VE GALERİ (3'LÜ GRID) -->
     <div id="modalTanitim" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -332,15 +341,16 @@
             
             <!-- Admine özel fotoğraf yükleme bölümü -->
             <div id="adminUploadGiris" style="display:none; flex-direction:column; gap:8px; background:rgba(0,0,0,0.4); padding:15px; border-radius:12px; border:1px dashed var(--neon-orange); margin-bottom:15px;">
-                <b style="color:var(--neon-orange); font-size:12px;">⚙️ DİNAMİK GALERİ YÖNETİMİ (Sadece Yüklediklerin Görünür)</b>
-                <div id="adminResimKutulari" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-top:5px;">
+                <b style="color:var(--neon-orange); font-size:12px;">⚙️ DİNAMİK GALERİ YÖNETİMİ (10 Odaya Kadar Yükle)</b>
+                <div id="adminResimKutulari" style="display:grid; grid-template-columns: repeat(5, 1fr); gap:10px; margin-top:5px;">
                     <!-- JS ile 10 adet resim seçme kutusu eklenecek -->
                 </div>
             </div>
 
+            <!-- Eski Usül 3'lü Grid -->
             <div class="galeri-grid" id="galeriGrid">
                 <!-- Buluttan çekilen resimler buraya eklenecek -->
-                <div style="text-align:center; width:100%; color:#cbd5e1; font-size:12px;">Resimler buluttan yükleniyor...</div>
+                <div style="text-align:center; width:100%; color:#cbd5e1; font-size:12px; grid-column: span 3;">Resimler buluttan yükleniyor...</div>
             </div>
         </div>
     </div>
@@ -389,14 +399,18 @@
         </div>
     </div>
 
+    <!-- HARİTA MODALI (Tamir Edildi) -->
     <div id="modalHarita" class="modal-arka">
         <div class="modal-kart" style="max-width:700px; height:80vh;">
             <div class="modal-header">
                 <h2 style="margin:0; font-size:18px; color:var(--neon-blue)">📍 KONUM & ULAŞIM</h2>
                 <button onclick="modalKapat('modalHarita')" style="background:var(--neon-red);">✖</button>
             </div>
-            <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" style="flex:1; border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
-            <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; text-decoration:none; margin-top:10px;">🌐 Harita Uygulamasında Aç</a>
+            <!-- Iframe için min-height ve flex kapsayıcı verildi -->
+            <div style="flex:1; width:100%; display:flex; flex-direction:column; min-height: 300px; margin-top:10px;">
+                <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" height="100%" style="flex:1; border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; text-decoration:none; margin-top:15px;">🌐 Google Maps Uygulamasında Aç</a>
             
             <!-- Admin Harita Güncelleme -->
             <div id="adminHaritaConfigPanel" style="display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.5); padding:10px; border-radius:10px; border:1px solid var(--neon-orange); margin-top:10px;">
@@ -409,6 +423,7 @@
         </div>
     </div>
 
+    <!-- FATİH REHBERİ MODALI -->
     <div id="modalFatihRehberi" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -438,13 +453,14 @@
         </div>
     </div>
 
+    <!-- SÜRÜKLENEBİLİR VE DETAYLI GEÇMİŞ KARTVİZİT MODALI -->
     <div id="modalGecmisSakinDetay" class="modal-arka">
-        <div class="modal-kart">
-            <div class="modal-header">
+        <div class="modal-kart" id="draggableKartvizit">
+            <div class="modal-header" id="draggableKartvizitHeader">
                 <h2 style="margin:0; font-size:16px; color:var(--neon-orange)">📋 MÜŞTERİ ARŞİV KARTI</h2>
-                <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:var(--neon-red); padding:4px 8px;">✖</button>
+                <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:var(--neon-red); padding:4px 8px; cursor:pointer;">✖</button>
             </div>
-            <div id="gecmisSakinDetayIcerik" style="font-size:13px; line-height:1.8; color:#f8fafc;">
+            <div id="gecmisSakinDetayIcerik" style="font-size:13px; line-height:1.8; color:#f8fafc; padding-top:10px;">
                 <!-- Dinamik Doldurulacak -->
             </div>
         </div>
@@ -524,7 +540,6 @@
         let bulutResimVerileri = [];
         let aktifSlaytIndex = 0;
 
-        /* ÖZEL UYARI VE ONAY KUTULARI (alert ve confirm YERİNE) */
         function ozelAlert(mesaj) {
             return new Promise(resolve => {
                 document.getElementById("uyariBaslik").innerText = "BİLGİLENDİRME";
@@ -572,6 +587,62 @@
             document.getElementById("girisEkrani").style.display = "flex"; 
         }
 
+        // SÜRÜKLE BIRAK (DRAGGABLE) MANTIĞI
+        function makeDraggable(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            var header = document.getElementById(elmnt.id + "Header");
+            if (header) {
+                header.onmousedown = dragMouseDown;
+                header.ontouchstart = dragMouseDown;
+            } else {
+                elmnt.onmousedown = dragMouseDown;
+                elmnt.ontouchstart = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                if(e.target.tagName === 'BUTTON') return; 
+                if(e.type === 'touchstart') {
+                    pos3 = e.touches[0].clientX;
+                    pos4 = e.touches[0].clientY;
+                } else {
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                }
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+                document.ontouchend = closeDragElement;
+                document.ontouchmove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                let clientX, clientY;
+                if(e.type === 'touchmove') {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                } else {
+                    e.preventDefault();
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                }
+                pos1 = pos3 - clientX;
+                pos2 = pos4 - clientY;
+                pos3 = clientX;
+                pos4 = clientY;
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+                document.ontouchend = null;
+                document.ontouchmove = null;
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', async () => {
             let bugunStr = `${simdikiYil}-${String(simdikiAy).padStart(2,'0')}-${String(bugunTarihObj.getDate()).padStart(2,'0')}`;
             if(document.getElementById("formGun")) document.getElementById("formGun").value = bugunStr;
@@ -579,6 +650,7 @@
 
             adminUploadKutulariniOlustur();
             robotKutulariniDoldur();
+            makeDraggable(document.getElementById("draggableKartvizit"));
             
             await bulutSifresiniCek(); 
             await bulutHaritaLinkiniCek(); 
@@ -628,6 +700,7 @@
             document.getElementById("programAnaBaslik").innerText = "🏨 YÖNETİCİ KONTROL MERKEZİ";
             verileriBuluttanCek();
             adminFiyatHesaplaDinamik();
+            fatihRehberiniCek(); // Silme butonları görünsün diye bir daha çektik
         }
 
         function musteriModunuAc() {
@@ -648,6 +721,7 @@
             
             document.getElementById("programAnaBaslik").innerText = "📅 BOŞ GÜNLERİ İNCELE";
             verileriBuluttanCek();
+            fatihRehberiniCek();
         }
 
         function adminUploadKutulariniOlustur() {
@@ -658,7 +732,7 @@
                 kap.innerHTML += `
                     <div style="background:rgba(255,255,255,0.05); padding:6px; border-radius:6px; font-size:10px;">
                         <b style="color:var(--neon-blue);">Oda ${i}</b>
-                        <input type="file" id="odaResimDosya_${i}" accept="image/*" style="padding:2px; font-size:10px; margin:4px 0;">
+                        <input type="file" id="odaResimDosya_${i}" accept="image/*" style="padding:2px; font-size:10px; margin:4px 0; width:100%;">
                         <button style="background:var(--neon-green); padding:4px; font-size:9px; width:100%;" onclick="odaResminiBulutaYukle(${i})">Yükle</button>
                     </div>
                 `;
@@ -682,7 +756,7 @@
 
         async function bulutResimleriniYukle() {
             let grid = document.getElementById("galeriGrid");
-            grid.innerHTML = "<div style='color:var(--neon-blue); font-size:12px;'>Yükleniyor...</div>";
+            grid.innerHTML = "<div style='color:var(--neon-blue); font-size:12px; grid-column:span 3; text-align:center;'>Yükleniyor...</div>";
             bulutResimVerileri = [];
             try {
                 let r = await fetch(`${FIREBASE_URL}galeri.json`);
@@ -694,13 +768,13 @@
                         if(data["oda"+i] && data["oda"+i].src) {
                             bulutResimVerileri.push(data["oda"+i].src);
                             let currentIdx = bulutResimVerileri.length - 1;
-                            grid.innerHTML += `<div class="galeri-item" onclick="galeriSlaytAc(${currentIdx})"><img src="${data["oda"+i].src}" /></div>`;
+                            grid.innerHTML += `<div class="galeri-item" onclick="galeriSlaytAc(${currentIdx})"><img src="${data["oda"+i].src}" /><div class="galeri-text">Oda ${i}</div></div>`;
                             hasImg = true;
                         }
                     }
                 }
-                if(!hasImg) grid.innerHTML = "<div style='color:#cbd5e1; font-size:12px; width:100%; text-align:center;'>Şu an galeriye yüklenmiş resim yok kanka. Yönetici panelinden ekleyebilirsin.</div>";
-            } catch(e) { grid.innerHTML = "Hata oluştu."; }
+                if(!hasImg) grid.innerHTML = "<div style='color:#cbd5e1; font-size:12px; width:100%; text-align:center; grid-column:span 3;'>Şu an galeriye yüklenmiş resim yok kanka. Yönetici panelinden ekleyebilirsin.</div>";
+            } catch(e) { grid.innerHTML = "<div style='grid-column:span 3;'>Hata oluştu.</div>"; }
         }
 
         function galeriSlaytAc(index) {
@@ -808,17 +882,15 @@
             let bs = new Date(mSecTarih); let bit = new Date(bs); bit.setDate(bs.getDate() + mGece);
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
             
-            // WEB ÜZERİNDEN SÜREKLİ %15 İNDİRİM
             let net = Math.round(brut * 0.85); 
             
             document.getElementById("mHesapÖzetYazi").innerHTML = `
-                🛫 Giriş: ${gunlerTr[bs.getDay()]} (Öğleden Sonra)<br>
-                🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Öğleden Önce)<br>
+                🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)<br>
+                🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)<br>
                 🌙 Süre: ${mGece} Gece<br>
                 💰 Net Tutar: <b style="color:var(--neon-orange);">${net} TL</b> <span style="color:var(--neon-green); font-size:10px;">(Web Özel %15 İndirimli)</span>
             `;
             
-            // Seçili günleri sarı yapma
             document.querySelectorAll('.gun-kutusu').forEach(b => b.classList.remove('isaretli-gun'));
             for(let i=0; i<=mGece; i++) {
                 let he = new Date(bs); he.setDate(bs.getDate() + i);
@@ -865,27 +937,31 @@
             } catch(e) { await ozelAlert("Bağlantı hatası!"); }
         }
 
-        // İsme tıklayınca o kişinin günlerini sarı yanıp söndürür ve takvimi o hizaya kaydırır
         function isaretleVeKaydir(isim) {
             document.querySelectorAll('.gun-kutusu').forEach(box => box.classList.remove('isaretli-gun'));
-            let ilkKutu = null;
             let safeIsim = isim.toLowerCase();
+            let ilkKutuId = null;
             
-            document.querySelectorAll('.gun-kutusu').forEach(box => {
-                let gunNoId = box.id.replace("gunBox-", "");
-                let tarihStr = `${simdikiYil}-${String(simdikiAy).padStart(2, '0')}-${String(gunNoId).padStart(2, '0')}`;
-                
-                // Müşterinin ismine ait bir kayıt bu tarihte var mı diye güvenli kontrol
-                let varMi = Object.keys(rezervasyonlar).some(k => k.startsWith(tarihStr) && rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === safeIsim);
-                
-                if(varMi) {
-                    box.classList.add('isaretli-gun');
-                    if(!ilkKutu) ilkKutu = box;
+            Object.keys(rezervasyonlar).forEach(k => {
+                if (rezervasyonlar[k] && rezervasyonlar[k].isim && rezervasyonlar[k].isim.toLowerCase() === safeIsim) {
+                    let tarih = k.substring(0, 10);
+                    let parcalar = tarih.split("-");
+                    if(parseInt(parcalar[0]) === simdikiYil && parseInt(parcalar[1]) === simdikiAy) {
+                        let gunNo = parseInt(parcalar[2]);
+                        let box = document.getElementById("gunBox-" + gunNo);
+                        if(box) {
+                            box.classList.add('isaretli-gun');
+                            if(!ilkKutuId) ilkKutuId = "gunBox-" + gunNo;
+                        }
+                    }
                 }
             });
             
-            if(ilkKutu) {
-                setTimeout(() => { ilkKutu.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); }, 150);
+            if(ilkKutuId) {
+                setTimeout(() => { 
+                    let e = document.getElementById(ilkKutuId);
+                    if(e) e.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); 
+                }, 150);
             }
         }
 
@@ -921,7 +997,6 @@
                 }
             });
 
-            // Boşlukları doldur
             let ilkGun = new Date(simdikiYil, simdikiAy - 1, 1).getDay();
             let bosluk = ilkGun === 0 ? 6 : ilkGun - 1;
             for (let b = 0; b < bosluk; b++) grid.innerHTML += `<div style="background:transparent;border:none;"></div>`;
@@ -952,7 +1027,7 @@
                         actionBtn = `<div style="display:flex; gap:2px; margin-top:4px;">
                                         <button class="btn-box-sil" style="background:#f59e0b;" onclick="kayitSuresiniUzat('${ts}', '${v.isim}', event)">+1</button>
                                         <button class="btn-box-sil" style="background:#64748b;" onclick="kayitGunSil('${ts}', '${v.isim}', event)">-1</button>
-                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Sil</button>
+                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Tüm Sil</button>
                                      </div>`;
                     } else icerik = "<span>🔴 DOLU</span>";
                 }
@@ -963,7 +1038,7 @@
                         actionBtn = `<div style="display:flex; gap:2px; margin-top:4px;">
                                         <button class="btn-box-sil" style="background:#f59e0b;" onclick="kayitSuresiniUzat('${ts}', '${v.isim}', event)">+1</button>
                                         <button class="btn-box-sil" style="background:#64748b;" onclick="kayitGunSil('${ts}', '${v.isim}', event)">-1</button>
-                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Sil</button>
+                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Tüm Sil</button>
                                      </div>`;
                     } else icerik = "<span>🔴 DOLU</span>";
                 }
@@ -974,7 +1049,7 @@
                         actionBtn = `<div style="display:flex; gap:2px; margin-top:4px;">
                                         <button class="btn-box-sil" style="background:#f59e0b;" onclick="kayitSuresiniUzat('${ts}', '${v.isim}', event)">+1</button>
                                         <button class="btn-box-sil" style="background:#64748b;" onclick="kayitGunSil('${ts}', '${v.isim}', event)">-1</button>
-                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Sil</button>
+                                        <button class="btn-box-sil" style="background:#ef4444;" onclick="kayitSil('${ts}', event)">Tüm Sil</button>
                                      </div>`;
                     } else icerik = "<span>🔴 DOLU</span>";
                 }
@@ -1010,7 +1085,6 @@
                 `;
             }
             
-            // SAKİN LİSTESİ DOLDURMA
             let sl = document.getElementById("sakinListesi");
             if(sl) {
                 sl.innerHTML = "";
@@ -1039,18 +1113,32 @@
         function kilidiZorlaAc(g, e) { if(e) e.stopPropagation(); kilitliKayitlariZorlaAc[g] = true; listeyiYenile(); }
 
         function gecmisSakinDetayiniGoster(isim, tarih, sure, fiyat, odeme, tel) {
-            isaretleVeKaydir(isim); // Takvimde ışık yakıp oraya kayar
+            isaretleVeKaydir(isim); 
+            
+            let bs = new Date(tarih); 
+            let bit = new Date(bs); bit.setDate(bs.getDate() + parseInt(sure));
+            let cikisTarihi = `${bit.getFullYear()}-${String(bit.getMonth()+1).padStart(2,'0')}-${String(bit.getDate()).padStart(2,'0')}`;
+            
             let ic = `
                 👤 <b>Müşteri Adı:</b> ${isim.toUpperCase()}<br>
-                📱 <b>Telefon:</b> ${tel || 'Yok'}<br>
-                📅 <b>Giriş Tarihi:</b> ${tarih}<br>
+                📱 <b>Telefon:</b> ${tel && tel !== 'Yok' ? tel : 'Belirtilmemiş'}<br>
+                🛫 <b>Giriş Tarihi:</b> ${tarih}<br>
+                🛬 <b>Çıkış Tarihi:</b> ${cikisTarihi}<br>
                 🌙 <b>Süre:</b> ${sure} Gece<br>
                 💰 <b>Tutar:</b> ${fiyat} TL<br>
                 💳 <b>Ödeme:</b> <span style="color:${odeme==='Alındı'?'var(--neon-green)':'var(--neon-red)'}">${odeme}</span><br>
-                <i style="font-size:11px; color:#cbd5e1; display:block; margin-top:10px;">Arkadaki takvimi sağa sola kaydırarak incelemeye devam edebilirsiniz kanka.</i>
+                <i style="font-size:11px; color:#cbd5e1; display:block; margin-top:10px; border-top:1px dashed #64748b; padding-top:5px;">🖱️ Pencerenin başlığından tutup ekranda sağa sola sürükleyebilirsiniz kanka. Arkadaki takvimi kaydırıp incelemeye devam edin.</i>
             `;
             document.getElementById("gecmisSakinDetayIcerik").innerHTML = ic;
-            modalAc("modalGecmisSakinDetay");
+            
+            let modal = document.getElementById("modalGecmisSakinDetay");
+            let kart = document.getElementById("draggableKartvizit");
+            modal.style.display = "block";
+            
+            kart.style.top = (window.innerHeight / 2 - kart.offsetHeight / 2) + "px";
+            kart.style.left = (window.innerWidth / 2 - kart.offsetWidth / 2) + "px";
+            kart.style.transform = "none";
+            kart.style.margin = "0";
         }
 
         function duzenlemeModunuAc(isim, tarih, sure, fiyat, odeme, tel) {
@@ -1062,7 +1150,7 @@
             document.getElementById("formIsim").value = isim; document.getElementById("formTel").value = tel || "";
             document.getElementById("formGun").value = tarih; document.getElementById("formSüre").value = sure;
             document.getElementById("formFiyat").value = fiyat || 0; document.getElementById("formOdeme").value = odeme;
-            document.getElementById("formAdminIndirimYuzde").value = "0"; // Düzenlemede indirim menüsünü sıfırla
+            document.getElementById("formAdminIndirimYuzde").value = "0"; 
             document.getElementById("adminIndirimBilgi").style.display = "none";
             
             let btn = document.getElementById("btnIslem"); btn.innerText = "GÜNCELLE"; btn.style.background = "linear-gradient(to bottom, #f59e0b, #d97706)";
@@ -1107,7 +1195,6 @@
             duzenlemeModunuKapat();
         }
 
-        /* AKILLI PARÇALI SİLME (+1, -1, TÜM SİL) MODÜLLERİ */
         async function kayitSil(ts, e) {
             if(e) e.stopPropagation();
             let onay = await ozelConfirm("Bu müşterinin tüm kaydı silinsin mi?");
@@ -1134,9 +1221,7 @@
             let onay = await ozelConfirm(`Süre ${mevcutSure} geceden ${mevcutSure-1} geceye düşürülecek. Onaylıyor musun?`);
             if(onay) {
                 let ilkVeri = rezervasyonlar[kisiKeys[0]];
-                kisiKeys.forEach(k => delete rezervasyonlar[k]); // Eski günleri sil
-                
-                // Yeni süre üzerinden tekrar kaydet (fiyat orantılı düşer)
+                kisiKeys.forEach(k => delete rezervasyonlar[k]); 
                 let yeniSure = mevcutSure - 1;
                 let oranliFiyat = Math.round((ilkVeri.fiyat / mevcutSure) * yeniSure);
                 
@@ -1166,7 +1251,7 @@
                 let ilkVeri = rezervasyonlar[kisiKeys[0]];
                 kisiKeys.forEach(k => delete rezervasyonlar[k]); 
                 let yeniSure = mevcutSure + 1;
-                let oranliFiyat = Math.round((ilkVeri.fiyat / mevcutSure) * yeniSure); // 1 günlük tutarı ekle
+                let oranliFiyat = Math.round((ilkVeri.fiyat / mevcutSure) * yeniSure); 
                 
                 let tP = basTarihi.split('-'); let bs = new Date(tP[0], parseInt(tP[1])-1, tP[2]);
                 for(let i=0; i<=yeniSure; i++) {
@@ -1186,7 +1271,7 @@
             
             let bs = new Date(mSec); let bit = new Date(bs); bit.setDate(bs.getDate() + mGece);
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
-            let net = Math.round(brut * 0.85); // Web %15 indirimi
+            let net = Math.round(brut * 0.85); 
             
             let mesaj = `Selamun Aleykum hocam,\nSitenizden boş günleri inceledim.\n🛏️ Oda: ${mOda === 'tek' ? 'Tek' : 'Çift'} Oda\n🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)\n🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)\n🌙 Süre: ${mGece} Gece\n💰 Tutar: ${net} TL (%15 Web Özel İndirimiyle)\nRezervasyon yaptırmak istiyorum.`;
             window.open(`https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(mesaj)}`, '_blank');
