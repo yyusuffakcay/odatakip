@@ -7,7 +7,7 @@
     
     <!-- MOBİL UYGULAMA İKONU VE TEMA AYARLARI -->
     <!-- DİKKAT: Linklerin sonu mutlaka .png veya .jpg ile bitmelidir! -->
-    <link rel="icon" href="https://w7.pngwing.com/pngs/211/579/png-transparent-computer-icons-holiday-travel-text-logo-monochrome-thumbnail.png" type="image/png">
+    <link rel="icon" href="BURAYA_DIREKT_RESIM_LINKI_GELECEK.png" type="image/png">
     <link rel="apple-touch-icon" href="BURAYA_DIREKT_RESIM_LINKI_GELECEK.png">
     <meta name="theme-color" content="#0f172a">
     <!-- MOBİL UYGULAMA İKONU SONU -->
@@ -381,19 +381,8 @@
             <div class="modal-body">
                 
                 <!-- SLAYT GÖSTERİSİ -->
-                <div class="slayt-container">
-                    <img class="slayt-img active" id="slayt-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" onclick="resimKutuYakinlastir(1)">
-                    <img class="slayt-img" id="slayt-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" onclick="resimKutuYakinlastir(2)">
-                    <img class="slayt-img" id="slayt-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" onclick="resimKutuYakinlastir(3)">
-                    <img class="slayt-img" id="slayt-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" onclick="resimKutuYakinlastir(4)">
-                    <img class="slayt-img" id="slayt-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" onclick="resimKutuYakinlastir(5)">
-                    <img class="slayt-img" id="slayt-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" onclick="resimKutuYakinlastir(6)">
-                    <img class="slayt-img" id="slayt-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" onclick="resimKutuYakinlastir(7)">
-                    <img class="slayt-img" id="slayt-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" onclick="resimKutuYakinlastir(8)">
-                    <img class="slayt-img" id="slayt-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" onclick="resimKutuYakinlastir(9)">
-                    <img class="slayt-img" id="slayt-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" onclick="resimKutuYakinlastir(10)">
-                    
-                    <div class="slayt-yazi" id="slaytYaziEtiketi">Oda 1</div>
+                <div class="slayt-container" id="dinamikSlaytAlani">
+                    <div class="slayt-yazi" id="slaytYaziEtiketi" style="z-index: 10;">Oda Galerisi</div>
                 </div>
 
                 <!-- ADMIN 10 KUTU YÜKLEME ALANI -->
@@ -453,17 +442,8 @@
                     </div>
                 </div>
 
-                <div class="galeri-grid">
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(1)"><img id="grid-oda1" src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT3aifoJ1i-_g2vz9fwK70a85szaxwoSkdnP04xqnRYURm-kV8lRzepZrOg4zE9W-Fow3Hy0kjC4n743N4" /><div class="galeri-text">Oda 1</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(2)"><img id="grid-oda2" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR4oFGO9MOlEhz2xLoc1c148ydjJPwqpBDl2mueHVW2_F37-8qZc-qX8fmyCqDpNbpJVe3A6Wbf7amAELA" /><div class="galeri-text">Oda 2</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(3)"><img id="grid-oda3" src="https://images.unsplash.com/photo-1585983225902-3bb332a6e391?q=80&w=600" /><div class="galeri-text">Oda 3</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(4)"><img id="grid-oda4" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600" /><div class="galeri-text">Oda 4</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(5)"><img id="grid-oda5" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" /><div class="galeri-text">Oda 5</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(6)"><img id="grid-oda6" src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=600" /><div class="galeri-text">Oda 6</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(7)"><img id="grid-oda7" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600" /><div class="galeri-text">Oda 7</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(8)"><img id="grid-oda8" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600" /><div class="galeri-text">Oda 8</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(9)"><img id="grid-oda9" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=600" /><div class="galeri-text">Oda 9</div></div>
-                    <div class="galeri-item" onclick="resimKutuYakinlastir(10)"><img id="grid-oda10" src="https://placehold.co/600x400/0f172a/06b6d4?text=Oda+10+Gorseli+Bekleniyor" /><div class="galeri-text">Oda 10</div></div>
+                <div class="galeri-grid" id="dinamikGaleriAlani">
+                    <!-- Dinamik Yüklenen Resimler Buraya Gelecek -->
                 </div>
 
             </div>
@@ -585,6 +565,7 @@
                             <option value="camiler">🕌 Camiler</option>
                             <option value="kabirler">📿 Kabirler & Türbeler</option>
                             <option value="parklar">🌲 Parklar</option>
+                            <option value="gezilecek">📸 Gezilecek & Bakılacak Yerler</option>
                         </select>
                         <input type="text" id="fatihAdInput" placeholder="Mekan Adı (Örn: Çarşamba Pazarı)" style="flex:1; padding:8px; font-size:12px;">
                     </div>
@@ -641,9 +622,11 @@
         let bulutKilitliGunler = {}; 
         let kilitliKayitlariZorlaAc = {}; 
         let tumRehberMusterileri = [];
+        let yuklenenOdalar = []; 
+        let aktifSlaytIndex = 0;
 
         /* YENİ: Fatih Rehberi Dinamik Verisi */
-        let fatihVerisi = { camiler: [], kabirler: [], parklar: [] };
+        let fatihVerisi = { camiler: [], kabirler: [], parklar: [], gezilecek: [] };
 
         function modalAc(id) { 
             document.getElementById(id).style.display = "flex"; 
@@ -652,20 +635,21 @@
         }
         function modalKapat(id) { document.getElementById(id).style.display = "none"; }
 
-        let aktifSlayt = 1;
         function slaytDondur() {
+            if(yuklenenOdalar.length === 0) return;
             let resimler = document.querySelectorAll('.slayt-img');
             if(resimler.length === 0) return;
             resimler.forEach(r => r.classList.remove("active"));
             
-            let seciliSlayt = document.getElementById('slayt-oda' + aktifSlayt);
+            aktifSlaytIndex++;
+            if(aktifSlaytIndex >= yuklenenOdalar.length) aktifSlaytIndex = 0;
+            
+            let gercekOdaNo = yuklenenOdalar[aktifSlaytIndex];
+            let seciliSlayt = document.getElementById('slayt-oda' + gercekOdaNo);
             if(seciliSlayt) seciliSlayt.classList.add("active");
             
             let yazi = document.getElementById('slaytYaziEtiketi');
-            if(yazi) yazi.innerText = "Oda " + aktifSlayt;
-
-            aktifSlayt++;
-            if(aktifSlayt > 10) aktifSlayt = 1;
+            if(yazi) yazi.innerText = "Oda " + gercekOdaNo;
         }
         setInterval(slaytDondur, 3500);
 
@@ -680,10 +664,15 @@
 
         // Yeni Yön Gezdirici (Sol Sağ Okları İçin)
         function lightboxGez(yon) {
-            aktifLightboxOdaNo += yon;
-            if(aktifLightboxOdaNo > 10) aktifLightboxOdaNo = 1;
-            if(aktifLightboxOdaNo < 1) aktifLightboxOdaNo = 10;
+            if(yuklenenOdalar.length === 0) return;
+            let suankiIndex = yuklenenOdalar.indexOf(aktifLightboxOdaNo);
+            if(suankiIndex === -1) suankiIndex = 0;
             
+            suankiIndex += yon;
+            if(suankiIndex >= yuklenenOdalar.length) suankiIndex = 0;
+            if(suankiIndex < 0) suankiIndex = yuklenenOdalar.length - 1;
+            
+            aktifLightboxOdaNo = yuklenenOdalar[suankiIndex];
             let src = document.getElementById("grid-oda" + aktifLightboxOdaNo).src;
             document.getElementById("lightboxGorsel").src = src;
         }
@@ -712,12 +701,10 @@
                 let base64Resim = e.target.result;
                 let idTipi = "oda" + odaNo;
                 
-                document.getElementById("slayt-" + idTipi).src = base64Resim;
-                document.getElementById("grid-" + idTipi).src = base64Resim;
-                
                 try {
                     await fetch(`${FIREBASE_URL}galeri/${idTipi}.json`, { method: 'PUT', body: JSON.stringify({ src: base64Resim }) });
                     alert(odaNo + ". Oda resmi buluta mühürlendi! 🚀");
+                    bulutResimleriniYukle(); // Sistemin yenilenmesi için otomatik tetikliyoruz
                 } catch(err) { alert("Bulut hatası!"); }
             }
             okuyucu.readAsDataURL(dosyaGirdi);
@@ -727,16 +714,46 @@
             try {
                 let response = await fetch(`${FIREBASE_URL}galeri.json`);
                 let data = await response.json();
-                if(data) {
-                    for(let i=1; i<=10; i++) {
-                        let odaKey = "oda" + i;
-                        if(data[odaKey] && data[odaKey].src) {
-                            let sImg = document.getElementById("slayt-" + odaKey);
-                            let gImg = document.getElementById("grid-" + odaKey);
-                            if(sImg) sImg.src = data[odaKey].src;
-                            if(gImg) gImg.src = data[odaKey].src;
+                
+                let sContainer = document.getElementById('dinamikSlaytAlani');
+                let gGrid = document.getElementById('dinamikGaleriAlani');
+                
+                if(sContainer && gGrid) {
+                    sContainer.innerHTML = '<div class="slayt-yazi" id="slaytYaziEtiketi" style="z-index: 10;">Oda Galerisi</div>';
+                    gGrid.innerHTML = '';
+                    yuklenenOdalar = [];
+                    
+                    if(data) {
+                        for(let i=1; i<=10; i++) {
+                            let odaKey = "oda" + i;
+                            if(data[odaKey] && data[odaKey].src) {
+                                yuklenenOdalar.push(i);
+                                
+                                // Slayt kısmına dinamik ekle
+                                let imgSlide = document.createElement("img");
+                                imgSlide.className = `slayt-img ${yuklenenOdalar.length === 1 ? 'active' : ''}`;
+                                imgSlide.id = `slayt-${odaKey}`;
+                                imgSlide.src = data[odaKey].src;
+                                imgSlide.onclick = () => resimKutuYakinlastir(i);
+                                sContainer.appendChild(imgSlide);
+                                
+                                // Galeri Kutu kısmına dinamik ekle
+                                gGrid.innerHTML += `
+                                    <div class="galeri-item" onclick="resimKutuYakinlastir(${i})">
+                                        <img id="grid-${odaKey}" src="${data[odaKey].src}" />
+                                        <div class="galeri-text">Oda ${i}</div>
+                                    </div>`;
+                            }
                         }
                     }
+                    
+                    if(yuklenenOdalar.length === 0) {
+                        sContainer.innerHTML += '<div style="color:white; text-align:center; padding:130px 20px; font-weight:bold;">Henüz resim yüklenmedi kanka. Admin panelinden yükleyebilirsin.</div>';
+                    } else {
+                        let yazi = document.getElementById('slaytYaziEtiketi');
+                        if(yazi) yazi.innerText = "Oda " + yuklenenOdalar[0];
+                    }
+                    aktifSlaytIndex = 0;
                 }
             } catch(e) {}
         }
@@ -790,6 +807,8 @@
                 let d = await r.json();
                 if(d) {
                     fatihVerisi = d;
+                    // Eski veritabanlarında gezilecek yerler yoksa, boş liste oluştur.
+                    if(!fatihVerisi.gezilecek) fatihVerisi.gezilecek = [];
                 } else {
                     // Veritabanı boşsa senin istediğin default değerleri yerleştirelim
                     fatihVerisi = {
@@ -802,7 +821,8 @@
                         kabirler: [
                             { id: "k1", ad: "EDİRNEKAPI ŞEHİTLİĞİ", link: "https://maps.app.goo.gl/qfCYMesWSeXfd9e96", detay: "Mahmut Efendi Hz, Ali Haydar Efendi Hz, Şehit Bayram Hoca, Gönenli Mehmet Efendi Hz, Abdülmetin Hoca, Şehit Ali Hızır Hoca" }
                         ],
-                        parklar: []
+                        parklar: [],
+                        gezilecek: []
                     };
                     await fetch(`${FIREBASE_URL}fatihRehberi.json`, { method: 'PUT', body: JSON.stringify(fatihVerisi) });
                 }
@@ -824,7 +844,8 @@
             let kategoriler = [
                 { key: "camiler", baslik: "🕌 CAMİLER" },
                 { key: "kabirler", baslik: "📿 KABİRLER VE TÜRBELER" },
-                { key: "parklar", baslik: "🌲 PARKLAR VE DİNLENME ALANLARI" }
+                { key: "parklar", baslik: "🌲 PARKLAR VE DİNLENME ALANLARI" },
+                { key: "gezilecek", baslik: "📸 GEZİLECEK VE BAKILACAK YERLER" }
             ];
 
             kategoriler.forEach(kat => {
