@@ -6,7 +6,7 @@
     <title>İLK İKRA Misafirhane</title>
     
     <!-- Mobil Uygulama (PWA) Ayarları ve Jilet Gibi Logo -->
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#06b6d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://i.ibb.co/L5TXXT9/DALL-E-2025-02-15-23-45-03-A-modern-and-elegant-logo-design-for-LK-KRA-Misafirhane-a-guest-house-Th.jpg">
@@ -23,8 +23,9 @@
             --text-light: #f8fafc;
         }
         
+        /* Tema Ferah Turkuaz/Yeşil Gradiyent Olarak Güncellendi */
         body { 
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
+            background: linear-gradient(rgba(8, 145, 178, 0.65), rgba(16, 185, 129, 0.6)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
             background-size: cover;
             color: var(--text-light); 
             font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif; 
@@ -48,12 +49,25 @@
             transition: all 0.3s ease; text-transform: uppercase;
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        .ana-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4); background: linear-gradient(135deg, rgba(6, 182, 212, 0.5) 0%, rgba(8, 145, 178, 0.7) 100%); }
+        .ana-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(6, 182, 212, 0.5); background: linear-gradient(135deg, rgba(6, 182, 212, 0.6) 0%, rgba(8, 145, 178, 0.8) 100%); }
         .ana-btn:active { transform: translateY(2px); border-bottom-width: 1px; }
         .ana-btn span { font-size: 24px; margin-bottom: 2px; }
 
         .btn-fiyat-kirmizi { border-color: var(--neon-red) !important; border-bottom: 4px solid #b91c1c !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.4) 0%, rgba(185, 28, 28, 0.6) 100%) !important; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important; }
-        .btn-fiyat-kirmizi:hover { box-shadow: 0 12px 30px rgba(239, 68, 68, 0.4) !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.5) 0%, rgba(185, 28, 28, 0.7) 100%) !important; }
+        .btn-fiyat-kirmizi:hover { box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5) !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.6) 0%, rgba(185, 28, 28, 0.8) 100%) !important; }
+
+        /* YANIP SÖNME (PULSE) ANİMASYONLARI */
+        @keyframes pulse-fatih { 
+            0% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); transform: scale(1); } 
+            100% { box-shadow: 0 0 35px rgba(245, 158, 11, 1); transform: scale(1.02); } 
+        }
+        @keyframes pulse-otopark { 
+            0% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); transform: scale(1); } 
+            100% { box-shadow: 0 0 35px rgba(16, 185, 129, 1); transform: scale(1.02); } 
+        }
+        
+        .btn-pulse-fatih { animation: pulse-fatih 1.5s infinite alternate ease-in-out; border: 2px solid var(--neon-orange) !important; border-bottom: 4px solid #b45309 !important; background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.5) 100%) !important; }
+        .btn-pulse-otopark { animation: pulse-otopark 1.5s infinite alternate ease-in-out; border: 2px solid var(--neon-green) !important; border-bottom: 4px solid #047857 !important; background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.5) 100%) !important; }
 
         .medrese-aciklama-notu {
             background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -116,7 +130,6 @@
         .modal-kart { background: rgba(30, 41, 59, 0.95); border: 1px solid var(--neon-blue); border-radius: 20px; width: 95%; max-width: 950px; max-height: 90vh; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; overflow-y: auto; }
         .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         
-        /* ESKİ ODALARIMIZ TASARIMI (3'LÜ GRID) */
         .galeri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 10px; }
         .galeri-item { border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 16px rgba(0,0,0,0.3); position: relative; cursor: pointer; transition: transform 0.2s; }
         .galeri-item:hover { transform: scale(1.03); border-color: var(--neon-blue); }
@@ -154,11 +167,12 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.9);
             background: rgba(15, 23, 42, 0.95);
             z-index: 101;
+            border-radius: 14px;
         }
         #draggableKartvizitHeader {
             cursor: move;
             border-bottom: 1px solid rgba(255,255,255,0.1); 
-            padding-bottom: 10px;
+            padding: 10px 15px;
             display: flex; justify-content: space-between; align-items: center;
         }
 
@@ -197,15 +211,15 @@
     </div>
 
     <div id="girisEkrani" class="giris-ekrani">
-        <!-- Müşteri buraya tıkladığında admin şifre ekranı açılacağını bilmeyecek (GİZLİ GEÇİT) -->
-        <div class="ana-baslik" onclick="modalAc('modalAdminGiris')">
+        <!-- Akıllı Gizli Ajan Tıklama Yeri (Şifreyi hatırlarsa direkt girer, hatırlamazsa sorar) -->
+        <div class="ana-baslik" onclick="gizliAdminGirisTetikle()">
             <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 20px rgba(6,182,212,0.8); color:var(--neon-blue);">🏛️ İLK İKRA MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600; letter-spacing: 1px;">Canlı Rezervasyon & Takip Sistemi</p>
         </div>
         
         <div class="buton-grid-ust" style="margin-top:20px;">
-            <button class="ana-btn" onclick="modalAc('modalTanitim')"><span>🛏️</span>1. Odalarımız</button>
-            <button class="ana-btn" onclick="musteriModunuAc()"><span>📅</span>2. Boş Günleri İncele</button>
+            <button class="ana-btn" onclick="modalAc('modalTanitim')"><span>🛏️</span>Odalarımız</button>
+            <button class="ana-btn" onclick="musteriModunuAc()"><span>📅</span>Boş Günleri İncele</button>
         </div>
 
         <div style="width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box;">
@@ -215,13 +229,13 @@
         </div>
 
         <div class="buton-grid-alt">
-            <button class="ana-btn" onclick="modalAc('modalHarita')"><span>📍</span>3. Konum & Harita</button>
-            <button class="ana-btn" onclick="modalAc('modalOtoparklar')"><span>🚗</span>4. Otopark Bul</button>
+            <button class="ana-btn" onclick="modalAc('modalHarita')"><span>📍</span>Konum & Harita</button>
+            <button class="ana-btn btn-pulse-otopark" onclick="modalAc('modalOtoparklar')"><span>🚗</span>Otopark Bul</button>
         </div>
         
         <div style="width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box;">
-            <button class="ana-btn" style="width:100%; padding:15px; border-color:var(--neon-orange); background:rgba(245, 158, 11, 0.15);" onclick="fatihRehberiAc()">
-                <span>🕌</span>5. FATİH ÇEVRESİ GEZİLECEK YERLER REHBERİ
+            <button class="ana-btn btn-pulse-fatih" style="width:100%; padding:15px; border-color:var(--neon-orange); background:rgba(245, 158, 11, 0.15);" onclick="fatihRehberiAc()">
+                <span>🕌</span>FATİH ÇEVRESİ GEZİLECEK YERLER
             </button>
         </div>
 
@@ -331,7 +345,7 @@
         </div>
     </div>
 
-    <!-- ODALARIMIZ MODALI VE GALERİ (3'LÜ GRID) -->
+    <!-- ODALARIMIZ MODALI VE GALERİ -->
     <div id="modalTanitim" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -347,9 +361,8 @@
                 </div>
             </div>
 
-            <!-- Eski Usül 3'lü Grid -->
+            <!-- Ekleme Usulü Sadece Dolu Olanları Gösteren Grid -->
             <div class="galeri-grid" id="galeriGrid">
-                <!-- Buluttan çekilen resimler buraya eklenecek -->
                 <div style="text-align:center; width:100%; color:#cbd5e1; font-size:12px; grid-column: span 3;">Resimler buluttan yükleniyor...</div>
             </div>
         </div>
@@ -373,10 +386,10 @@
             </div>
             <div style="border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; background: rgba(0,0,0, 0.4); margin-top:15px;">
                 <div style="font-size: 18px; font-weight: 800; margin: 12px 0; color:var(--neon-blue);">
-                    🏛️ TEK ODA: <span style="color:var(--neon-green);">2500 TL</span> <small style="font-size:11px;">/ Gece</small>
+                    🏛️ TEK ODA: <span style="color:var(--neon-green);">2.500 TL</span> <small style="font-size:11px;">/ Gece</small>
                 </div>
                 <div style="font-size: 18px; font-weight: 800; margin: 20px 0 10px 0; color:var(--neon-blue);">
-                    🏛️ ÇİFT ODA: <span style="color:var(--neon-orange);">3500 TL</span> <small style="font-size:11px;">/ Gece</small>
+                    🏛️ ÇİFT ODA: <span style="color:var(--neon-orange);">3.500 TL</span> <small style="font-size:11px;">/ Gece</small>
                 </div>
                 <p style="font-size: 11px; color: #fffb00; margin-top: 20px;">✨ Sitemiz üzerinden rezervasyon başlatanlara özel anında %15 İndirim uygulanmaktadır! ✨</p>
             </div>
@@ -399,31 +412,22 @@
         </div>
     </div>
 
-    <!-- HARİTA MODALI (Tamir Edildi) -->
+    <!-- HARİTA MODALI -->
     <div id="modalHarita" class="modal-arka">
         <div class="modal-kart" style="max-width:700px; height:80vh;">
             <div class="modal-header">
                 <h2 style="margin:0; font-size:18px; color:var(--neon-blue)">📍 KONUM & ULAŞIM</h2>
                 <button onclick="modalKapat('modalHarita')" style="background:var(--neon-red);">✖</button>
             </div>
-            <!-- Iframe için min-height ve flex kapsayıcı verildi -->
             <div style="flex:1; width:100%; display:flex; flex-direction:column; min-height: 300px; margin-top:10px;">
                 <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed" width="100%" height="100%" style="flex:1; border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a id="btnHaritaDisLink" href="https://maps.google.com/maps?q=41.0116265,28.9555132" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; text-decoration:none; margin-top:15px;">🌐 Google Maps Uygulamasında Aç</a>
-            
-            <!-- Admin Harita Güncelleme -->
-            <div id="adminHaritaConfigPanel" style="display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.5); padding:10px; border-radius:10px; border:1px solid var(--neon-orange); margin-top:10px;">
-                <label style="color:var(--neon-orange);">📍 CANLI HARİTA LİNKİNİ GÜNCELLE:</label>
-                <div style="display:flex; gap:10px;">
-                    <input type="text" id="adminHaritaLinkInput" placeholder="Yeni Google Maps Linki">
-                    <button style="background:var(--neon-orange); white-space:nowrap;" onclick="haritaLinkiniBulutaYukle()">Mühürle 💾</button>
-                </div>
-            </div>
+            <!-- Dış Link Sabitlendi -->
+            <a id="btnHaritaDisLink" href="https://maps.app.goo.gl/45Zc3hS7gMfF52da6" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; text-decoration:none; margin-top:15px;">🌐 Google Maps Uygulamasında Aç</a>
         </div>
     </div>
 
-    <!-- FATİH REHBERİ MODALI -->
+    <!-- FATİH REHBERİ MODALI (Dinamik) -->
     <div id="modalFatihRehberi" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -435,7 +439,12 @@
             <div id="adminFatihEklePanel" style="display:none; background:rgba(0,0,0,0.5); padding:15px; border-radius:12px; border:1px dashed var(--neon-orange); margin-bottom:15px;">
                 <b style="color:var(--neon-orange); font-size:12px; margin-bottom:10px; display:block;">⚙️ REHBERE YENİ MEKAN EKLE</b>
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                    <select id="fatihKategoriSec"><option value="camiler">1. Camiler</option><option value="kabirler">2. Kabirler & Şehitlik</option><option value="parklar">3. Parklar</option><option value="gezilecek">4. Gezilecek & Bakılacak Yerler</option></select>
+                    <select id="fatihKategoriSec">
+                        <option value="camiler">1. Camiler</option>
+                        <option value="kabirler">2. Kabirler & Şehitlik</option>
+                        <option value="parklar">3. Parklar</option>
+                        <option value="gezilecek">4. Gezilecek & Bakılacak Yerler</option>
+                    </select>
                     <input type="text" id="fatihMekanAd" placeholder="Mekan Adı (Örn: Fatih Camii)">
                     <input type="text" id="fatihMekanDetay" placeholder="Detay/Açıklama (İsteğe Bağlı)">
                     <input type="text" id="fatihMekanLink" placeholder="Google Maps Harita Linki">
@@ -443,7 +452,6 @@
                 <button style="background:var(--neon-green); width:100%; margin-top:10px;" onclick="fatihMekanEkle()">REHBERE EKLE 💾</button>
             </div>
 
-            <!-- Kategoriler -->
             <div id="fatihListesiKonteyner">
                 <div class="fatih-kategori-baslik">🕌 CAMİLER</div><div id="liste-camiler"></div>
                 <div class="fatih-kategori-baslik">🕋 KABİRLER VE ŞEHİTLİKLER</div><div id="liste-kabirler"></div>
@@ -453,14 +461,14 @@
         </div>
     </div>
 
-    <!-- SÜRÜKLENEBİLİR VE DETAYLI GEÇMİŞ KARTVİZİT MODALI -->
+    <!-- SÜRÜKLENEBİLİR ARŞİV KARTI -->
     <div id="modalGecmisSakinDetay" class="modal-arka">
-        <div class="modal-kart" id="draggableKartvizit">
-            <div class="modal-header" id="draggableKartvizitHeader">
+        <div id="draggableKartvizit">
+            <div id="draggableKartvizitHeader">
                 <h2 style="margin:0; font-size:16px; color:var(--neon-orange)">📋 MÜŞTERİ ARŞİV KARTI</h2>
-                <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:var(--neon-red); padding:4px 8px; cursor:pointer;">✖</button>
+                <button onclick="modalKapat('modalGecmisSakinDetay')" style="background:var(--neon-red); border:none; color:white; border-radius:4px; padding:4px 8px; cursor:pointer;">✖</button>
             </div>
-            <div id="gecmisSakinDetayIcerik" style="font-size:13px; line-height:1.8; color:#f8fafc; padding-top:10px;">
+            <div id="gecmisSakinDetayIcerik" style="font-size:13px; line-height:1.8; color:#f8fafc; padding:15px;">
                 <!-- Dinamik Doldurulacak -->
             </div>
         </div>
@@ -520,8 +528,7 @@
         const CIFT_ODA_FIYAT = 3500;
 
         let aktifAdminSifre = "1234"; 
-        let aktifHaritaKonumLink = "https://maps.google.com/maps?q=41.0116265,28.9555132&z=15&output=embed";
-
+        
         let bugunTarihObj = new Date();
         let simdikiYil = bugunTarihObj.getFullYear(); 
         let simdikiAy = bugunTarihObj.getMonth() + 1; 
@@ -585,6 +592,16 @@
             sessionStorage.setItem("misafirhane_aktif_ekran", "giris");
             document.getElementById("programEkrani").style.display = "none"; 
             document.getElementById("girisEkrani").style.display = "flex"; 
+        }
+
+        // AKILLI GİZLİ AJAN GİRİŞİ (Şifre hatırlama)
+        function gizliAdminGirisTetikle() {
+            let kayitliSifre = localStorage.getItem("misafirhane_admin_oturum");
+            if (kayitliSifre === aktifAdminSifre) {
+                adminYetkileriniAc();
+            } else {
+                modalAc('modalAdminGiris');
+            }
         }
 
         // SÜRÜKLE BIRAK (DRAGGABLE) MANTIĞI
@@ -653,14 +670,19 @@
             makeDraggable(document.getElementById("draggableKartvizit"));
             
             await bulutSifresiniCek(); 
-            await bulutHaritaLinkiniCek(); 
             await bulutKilitleriniCek();
             await fatihRehberiniCek();
             bulutResimleriniYukle();
             
+            // Dış Link (Uzantı) İle Gelme Kontrolü
+            let urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('git') === 'otopark') { setTimeout(() => modalAc('modalOtoparklar'), 500); }
+            if(urlParams.get('git') === 'fatih') { setTimeout(() => fatihRehberiAc(), 500); }
+            
             let sonEkran = sessionStorage.getItem("misafirhane_aktif_ekran");
             let kayitliSifre = localStorage.getItem("misafirhane_admin_oturum");
             
+            // Eğer URL ile geldiyse ve önceki ekran admin değilse direkt giriş ekranında kalsın (popup açılır)
             if (sonEkran === "admin" && kayitliSifre === aktifAdminSifre) {
                 adminYetkileriniAc();
             } else if (sonEkran === "musteri") {
@@ -693,14 +715,13 @@
             document.getElementById("adminUstButonlar").style.display = "flex";
             document.getElementById("adminUploadGiris").style.display = "flex"; 
             document.getElementById("adminSifreDegisPanel").style.display = "flex";
-            document.getElementById("adminHaritaConfigPanel").style.display = "flex";
             document.getElementById("adminFatihEklePanel").style.display = "block";
             document.getElementById("musteriIletisimPaneli").style.display = "none";
             
             document.getElementById("programAnaBaslik").innerText = "🏨 YÖNETİCİ KONTROL MERKEZİ";
             verileriBuluttanCek();
             adminFiyatHesaplaDinamik();
-            fatihRehberiniCek(); // Silme butonları görünsün diye bir daha çektik
+            fatihRehberiniCek(); 
         }
 
         function musteriModunuAc() {
@@ -714,7 +735,6 @@
             document.getElementById("adminUstButonlar").style.display = "none";
             document.getElementById("adminUploadGiris").style.display = "none"; 
             document.getElementById("adminSifreDegisPanel").style.display = "none";
-            document.getElementById("adminHaritaConfigPanel").style.display = "none";
             document.getElementById("adminFatihEklePanel").style.display = "none";
             document.getElementById("btnAdminMusteriFis").style.display = "none";
             document.getElementById("musteriIletisimPaneli").style.display = "flex";
@@ -800,26 +820,28 @@
                 
                 ["camiler", "kabirler", "parklar", "gezilecek"].forEach(kategori => {
                     let kap = document.getElementById("liste-" + kategori);
-                    kap.innerHTML = "";
-                    if(data[kategori]) {
-                        Object.keys(data[kategori]).forEach(key => {
-                            let m = data[kategori][key];
-                            let silBtn = isAdmin ? `<button style="background:transparent; color:var(--neon-red); padding:2px; font-size:16px;" onclick="fatihMekanSil('${kategori}', '${key}')">🗑️</button>` : "";
-                            kap.innerHTML += `
-                                <div class="fatih-mekan-kart">
-                                    <div style="flex:1;">
-                                        <div class="fatih-mekan-isim">${m.ad}</div>
-                                        <div class="fatih-mekan-detay">${m.detay || ""}</div>
+                    if(kap) {
+                        kap.innerHTML = "";
+                        if(data[kategori]) {
+                            Object.keys(data[kategori]).forEach(key => {
+                                let m = data[kategori][key];
+                                let silBtn = isAdmin ? `<button style="background:transparent; color:var(--neon-red); padding:2px; font-size:16px; border:none; cursor:pointer;" onclick="fatihMekanSil('${kategori}', '${key}')">🗑️</button>` : "";
+                                kap.innerHTML += `
+                                    <div class="fatih-mekan-kart">
+                                        <div style="flex:1;">
+                                            <div class="fatih-mekan-isim">${m.ad}</div>
+                                            <div class="fatih-mekan-detay">${m.detay || ""}</div>
+                                        </div>
+                                        <div style="display:flex; gap:10px; align-items:center;">
+                                            <a href="${m.link}" target="_blank" class="fatih-link-btn">🗺️ Harita</a>
+                                            ${silBtn}
+                                        </div>
                                     </div>
-                                    <div style="display:flex; gap:10px; align-items:center;">
-                                        <a href="${m.link}" target="_blank" class="fatih-link-btn">🗺️ Harita</a>
-                                        ${silBtn}
-                                    </div>
-                                </div>
-                            `;
-                        });
+                                `;
+                            });
+                        }
+                        if(kap.innerHTML === "") kap.innerHTML = "<div style='font-size:11px; color:#64748b; margin-top:5px;'>Henüz mekan eklenmemiş.</div>";
                     }
-                    if(kap.innerHTML === "") kap.innerHTML = "<div style='font-size:11px; color:#64748b; margin-top:5px;'>Henüz mekan eklenmemiş.</div>";
                 });
             } catch(e){}
         }
@@ -867,9 +889,9 @@
             let ham = oda * gece;
             let net = Math.round(ham - (ham * (ind/100)));
             document.getElementById("robotSonucYazi").innerHTML = `
-                💵 Normal Tutar: ${ham} TL<br>
-                ✂️ İndirim (%${ind}): <span style="color:var(--neon-red);">${ham - net} TL</span><br>
-                <b style="color:var(--neon-green); font-size:18px;">NET ÖDENECEK: ${net} TL</b>
+                💵 Normal Tutar: ${ham.toLocaleString('tr-TR')} TL<br>
+                ✂️ İndirim (%${ind}): <span style="color:var(--neon-red);">${(ham - net).toLocaleString('tr-TR')} TL</span><br>
+                <b style="color:var(--neon-green); font-size:18px;">NET ÖDENECEK: ${net.toLocaleString('tr-TR')} TL</b>
             `;
         }
 
@@ -881,14 +903,13 @@
             
             let bs = new Date(mSecTarih); let bit = new Date(bs); bit.setDate(bs.getDate() + mGece);
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
-            
             let net = Math.round(brut * 0.85); 
             
             document.getElementById("mHesapÖzetYazi").innerHTML = `
                 🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)<br>
                 🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)<br>
                 🌙 Süre: ${mGece} Gece<br>
-                💰 Net Tutar: <b style="color:var(--neon-orange);">${net} TL</b> <span style="color:var(--neon-green); font-size:10px;">(Web Özel %15 İndirimli)</span>
+                💰 Net Tutar: <b style="color:var(--neon-orange);">${net.toLocaleString('tr-TR')} TL</b> <span style="color:var(--neon-green); font-size:10px;">(Web Özel %15 İndirimli)</span>
             `;
             
             document.querySelectorAll('.gun-kutusu').forEach(b => b.classList.remove('isaretli-gun'));
@@ -912,7 +933,7 @@
             
             if(indYuzde > 0) {
                 net = Math.round(brut - (brut * (indYuzde/100)));
-                info.innerText = `✨ %${indYuzde} Manuel İndirim Uygulandı! (Normali: ${brut} TL)`;
+                info.innerText = `✨ %${indYuzde} Manuel İndirim Uygulandı! (Normali: ${brut.toLocaleString('tr-TR')} TL)`;
                 info.style.display = "block";
             } else {
                 info.style.display = "none";
@@ -1056,7 +1077,7 @@
                 
                 let kilitHtml = "";
                 if(isAdmin) {
-                    let kIkon = bulutKilitliGunler[ts] ? "🔒 Aç" : "🔓 Kilitle";
+                    let kIkon = bulutKilitliGunler[ts] ? "🔒 Aç" : "🔓 Kilit";
                     let kRenk = bulutKilitliGunler[ts] ? "color:var(--neon-red)" : "color:var(--neon-blue)";
                     kilitHtml = `<div class="kilit-rozeti" style="${kRenk}" onclick="gunuManuelKilitle('${ts}', event)">${kIkon}</div>`;
                 }
@@ -1090,13 +1111,13 @@
                 sl.innerHTML = "";
                 Object.keys(buAykiSakinler).forEach(isimKey => {
                     let s = buAykiSakinler[isimKey];
-                    let st = ""; let ck = "";
+                    let st = ""; 
                     if(s.kilitliMi || s.gecmisMi) {
                         st = "opacity:0.6; text-decoration:line-through; border-left:3px solid #64748b;";
-                        ck = `gecmisSakinDetayiniGoster('${s.isimVal}', '${s.tarihKey}', ${s.süre}, ${s.fiyat}, '${s.odeme}', '${s.tel}')`;
-                    } else {
-                        ck = `duzenlemeModunuAc('${s.isimVal}', '${s.tarihKey}', ${s.süre}, ${s.fiyat}, '${s.odeme}', '${s.tel}')`;
                     }
+                    // Satıra tıklanınca herkese kartvizit açılır, içinden duruma göre düzenleme butonuna basılır
+                    let ck = `gecmisSakinDetayiniGoster('${s.isimVal}', '${s.tarihKey}', ${s.süre}, ${s.fiyat}, '${s.odeme}', '${s.tel}', ${s.gecmisMi}, ${s.kilitliMi})`;
+                    
                     sl.innerHTML += `<div class="sakin-satir" style="${st}" onclick="${ck}"><span>👤 ${isimKey}</span><span style="background:rgba(0,0,0,0.5); padding:2px 6px; border-radius:4px; font-size:10px;">Gün ${s.gun}</span></div>`;
                 });
             }
@@ -1104,7 +1125,19 @@
 
         async function gunuManuelKilitle(ts, e) {
             if(e) e.stopPropagation();
-            if(bulutKilitliGunler[ts]) delete bulutKilitliGunler[ts]; else bulutKilitliGunler[ts] = true;
+            let hedefIsim = "";
+            Object.keys(rezervasyonlar).forEach(k => { if(k.startsWith(ts) && rezervasyonlar[k] && rezervasyonlar[k].isim) hedefIsim = rezervasyonlar[k].isim.toLowerCase(); });
+            let guncelDurum = !bulutKilitliGunler[ts];
+            if(hedefIsim !== "") {
+                Object.keys(rezervasyonlar).forEach(kKey => {
+                    if(rezervasyonlar[kKey] && rezervasyonlar[kKey].isim && rezervasyonlar[kKey].isim.toLowerCase() === hedefIsim) {
+                        let rezTarih = kKey.substring(0, 10);
+                        if(guncelDurum) bulutKilitliGunler[rezTarih] = true; else delete bulutKilitliGunler[rezTarih];
+                    }
+                });
+            } else {
+                if(guncelDurum) bulutKilitliGunler[ts] = true; else delete bulutKilitliGunler[ts];
+            }
             try {
                 await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`, { method: 'PUT', body: JSON.stringify(bulutKilitliGunler) });
                 listeyiYenile();
@@ -1112,22 +1145,32 @@
         }
         function kilidiZorlaAc(g, e) { if(e) e.stopPropagation(); kilitliKayitlariZorlaAc[g] = true; listeyiYenile(); }
 
-        function gecmisSakinDetayiniGoster(isim, tarih, sure, fiyat, odeme, tel) {
+        // YENİ AKILLI KARTVİZİT VE DÜZENLEME BAĞLANTISI
+        function gecmisSakinDetayiniGoster(isim, tarih, sure, fiyat, odeme, tel, gecmisMi, kilitliMi) {
             isaretleVeKaydir(isim); 
             
             let bs = new Date(tarih); 
             let bit = new Date(bs); bit.setDate(bs.getDate() + parseInt(sure));
             let cikisTarihi = `${bit.getFullYear()}-${String(bit.getMonth()+1).padStart(2,'0')}-${String(bit.getDate()).padStart(2,'0')}`;
+            let formatFiyat = parseInt(fiyat).toLocaleString('tr-TR');
+            
+            let duzenleButonu = "";
+            if(!gecmisMi && !kilitliMi) {
+                duzenleButonu = `<button style="background:var(--neon-green); width:100%; margin-top:10px; padding:10px; border-radius:8px; font-weight:bold; cursor:pointer;" onclick="duzenlemeModunuAc('${isim}', '${tarih}', ${sure}, ${fiyat}, '${odeme}', '${tel}'); modalKapat('modalGecmisSakinDetay');">✏️ BİLGİLERİ DÜZENLE</button>`;
+            } else {
+                duzenleButonu = `<div style="margin-top:10px; font-size:11px; color:var(--neon-red); text-align:center;">🔒 Kayıt geçmişte veya kilitli olduğu için düzenlenemez.</div>`;
+            }
             
             let ic = `
                 👤 <b>Müşteri Adı:</b> ${isim.toUpperCase()}<br>
                 📱 <b>Telefon:</b> ${tel && tel !== 'Yok' ? tel : 'Belirtilmemiş'}<br>
-                🛫 <b>Giriş Tarihi:</b> ${tarih}<br>
-                🛬 <b>Çıkış Tarihi:</b> ${cikisTarihi}<br>
+                🛫 <b>Giriş Tarihi:</b> ${tarih} (Ö.S.)<br>
+                🛬 <b>Çıkış Tarihi:</b> ${cikisTarihi} (Ö.Ö.)<br>
                 🌙 <b>Süre:</b> ${sure} Gece<br>
-                💰 <b>Tutar:</b> ${fiyat} TL<br>
+                💰 <b>Tutar:</b> ${formatFiyat} TL<br>
                 💳 <b>Ödeme:</b> <span style="color:${odeme==='Alındı'?'var(--neon-green)':'var(--neon-red)'}">${odeme}</span><br>
-                <i style="font-size:11px; color:#cbd5e1; display:block; margin-top:10px; border-top:1px dashed #64748b; padding-top:5px;">🖱️ Pencerenin başlığından tutup ekranda sağa sola sürükleyebilirsiniz kanka. Arkadaki takvimi kaydırıp incelemeye devam edin.</i>
+                ${duzenleButonu}
+                <i style="font-size:10px; color:#cbd5e1; display:block; margin-top:10px; border-top:1px dashed #64748b; padding-top:5px; text-align:center;">🖱️ Kartviziti başlığından tutup sürükleyebilirsiniz kanka. Arkadaki takvimi incelemeye devam edin.</i>
             `;
             document.getElementById("gecmisSakinDetayIcerik").innerHTML = ic;
             
@@ -1135,8 +1178,8 @@
             let kart = document.getElementById("draggableKartvizit");
             modal.style.display = "block";
             
-            kart.style.top = (window.innerHeight / 2 - kart.offsetHeight / 2) + "px";
-            kart.style.left = (window.innerWidth / 2 - kart.offsetWidth / 2) + "px";
+            kart.style.top = Math.max(10, (window.innerHeight / 2 - kart.offsetHeight / 2)) + "px";
+            kart.style.left = Math.max(10, (window.innerWidth / 2 - kart.offsetWidth / 2)) + "px";
             kart.style.transform = "none";
             kart.style.margin = "0";
         }
@@ -1273,22 +1316,26 @@
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
             let net = Math.round(brut * 0.85); 
             
-            let mesaj = `Selamun Aleykum hocam,\nSitenizden boş günleri inceledim.\n🛏️ Oda: ${mOda === 'tek' ? 'Tek' : 'Çift'} Oda\n🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)\n🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)\n🌙 Süre: ${mGece} Gece\n💰 Tutar: ${net} TL (%15 Web Özel İndirimiyle)\nRezervasyon yaptırmak istiyorum.`;
+            let mesaj = `Selamun Aleykum hocam,\nSitenizden boş günleri inceledim.\n🛏️ Oda: ${mOda === 'tek' ? 'Tek' : 'Çift'} Oda\n🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)\n🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)\n🌙 Süre: ${mGece} Gece\n💰 Tutar: ${net.toLocaleString('tr-TR')} TL (%15 Web Özel İndirimiyle)\nRezervasyon yaptırmak istiyorum.`;
             window.open(`https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(mesaj)}`, '_blank');
         }
 
         function musteriyeRezervasyonFisiAt() {
             if(!seciliAdminMusteriBilgisi) return;
             let m = seciliAdminMusteriBilgisi; let bs = new Date(m.tarihKey); let bit = new Date(bs); bit.setDate(bs.getDate() + m.süre);
+            let bitisTarih = `${bit.getFullYear()}-${String(bit.getMonth()+1).padStart(2,'0')}-${String(bit.getDate()).padStart(2,'0')}`;
             
+            let formatliFiyat = parseInt(m.fiyat).toLocaleString('tr-TR');
+            let appUrl = window.location.origin + window.location.pathname;
+
             let fis = `✨ *İLK İKRA MİSAFİRHANE REZERVASYON FİŞİ* ✨\n\n` +
                       `Sayın *${m.isim.toUpperCase()}*, rezervasyonunuz onaylanmıştır.\n\n` +
                       `🛫 *[ GİRİŞ ]*: ${m.tarihKey} - ${gunlerTr[bs.getDay()]} (Öğleden Sonra)\n` +
-                      `🛬 *[ ÇIKIŞ ]*: ${bit.getFullYear()}-${String(bit.getMonth()+1).padStart(2,'0')}-${String(bit.getDate()).padStart(2,'0')} - ${gunlerTr[bit.getDay()]} (Öğleden Önce)\n` +
-                      `🌙 *[ SÜRE ]*: ${m.süre} Gece\n💰 *[ TUTAR ]*: ${m.fiyat} TL (${m.odeme})\n\n` +
-                      `📍 *Konum:* ${aktifHaritaKonumLink}\n` +
-                      `🚗 *Yakın Otoparklar:* https://maps.app.goo.gl/WbhqqWKnScXQmiEv5\n` +
-                      `🕌 *Fatih Gezilecek Yerler:* Misafirhanemizden kolayca ulaşabileceğiniz tarihi yerler hakkında web sitemizden bilgi alabilirsiniz.\n\n` +
+                      `🛬 *[ ÇIKIŞ ]*: ${bitisTarih} - ${gunlerTr[bit.getDay()]} (Öğleden Önce)\n` +
+                      `🌙 *[ SÜRE ]*: ${m.süre} Gece\n💰 *[ TUTAR ]*: ${formatliFiyat} TL (${m.odeme})\n\n` +
+                      `📍 *Konum / Yol Tarifi:* https://maps.app.goo.gl/45Zc3hS7gMfF52da6\n` +
+                      `🚗 *Otopark Listesi İçin Tıklayın:* ${appUrl}?git=otopark\n` +
+                      `🕌 *Fatih Gezilecek Yerler İçin Tıklayın:* ${appUrl}?git=fatih\n\n` +
                       `Hayırlı yolculuklar dileriz. ⭐✨`;
                       
             let tel = m.tel.replace(/[^0-9]/g, "");
@@ -1310,7 +1357,8 @@
                 if(tel.startsWith('5')) tel = "90" + tel; if(tel.startsWith('05')) tel = "90" + tel.substring(1);
                 if(tel) tumRehberMusterileri.push({ isim: m.isim, tel: tel });
                 let wa = tel ? `<a href="https://wa.me/${tel}" target="_blank" style="color:var(--neon-green); font-weight:bold; text-decoration:none;">💬 WA</a>` : "-";
-                gövde.innerHTML += `<tr><td style="color:#fff; font-weight:bold;">${m.isim.toUpperCase()}</td><td>${m.tel}</td><td>${m.tarih}</td><td>${m.süre}</td><td style="color:var(--neon-orange);">${m.fiyat} TL</td><td style="color:${m.odeme==='Alındı'?'var(--neon-green)':'var(--neon-red)'};">${m.odeme}</td><td>${wa}</td></tr>`;
+                let fyt = parseInt(m.fiyat).toLocaleString('tr-TR');
+                gövde.innerHTML += `<tr><td style="color:#fff; font-weight:bold;">${m.isim.toUpperCase()}</td><td>${m.tel}</td><td>${m.tarih}</td><td>${m.süre}</td><td style="color:var(--neon-orange);">${fyt} TL</td><td style="color:${m.odeme==='Alındı'?'var(--neon-green)':'var(--neon-red)'};">${m.odeme}</td><td>${wa}</td></tr>`;
             });
         }
         function rehberiKapat() { modalKapat('rehberModal'); }
@@ -1324,22 +1372,7 @@
             }
         }
 
-        async function haritaLinkiniBulutaYukle() {
-            let ln = document.getElementById("adminHaritaLinkInput").value.trim(); if(!ln) { await ozelAlert("Link boş!"); return; }
-            try {
-                await fetch(`${FIREBASE_URL}adminConfig/harita.json`, { method: 'PUT', body: JSON.stringify(ln) });
-                aktifHaritaKonumLink = ln; bulutHaritaLinkiniCek(); document.getElementById("adminHaritaLinkInput").value = "";
-                await ozelAlert("Harita linki güncellendi!");
-            } catch(e){}
-        }
-
         async function bulutSifresiniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json`); let d = await r.json(); if(d) aktifAdminSifre = d; } catch(e){} }
-        async function bulutHaritaLinkiniCek() { 
-            try { 
-                let r = await fetch(`${FIREBASE_URL}adminConfig/harita.json`); let d = await r.json(); 
-                if(d) { aktifHaritaKonumLink = d; document.getElementById("btnHaritaDisLink").href = d; document.getElementById("canliGoogleHaritaIframe").src = d; }
-            } catch(e){} 
-        }
         async function bulutKilitleriniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`); let d = await r.json(); if(d) bulutKilitliGunler = d; } catch(e){} }
         
         async function sifreyiBuluttaGuncelle() {
