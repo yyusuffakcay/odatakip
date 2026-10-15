@@ -595,7 +595,8 @@
         }
 
         // AKILLI GİZLİ AJAN GİRİŞİ (Şifre hatırlama)
-        function gizliAdminGirisTetikle() {
+        async function gizliAdminGirisTetikle() {
+            await bulutSifresiniCek(); // Tıklanıldığı an anlık olarak buluttan en güncel şifreyi çeker
             let kayitliSifre = localStorage.getItem("misafirhane_admin_oturum");
             if (kayitliSifre === aktifAdminSifre) {
                 adminYetkileriniAc();
@@ -693,6 +694,7 @@
         });
 
         async function yoneticiGirisSifreKontrol() {
+            await bulutSifresiniCek(); // Kontrol etmeden önce buluttan son şifreyi garantiler
             let girilen = document.getElementById("adminGirisSifreInput").value;
             if (girilen === aktifAdminSifre) {
                 localStorage.setItem("misafirhane_admin_oturum", girilen);
@@ -1372,7 +1374,9 @@
             }
         }
 
-        async function bulutSifresiniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json`); let d = await r.json(); if(d) aktifAdminSifre = d; } catch(e){} }
+        // Şifreyi çekerken önbelleği (cache) temizleyip en güncel halini zorla aldırıyoruz
+        async function bulutSifresiniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json?t=${Date.now()}`, { cache: 'no-store' }); let d = await r.json(); if(d) aktifAdminSifre = d; } catch(e){} }
+        
         async function bulutKilitleriniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`); let d = await r.json(); if(d) bulutKilitliGunler = d; } catch(e){} }
         
         async function sifreyiBuluttaGuncelle() {
