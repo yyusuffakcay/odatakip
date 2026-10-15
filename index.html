@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>İLK İKRA Misafirhane</title>
     
-    <!-- Mobil Uygulama (PWA) Ayarları ve Jilet Gibi Logo -->
     <meta name="theme-color" content="#06b6d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -23,7 +22,6 @@
             --text-light: #f8fafc;
         }
         
-        /* Tema Ferah Turkuaz/Yeşil Gradiyent Olarak Güncellendi */
         body { 
             background: linear-gradient(rgba(8, 145, 178, 0.65), rgba(16, 185, 129, 0.6)), url('https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRI0yJoGqChFjeDWqwYuGEEMXC-V7MDaDPP6cZnLFwACqguvNbh7WxmNlK272ZV-cY04W7jARPnHg0qrcI') no-repeat center center fixed;
             background-size: cover;
@@ -34,11 +32,10 @@
         }
 
         .giris-ekrani { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 95vh; gap: 15px; padding-bottom: 20px; }
-        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); cursor: pointer; }
+        .ana-baslik { text-align: center; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: 2px; cursor: pointer; }
         
         .buton-grid-ust, .buton-grid-alt { display: flex; gap: 15px; width: 100%; max-width: 750px; padding: 0 10px; box-sizing: border-box; }
         
-        /* TURKUAZ, SAYDAM VE YÜZEN BUTON TASARIMI */
         .ana-btn { 
             flex: 1; background: linear-gradient(135deg, rgba(6, 182, 212, 0.4) 0%, rgba(8, 145, 178, 0.6) 100%);
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -56,7 +53,6 @@
         .btn-fiyat-kirmizi { border-color: var(--neon-red) !important; border-bottom: 4px solid #b91c1c !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.4) 0%, rgba(185, 28, 28, 0.6) 100%) !important; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2) !important; }
         .btn-fiyat-kirmizi:hover { box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5) !important; background: linear-gradient(135deg, rgba(239, 68, 68, 0.6) 0%, rgba(185, 28, 28, 0.8) 100%) !important; }
 
-        /* YANIP SÖNME (PULSE) ANİMASYONLARI */
         @keyframes pulse-fatih { 
             0% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.4); transform: scale(1); } 
             100% { box-shadow: 0 0 35px rgba(245, 158, 11, 1); transform: scale(1.02); } 
@@ -70,12 +66,12 @@
         .btn-pulse-otopark { animation: pulse-otopark 1.5s infinite alternate ease-in-out; border: 2px solid var(--neon-green) !important; border-bottom: 4px solid #047857 !important; background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.5) 100%) !important; }
 
         .medrese-aciklama-notu {
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 14px; padding: 12px;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.8); border-radius: 14px; padding: 12px;
             width: 100%; max-width: 730px; text-align: center; font-size: 13px; line-height: 1.5; font-weight: 800; color: #000000;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-top: 5px;
         }
-        .medrese-aciklama-notu b { color: #b45309; font-weight: 900; }
+        .medrese-aciklama-notu b { color: #000000; font-weight: 900; font-size:14px; text-decoration:underline; }
         .medrese-link-no { color: #0369a1; font-weight: 900; text-decoration: none; }
 
         .program-ekrani { display: none; }
@@ -104,14 +100,15 @@
         .gun-kutusu { display: flex; flex-direction: column; justify-content: space-between; padding: 8px; border-radius: 12px; font-size: 11px; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; backdrop-filter: blur(5px); }
         
         .bos { background: rgba(6, 182, 212, 0.15); border-top: 4px solid var(--neon-blue); }
-        .bos .gun-no { background: var(--neon-blue); color: white; }
         .tam-dolu-odendi { background: rgba(239, 68, 68, 0.35); border-top: 4px solid var(--neon-red); }
         
         .manuel-kilitli-gun { background: rgba(30, 41, 59, 0.8) !important; border-top: 4px solid #64748b !important; opacity: 0.7; }
         .gecmis-kilitli-gun { background: rgba(148, 163, 184, 0.2) !important; border-top: 4px solid #64748b !important; opacity: 0.75; }
         
+        /* GÜN NUMARALARI SİMSİYAH VE BEYAZ ZEMİNLİ */
         .gun-satir-ust { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4px; }
-        .gun-no { font-size: 11px; font-weight: 800; background: rgba(0,0,0,0.5); padding: 3px 6px; border-radius: 5px; color: #ffffff; width: max-content; }
+        .gun-no { font-size: 11px; font-weight: 900; background: rgba(255,255,255,0.95) !important; padding: 3px 6px; border-radius: 5px; color: #000000 !important; width: max-content; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        
         .gun-icerik { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 3px; font-size: 11px; text-align: left; }
         .kilit-rozeti { font-size: 10px; cursor: pointer; background: rgba(0,0,0,0.6); padding: 3px 6px; border-radius: 6px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2); }
 
@@ -211,9 +208,9 @@
     </div>
 
     <div id="girisEkrani" class="giris-ekrani">
-        <!-- Akıllı Gizli Ajan Tıklama Yeri (Şifreyi hatırlarsa direkt girer, hatırlamazsa sorar) -->
+        <!-- ANA BAŞLIK SİMSİYAH VE IŞIKLI -->
         <div class="ana-baslik" onclick="gizliAdminGirisTetikle()">
-            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 20px rgba(6,182,212,0.8); color:var(--neon-blue);">🏛️ İLK İKRA MİSAFİRHANE</h1>
+            <h1 style="margin:0; font-size: 28px; text-shadow: 0 0 15px rgba(255,255,255,0.9); color:#000000; font-weight:900;">🏛️ İLK İKRA MİSAFİRHANE</h1>
             <p style="font-size:12px; color:#cbd5e1; margin-top:5px; font-weight:600; letter-spacing: 1px;">Canlı Rezervasyon & Takip Sistemi</p>
         </div>
         
@@ -239,7 +236,6 @@
             </button>
         </div>
 
-        <!-- YENİ SİMSİYAH MEDRESE YAZISI -->
         <div class="medrese-aciklama-notu">
             ⭐ <b>İLK İKRA MEDRESESİ</b> Mahmud Efendi Hz. usulü ve yolu üzere eğitimlerine devam etmektedir. 
             Talebelerimiz küçük yaşta başlayıp eğitimlerini sırasıyla <i>(Elif Cüzü, Talim, Tecvit, Kuran-ı Kerim Düzgün Okuma ve Hafızlık, Arapça)</i> 
@@ -263,7 +259,7 @@
                 </div>
                 <div id="loading" style="display:none; text-align:center; font-size:12px; color:var(--neon-orange);">Bulutla Eşitleniyor...</div>
                 
-                <!-- YÖNETİCİ FORMU (Sadece admine görünür) -->
+                <!-- YÖNETİCİ FORMU -->
                 <div id="adminFormElemanlari" style="display:none;">
                     <div class="form-group"><label>Giriş Tarihi Seç:</label><input type="date" id="formGun"></div>
                     <div class="form-group"><label>Müşteri Adı:</label><input type="text" id="formIsim" placeholder="Ad Soyad"></div>
@@ -313,7 +309,6 @@
                     <button style="background:linear-gradient(#25d366, #128c7e); padding:15px; font-size:14px; border-radius:12px;" onclick="musteriWaGit()">💬 WHATSAPP İLE REZERVASYON YAP</button>
                 </div>
                 
-                <!-- YÖNETİCİ EKSTRA PANELLERİ -->
                 <div class="sakin-kutusu" id="adminSakinKutusu" style="display:none;">
                     <label style="color:var(--neon-orange); font-size:11px;">✏️ BU AYKİ SAKİN LİSTESİ:</label>
                     <div class="sakin-scroll" id="sakinListesi"></div>
@@ -321,12 +316,13 @@
 
                 <button id="btnAdminMusteriFis" style="display:none; background:var(--neon-blue); padding:10px;" onclick="musteriyeRezervasyonFisiAt()">📱 MÜŞTERİYE WHATSAPP FİŞİ GÖNDER</button>
 
-                <!-- YENİ DİNAMİK FİYAT LİSTESİ GÜNCELLEME PANELİ -->
+                <!-- DİNAMİK FİYAT VE İNDİRİM LİSTESİ GÜNCELLEME PANELİ -->
                 <div id="adminFiyatDegisPanel" style="display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.3); padding:10px; border-radius:10px; border:1px solid var(--neon-orange); margin-top:10px;">
-                    <label style="color:var(--neon-orange);">⚙️ FİYAT LİSTESİ GÜNCELLE:</label>
+                    <label style="color:var(--neon-orange);">⚙️ FİYAT VE İNDİRİM GÜNCELLE:</label>
                     <input type="number" id="adminFiyatTek" placeholder="Tek Oda Fiyatı (Örn: 2500)">
                     <input type="number" id="adminFiyatCift" placeholder="Çift Oda Fiyatı (Örn: 3500)">
-                    <button style="background:var(--neon-orange);" onclick="fiyatlariBuluttaGuncelle()">Fiyatları Güncelle 💾</button>
+                    <input type="number" id="adminWebIndirim" placeholder="Müşteri Web İndirimi % (Örn: 15)">
+                    <button style="background:var(--neon-orange);" onclick="fiyatlariBuluttaGuncelle()">Değerleri Güncelle 💾</button>
                 </div>
 
                 <div id="adminSifreDegisPanel" style="display:none; flex-direction:column; gap:6px; background:rgba(0,0,0,0.3); padding:10px; border-radius:10px; border:1px solid var(--neon-blue); margin-top:10px;">
@@ -372,13 +368,12 @@
                 </div>
             </div>
 
-            <!-- YENİ OTOMATİK SLAYT EKRANI -->
+            <!-- OTOMATİK SLAYT EKRANI -->
             <div id="otomatikSlaytAlani" style="width:100%; height:300px; border-radius:12px; overflow:hidden; position:relative; margin-bottom:15px; border:2px solid var(--neon-blue); display:none; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
                 <img id="slaytAnaResim" src="" style="width:100%; height:100%; object-fit:cover; transition: opacity 0.5s ease-in-out;">
                 <div id="slaytAnaYazi" style="position:absolute; bottom:0; left:0; width:100%; background:rgba(0,0,0,0.7); color:white; text-align:center; padding:10px; font-weight:bold; font-size:16px;">Yükleniyor...</div>
             </div>
 
-            <!-- Ekleme Usulü Sadece Dolu Olanları Gösteren Grid -->
             <div class="galeri-grid" id="galeriGrid">
                 <div style="text-align:center; width:100%; color:#cbd5e1; font-size:12px; grid-column: span 3;">Resimler buluttan yükleniyor...</div>
             </div>
@@ -395,13 +390,13 @@
         </div>
     </div>
 
+    <!-- FİYAT TABELASI -->
     <div id="modalFiyatTabelasi" class="modal-arka">
         <div class="modal-kart" style="max-width:400px; text-align:center;">
             <div class="modal-header">
                 <h2 style="margin:0; font-size:18px; color:var(--neon-orange)">📊 GÜNCEL FİYATLAR</h2>
                 <button onclick="modalKapat('modalFiyatTabelasi')" style="background:var(--neon-red);">✖</button>
             </div>
-            <!-- YAZILAR SİLİNDİ, FİYATLAR DİNAMİKLEŞTİRİLDİ -->
             <div style="border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; background: rgba(0,0,0, 0.4); margin-top:15px;">
                 <div style="font-size: 18px; font-weight: 800; margin: 12px 0; color:var(--neon-blue);">
                     🏛️ TEK ODA: <span id="tabelaTekFiyat" style="color:var(--neon-green);">2.500 TL</span> <small style="font-size:11px;">/ Gece</small>
@@ -413,6 +408,7 @@
         </div>
     </div>
 
+    <!-- OTOPARK MODALI -->
     <div id="modalOtoparklar" class="modal-arka">
         <div class="modal-kart" style="max-width:550px;">
             <div class="modal-header">
@@ -437,14 +433,13 @@
                 <button onclick="modalKapat('modalHarita')" style="background:var(--neon-red);">✖</button>
             </div>
             <div style="flex:1; width:100%; display:flex; flex-direction:column; min-height: 300px; margin-top:10px;">
-                <!-- DÜZELTİLMİŞ HARİTA BAĞLANTISI -->
                 <iframe id="canliGoogleHaritaIframe" src="https://maps.google.com/maps?q=41.02568,28.94197&z=15&output=embed" width="100%" height="100%" style="flex:1; border:1px solid rgba(255,255,255,0.2); border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <a id="btnHaritaDisLink" href="https://maps.app.goo.gl/45Zc3hS7gMfF52da6" target="_blank" style="text-align:center; color:var(--neon-orange); font-weight:bold; text-decoration:none; margin-top:15px;">🌐 Google Maps Uygulamasında Aç</a>
         </div>
     </div>
 
-    <!-- FATİH REHBERİ MODALI (Dinamik) -->
+    <!-- FATİH REHBERİ MODALI -->
     <div id="modalFatihRehberi" class="modal-arka">
         <div class="modal-kart">
             <div class="modal-header">
@@ -491,6 +486,7 @@
         </div>
     </div>
 
+    <!-- HESAP ROBOTU MODALI -->
     <div id="modalHesapRobotu" class="modal-arka">
         <div class="modal-kart" style="max-width:500px;">
             <div class="modal-header">
@@ -517,6 +513,7 @@
         </div>
     </div>
 
+    <!-- MÜŞTERİ REHBERİ -->
     <div id="rehberModal" class="modal-arka">
         <div class="modal-kart" style="max-width:900px;">
             <div class="modal-header">
@@ -543,9 +540,9 @@
         const FIREBASE_URL = "https://genel-proje-79c7f-default-rtdb.europe-west1.firebasedatabase.app/"; 
         const WHATSAPP_NO = "905319120141"; 
         
-        // FİYATLAR ARTIK DİNAMİK
         let TEK_ODA_FIYAT = 2500;
         let CIFT_ODA_FIYAT = 3500;
+        let WEB_INDIRIM_YUZDE = 15; // Dinamik Web İndirim Oranı
 
         let aktifAdminSifre = "1234"; 
         
@@ -617,18 +614,22 @@
             document.getElementById("girisEkrani").style.display = "flex"; 
         }
 
-        // AKILLI GİZLİ AJAN GİRİŞİ (Şifre hatırlama)
         async function gizliAdminGirisTetikle() {
-            await bulutSifresiniCek(); 
             let kayitliSifre = localStorage.getItem("misafirhane_admin_oturum");
-            if (kayitliSifre === aktifAdminSifre) {
-                adminYetkileriniAc();
-            } else {
-                modalAc('modalAdminGiris');
+            if (kayitliSifre) {
+                try {
+                    let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json?t=${Date.now()}`, { cache: 'no-store' });
+                    let guncelSifre = await r.json();
+                    if(kayitliSifre === guncelSifre) {
+                        aktifAdminSifre = guncelSifre;
+                        adminYetkileriniAc();
+                        return;
+                    }
+                } catch(e) {}
             }
+            modalAc('modalAdminGiris');
         }
 
-        // SÜRÜKLE BIRAK (DRAGGABLE) MANTIĞI
         function makeDraggable(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             var header = document.getElementById(elmnt.id + "Header");
@@ -693,13 +694,11 @@
             robotKutulariniDoldur();
             makeDraggable(document.getElementById("draggableKartvizit"));
             
-            await bulutFiyatlariCek(); // İLK İŞ FİYATLARI ALIR
-            await bulutSifresiniCek(); 
+            await bulutFiyatlariCek(); 
             await bulutKilitleriniCek();
             await fatihRehberiniCek();
             bulutResimleriniYukle();
             
-            // Dış Link (Uzantı) İle Gelme Kontrolü
             let urlParams = new URLSearchParams(window.location.search);
             if(urlParams.get('git') === 'otopark') { setTimeout(() => modalAc('modalOtoparklar'), 500); }
             if(urlParams.get('git') === 'fatih') { setTimeout(() => fatihRehberiAc(), 500); }
@@ -707,15 +706,19 @@
             let sonEkran = sessionStorage.getItem("misafirhane_aktif_ekran");
             let kayitliSifre = localStorage.getItem("misafirhane_admin_oturum");
             
-            if (sonEkran === "admin" && kayitliSifre === aktifAdminSifre) {
-                adminYetkileriniAc();
+            if (sonEkran === "admin" && kayitliSifre) {
+                try {
+                    let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json?t=${Date.now()}`, { cache: 'no-store' });
+                    let guncelSifre = await r.json();
+                    if(kayitliSifre === guncelSifre) { aktifAdminSifre = guncelSifre; adminYetkileriniAc(); }
+                    else { anaEkranDon(); }
+                } catch(e) { anaEkranDon(); }
             } else if (sonEkran === "musteri") {
                 musteriModunuAc();
             } else {
                 anaEkranDon();
             }
 
-            // KLAVYE YÖN TUŞLARI İLE FOTOĞRAF GEÇİŞİ
             document.addEventListener('keydown', function(event) {
                 if (document.getElementById("lightboxModal").style.display === "flex") {
                     if (event.key === "ArrowLeft") slaytDegistir(-1);
@@ -729,53 +732,56 @@
             try {
                 let r = await fetch(`${FIREBASE_URL}adminConfig/fiyatlar.json`);
                 let data = await r.json();
-                if(data && data.tek && data.cift) {
-                    TEK_ODA_FIYAT = parseInt(data.tek);
-                    CIFT_ODA_FIYAT = parseInt(data.cift);
+                if(data) {
+                    if(data.tek) TEK_ODA_FIYAT = parseInt(data.tek);
+                    if(data.cift) CIFT_ODA_FIYAT = parseInt(data.cift);
+                    if(data.webIndirim !== undefined) WEB_INDIRIM_YUZDE = parseInt(data.webIndirim);
                 }
                 fiyatTabelasiniGuncelle();
             } catch(e){}
         }
 
         function fiyatTabelasiniGuncelle() {
-            // TABELAYI GÜNCELLE
             let t = document.getElementById("tabelaTekFiyat"); if(t) t.innerText = TEK_ODA_FIYAT.toLocaleString('tr-TR') + " TL";
             let c = document.getElementById("tabelaCiftFiyat"); if(c) c.innerText = CIFT_ODA_FIYAT.toLocaleString('tr-TR') + " TL";
             
-            // ADMİN FORM SEÇENEKLERİ
             let aSel = document.getElementById("formOdaTipiAdmin");
             if(aSel) { aSel.options[0].text = `Tek Oda (${TEK_ODA_FIYAT} TL)`; aSel.options[1].text = `Çift Oda (${CIFT_ODA_FIYAT} TL)`; }
             
-            // MÜŞTERİ FORM SEÇENEKLERİ
             let mSel = document.getElementById("mFormOdaTipi");
             if(mSel) { mSel.options[0].text = `Tek Oda (${TEK_ODA_FIYAT} TL)`; mSel.options[1].text = `Çift Oda (${CIFT_ODA_FIYAT} TL)`; }
             
-            // ROBOT SEÇENEKLERİ
             let rSel = document.getElementById("robotOdaTipi");
             if(rSel) { 
                 rSel.options[0].value = TEK_ODA_FIYAT; rSel.options[0].text = `Tek (${TEK_ODA_FIYAT} TL)`;
                 rSel.options[1].value = CIFT_ODA_FIYAT; rSel.options[1].text = `Çift (${CIFT_ODA_FIYAT} TL)`;
             }
 
-            // YÖNETİCİ GÜNCELLEME KUTULARI
             if(document.getElementById("adminFiyatTek")) document.getElementById("adminFiyatTek").value = TEK_ODA_FIYAT;
             if(document.getElementById("adminFiyatCift")) document.getElementById("adminFiyatCift").value = CIFT_ODA_FIYAT;
+            if(document.getElementById("adminWebIndirim")) document.getElementById("adminWebIndirim").value = WEB_INDIRIM_YUZDE;
         }
 
         async function fiyatlariBuluttaGuncelle() {
             let tek = parseInt(document.getElementById("adminFiyatTek").value);
             let cift = parseInt(document.getElementById("adminFiyatCift").value);
+            let webIndirim = parseInt(document.getElementById("adminWebIndirim").value) || 0;
             if(!tek || !cift) { await ozelAlert("Fiyat boş olamaz kanka!"); return; }
             try {
-                await fetch(`${FIREBASE_URL}adminConfig/fiyatlar.json`, { method: 'PUT', body: JSON.stringify({tek, cift}) });
-                TEK_ODA_FIYAT = tek; CIFT_ODA_FIYAT = cift;
+                await fetch(`${FIREBASE_URL}adminConfig/fiyatlar.json`, { method: 'PUT', body: JSON.stringify({tek, cift, webIndirim}) });
+                TEK_ODA_FIYAT = tek; CIFT_ODA_FIYAT = cift; WEB_INDIRIM_YUZDE = webIndirim;
                 fiyatTabelasiniGuncelle();
-                await ozelAlert("Güncel Fiyat Listesi Buluta Mühürlendi! 📊");
+                await ozelAlert("Güncel Fiyat Listesi ve İndirim Buluta Mühürlendi! 📊");
             } catch(e) { await ozelAlert("Kayıt hatası!"); }
         }
 
         async function yoneticiGirisSifreKontrol() {
-            await bulutSifresiniCek(); // Kontrol etmeden önce buluttan son şifreyi garantiler
+            try {
+                let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json?t=${Date.now()}`, { cache: 'no-store' }); 
+                let guncelSifre = await r.json(); 
+                if(guncelSifre) aktifAdminSifre = guncelSifre;
+            } catch(e){}
+            
             let girilen = document.getElementById("adminGirisSifreInput").value;
             if (girilen === aktifAdminSifre) {
                 localStorage.setItem("misafirhane_admin_oturum", girilen);
@@ -894,7 +900,7 @@
                 otoSlaytZamanlayici = setInterval(() => {
                     otoSlaytIndex = (otoSlaytIndex + 1) % bulutResimVerileri.length;
                     slaytGuncelle();
-                }, 3000); // 3 SANİYE GEÇİŞ
+                }, 3000); 
             } else {
                 slaytAlan.style.display = "none";
             }
@@ -908,7 +914,7 @@
                 img.src = bulutResimVerileri[otoSlaytIndex].src;
                 text.innerText = "Oda " + bulutResimVerileri[otoSlaytIndex].odaNo;
                 img.style.opacity = 1;
-            }, 500); // YUMUŞAK GEÇİŞ (FADE)
+            }, 500); 
         }
 
         function galeriSlaytAc(index) {
@@ -1018,13 +1024,13 @@
             
             let bs = new Date(mSecTarih); let bit = new Date(bs); bit.setDate(bs.getDate() + mGece);
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
-            let net = Math.round(brut * 0.85); 
+            let net = Math.round(brut - (brut * (WEB_INDIRIM_YUZDE/100))); 
             
             document.getElementById("mHesapÖzetYazi").innerHTML = `
                 🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)<br>
                 🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)<br>
                 🌙 Süre: ${mGece} Gece<br>
-                💰 Net Tutar: <b style="color:var(--neon-orange);">${net.toLocaleString('tr-TR')} TL</b> <span style="color:var(--neon-green); font-size:10px;">(Web Özel %15 İndirimli)</span>
+                💰 Net Tutar: <b style="color:var(--neon-orange);">${net.toLocaleString('tr-TR')} TL</b> <span style="color:var(--neon-green); font-size:10px;">(Web Özel %${WEB_INDIRIM_YUZDE} İndirimli)</span>
             `;
             
             document.querySelectorAll('.gun-kutusu').forEach(b => b.classList.remove('isaretli-gun'));
@@ -1259,7 +1265,6 @@
         }
         function kilidiZorlaAc(g, e) { if(e) e.stopPropagation(); kilitliKayitlariZorlaAc[g] = true; listeyiYenile(); }
 
-        // YENİ AKILLI KARTVİZİT VE DÜZENLEME BAĞLANTISI
         function gecmisSakinDetayiniGoster(isim, tarih, sure, fiyat, odeme, tel, gecmisMi, kilitliMi) {
             isaretleVeKaydir(isim); 
             
@@ -1428,9 +1433,9 @@
             
             let bs = new Date(mSec); let bit = new Date(bs); bit.setDate(bs.getDate() + mGece);
             let brut = (mOda === "tek" ? TEK_ODA_FIYAT : CIFT_ODA_FIYAT) * mGece;
-            let net = Math.round(brut * 0.85); 
+            let net = Math.round(brut - (brut * (WEB_INDIRIM_YUZDE/100))); 
             
-            let mesaj = `Selamun Aleykum hocam,\nSitenizden boş günleri inceledim.\n🛏️ Oda: ${mOda === 'tek' ? 'Tek' : 'Çift'} Oda\n🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)\n🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)\n🌙 Süre: ${mGece} Gece\n💰 Tutar: ${net.toLocaleString('tr-TR')} TL (%15 Web Özel İndirimiyle)\nRezervasyon yaptırmak istiyorum.`;
+            let mesaj = `Selamun Aleykum hocam,\nSitenizden boş günleri inceledim.\n🛏️ Oda: ${mOda === 'tek' ? 'Tek' : 'Çift'} Oda\n🛫 Giriş: ${gunlerTr[bs.getDay()]} (Ö.S.)\n🛬 Çıkış: ${gunlerTr[bit.getDay()]} (Ö.Ö.)\n🌙 Süre: ${mGece} Gece\n💰 Tutar: ${net.toLocaleString('tr-TR')} TL (%${WEB_INDIRIM_YUZDE} Web Özel İndirimiyle)\nRezervasyon yaptırmak istiyorum.`;
             window.open(`https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(mesaj)}`, '_blank');
         }
 
@@ -1486,8 +1491,6 @@
             }
         }
 
-        async function bulutSifresiniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/sifre.json?t=${Date.now()}`, { cache: 'no-store' }); let d = await r.json(); if(d) aktifAdminSifre = d; } catch(e){} }
-        
         async function bulutKilitleriniCek() { try { let r = await fetch(`${FIREBASE_URL}adminConfig/kilitliGunler.json`); let d = await r.json(); if(d) bulutKilitliGunler = d; } catch(e){} }
         
         async function sifreyiBuluttaGuncelle() {
